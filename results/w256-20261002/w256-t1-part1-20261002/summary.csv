@@ -1,0 +1,2 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+trifan,256,1,2,1150.0094423165,0.3797943219402505,lower-W bits,library-per-PBS,False,True,-111.59916021203819,False,"per-PBS library label + log2(logical LUT calls), union bound",True,175636480

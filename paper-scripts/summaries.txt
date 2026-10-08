@@ -1,0 +1,37 @@
+# Summary files feeding the latency figures and the appendix latency table,
+# relative to this directory. Order matters: later files override earlier ones
+# for the same (method, width, threads).
+../results/w256-20261002/w256-t1-part1-20261002/summary.csv
+../results/w256-20261002/w256-t2-64-20261002/summary.csv
+../results/stats-20261004/stats-controls-20261004/summary.csv
+../results/stats-20261004/stats-main-w128-20261004/summary.csv
+../results/stats-20261004/stats-main-w16-20261004/summary.csv
+../results/stats-20261004/stats-main-w256-20261004/summary.csv
+../results/stats-20261004/stats-main-w32-20261004/summary.csv
+../results/stats-20261004/stats-main-w64-20261004/summary.csv
+../results/stats-20261004/stats-parmesan-w16-20261004/summary.csv
+../results/stats-20261004/stats-parmesan-w32-20261004/summary.csv
+../results/stats-20261004/stats-trifan-w128-20261004/summary.csv
+../results/stats-20261004/stats-trifan-w16-20261004/summary.csv
+../results/stats-20261004/stats-trifan-w32-20261004/summary.csv
+../results/stats-20261004/stats-trifan-w64-rerun-20261005/summary.csv
+../results/bernard-20261005/bernard-w128-20261005/summary.csv
+../results/bernard-20261005/bernard-w16-20261005/summary.csv
+../results/bernard-20261005/bernard-w256-20261005/summary.csv
+../results/bernard-20261005/bernard-w32-20261005/summary.csv
+../results/bernard-20261005/bernard-w64-20261005/summary.csv
+../results/mvb-20261005/mvb-w128-20261005/summary.csv
+../results/mvb-20261005/mvb-w16-20261005/summary.csv
+../results/mvb-20261005/mvb-w256-20261005/summary.csv
+../results/mvb-20261005/mvb-w32-20261005/summary.csv
+../results/mvb-20261005/mvb-w64-20261005/summary.csv
+../results/st688-20261007/stats-st688-w16-20261007/summary.csv
+../results/st688-20261007/stats-st688-w32-20261007/summary.csv
+../results/st688-20261007/stats-st688-w64-20261007/summary.csv
+../results/st688-20261007/stats-st688-w128-20261007/summary.csv
+../results/st688-20261007/stats-st688-w256-20261007/summary.csv
+../results/st688-20261007/paired-st-r2-n688-w16-20261007/summary.csv
+../results/st688-20261007/paired-st-r2-n688-w32-20261007/summary.csv
+../results/st688-20261007/paired-st-r2-n688-w64-20261007/summary.csv
+../results/st688-20261007/paired-st-r2-n688-w128-20261007/summary.csv
+../results/st688-20261007/paired-st-r2-n688-w256-20261007/summary.csv

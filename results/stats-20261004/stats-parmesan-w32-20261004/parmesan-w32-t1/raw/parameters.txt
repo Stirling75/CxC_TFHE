@@ -1,0 +1,12 @@
+upstream=a5254f8ccb38d52ebb993d2d8c3c96f2930e9c20
+tfhe=0.5.4
+params=Params { concrete_pars: ClassicPBSParameters { lwe_dimension: LweDimension(742), glwe_dimension: GlweDimension(1), polynomial_size: PolynomialSize(2048), lwe_modular_std_dev: StandardDev(7.069849454709433e-6), glwe_modular_std_dev: StandardDev(2.9403601535432533e-16), pbs_base_log: DecompositionBaseLog(23), pbs_level: DecompositionLevelCount(1), ks_base_log: DecompositionBaseLog(3), ks_level: DecompositionLevelCount(5), message_modulus: MessageModulus(32), carry_modulus: CarryModulus(1), ciphertext_modulus: CiphertextModulus(2^64), encryption_key_choice: Big }, bit_precision: 5, quad_weight: 100 }
+input=unsigned binary digits
+output=full redundant-binary product
+output_digits_lsb_first=-:-1,0:0,+:+1
+operands=splitmix(seed^(2*trial)), splitmix(seed^(2*trial+1)), masked to width
+key_generation=fresh; excluded from timing
+seed=20260908
+rayon_threads=1
+scoped_os_threads=additional; not bounded by Rayon
+whole_multiplier_failure=not derived

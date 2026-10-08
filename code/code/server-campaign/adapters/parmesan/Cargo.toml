@@ -1,0 +1,39 @@
+[package]
+name = "parmesan-campaign"
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0"
+publish = false
+
+[lib]
+name = "parmesan"
+path = "../../sources/parmesan/src/lib.rs"
+
+[[bin]]
+name = "parmesan-benchmark"
+path = "main.rs"
+
+[dependencies]
+colored = "2"
+rayon = "1.7"
+crossbeam-utils = "0.8"
+rand = "0.8"
+chrono = "0.4"
+lazy_static = "1.4"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+bincode = "1.3"
+tfhe = { version = "=0.5.4", features = ["shortint"] }
+
+[target.'cfg(target_arch = "aarch64")'.dependencies]
+tfhe = { version = "=0.5.4", features = ["aarch64-unix"] }
+
+[target.'cfg(target_arch = "x86_64")'.dependencies]
+tfhe = { version = "=0.5.4", features = ["x86_64-unix"] }
+
+[features]
+default = []
+seq_analyze = ["measure"]
+measure = []
+log_ops = ["measure"]

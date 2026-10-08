@@ -1,0 +1,61 @@
+{
+  "run": "<pkg>/results/stats-main-w256-20261004/clot-bfv-w256-t32/raw",
+  "validated_cases": 4,
+  "cases": [
+    {
+      "file": "w256-random-r0.json",
+      "sha256": "ac7bc8e88f05f18dd13bfa2971bf48463fad0d4cd1db11ec00a16b69d6ce0e5a",
+      "warmup": true
+    },
+    {
+      "file": "w256-random-r1.json",
+      "sha256": "4c1b8d218104359045ab8c2e4c91f73cae32553632d3ee4a0b858fee6a27139c",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r2.json",
+      "sha256": "b94f7861a76c8af943644b42f7541adc90da04a6aa56b5e9851db140374391e5",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r3.json",
+      "sha256": "f0d0ff7f503fcfb296d01fd9b36a885d35ea86dc3a4949831b23f9e61505b3f8",
+      "warmup": false
+    }
+  ],
+  "manifest_sha256": "2d9eaf13e50f610f195d1cd00696d58dda33c8f622f5a9559a8b8656415c6ebd",
+  "audit_source_sha256": "affb653ba65e5282b29cc1b55adac4b437e47385efe924473ab107b4ac704e80",
+  "noise_model_sha256": "69160a6a988a33107717a2d240c12b8d78bfda301c6bda48dbe4bfe920292381",
+  "primitive_model_sha256": "e2e12dad5a9a35ab2d1042fd7245ee91494ce0e4eacd8f8647e7514ea35ab91b",
+  "serial_ciphertext_equivalence_checked": false,
+  "summaries": [
+    {
+      "width": 256,
+      "pattern": "random",
+      "threads": 32,
+      "repetitions": 3,
+      "warmup": 1,
+      "seconds": [
+        11.875371616,
+        11.69143639,
+        11.709934999
+      ],
+      "mean_seconds": 11.758914335,
+      "sample_sd_seconds": 0.10127819783728653,
+      "mean_stage_seconds": {
+        "digit_decomposition": 1.227751445,
+        "extraction": 0.0002512533333333333,
+        "input_rescale": 3.0706961653333336,
+        "normalization": 7.045913556333334,
+        "packing": 0.40648355666666663,
+        "relinearization": 0.0022405813333333333,
+        "tensor": 0.005157159
+      },
+      "conditional_union_log2": -145.51605066565025,
+      "pbs": 2521,
+      "ks": 1972
+    }
+  ],
+  "whole_multiplier_approved": false,
+  "timing_contract": "continuous-evaluator-wall-clock-v1"
+}

@@ -1,0 +1,15 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+bernard-mvb,32,1,5,4.674199324,0.0034101880624298987,lower-W clean radix-4,model-schedule,False,True,-128.01272533110634,True,conditional Gaussian screen over the public folding schedule,True,133513216
+bernard-mvb-ks36,32,1,5,4.95880119,0.0009484521921472333,lower-W clean radix-4,model-schedule,False,True,-135.05069613129652,True,conditional Gaussian screen over the public folding schedule,True,163921920
+bernard-mvb-ks36,32,2,5,2.562922508,0.004349055486713242,lower-W clean radix-4,model-schedule,False,True,-135.05069613129652,True,conditional Gaussian screen over the public folding schedule,True,164188160
+bernard-mvb,32,2,5,2.4221975536,0.005481066011671913,lower-W clean radix-4,model-schedule,False,True,-128.01272533110634,True,conditional Gaussian screen over the public folding schedule,True,133492736
+bernard-mvb,32,4,5,1.3473741144,0.005114943609026932,lower-W clean radix-4,model-schedule,False,True,-128.01272533110634,True,conditional Gaussian screen over the public folding schedule,True,134443008
+bernard-mvb-ks36,32,4,5,1.4124510082,0.004292902291967613,lower-W clean radix-4,model-schedule,False,True,-135.05069613129652,True,conditional Gaussian screen over the public folding schedule,True,164552704
+bernard-mvb-ks36,32,8,5,0.792879791,0.0015962528016008227,lower-W clean radix-4,model-schedule,False,True,-135.05069613129652,True,conditional Gaussian screen over the public folding schedule,True,168706048
+bernard-mvb,32,8,5,0.7559037598,0.0008735459435288538,lower-W clean radix-4,model-schedule,False,True,-128.01272533110634,True,conditional Gaussian screen over the public folding schedule,True,138244096
+bernard-mvb,32,16,5,0.4435740378,0.009015401308500232,lower-W clean radix-4,model-schedule,False,True,-128.01272533110634,True,conditional Gaussian screen over the public folding schedule,True,142663680
+bernard-mvb-ks36,32,16,5,0.482354131,0.024410344715089672,lower-W clean radix-4,model-schedule,False,True,-135.05069613129652,True,conditional Gaussian screen over the public folding schedule,True,172937216
+bernard-mvb-ks36,32,32,5,0.3382082896,0.02869577119959413,lower-W clean radix-4,model-schedule,False,True,-135.05069613129652,True,conditional Gaussian screen over the public folding schedule,True,179412992
+bernard-mvb,32,32,5,0.313446071,0.02206295969350331,lower-W clean radix-4,model-schedule,False,True,-128.01272533110634,True,conditional Gaussian screen over the public folding schedule,True,152371200
+bernard-mvb,32,64,5,0.3405698582,0.010473274490827874,lower-W clean radix-4,model-schedule,False,True,-128.01272533110634,True,conditional Gaussian screen over the public folding schedule,True,167485440
+bernard-mvb-ks36,32,64,5,0.3587237358,0.009653281994795475,lower-W clean radix-4,model-schedule,False,True,-135.05069613129652,True,conditional Gaussian screen over the public folding schedule,True,198729728

@@ -1,0 +1,14 @@
+bkw                  :: rop: ≈2^206.7, m: ≈2^194.6, mem: ≈2^195.6, b: 3, t1: 0, t2: 12, ℓ: 2, #cod: 633, #top: 0, #test: 112, tag: coded-bkw
+usvp                 :: rop: ≈2^130.1, red: ≈2^130.1, δ: 1.004331, β: 354, d: 1371, tag: usvp
+bdd                  :: rop: ≈2^127.7, red: ≈2^127.1, svp: ≈2^126.2, β: 343, η: 375, d: 1346, tag: bdd
+dual                 :: rop: ≈2^134.2, mem: ≈2^85.9, m: 657, β: 365, d: 1399, ↻: 1, tag: dual
+dual_hybrid          :: rop: ≈2^123.8, red: ≈2^123.8, guess: ≈2^118.3, β: 327, p: 2, ζ: 20, t: 70, β': 338, N: ≈2^69.3, m: 742
+lwe-parmesan arora-gb inf
+lwe-parmesan bkw 206.74418103234245
+lwe-parmesan usvp 130.12118283496005
+lwe-parmesan bdd 127.69977739445113
+lwe-parmesan bdd_hybrid 127.7216354040042
+lwe-parmesan bdd_mitm_hybrid 155.61843432573932
+lwe-parmesan dual 134.23664629509383
+lwe-parmesan dual_hybrid 123.84416646273874
+RESULT lwe-parmesan n=742 log2sigma=-17.1: 123.84 (dual_hybrid)

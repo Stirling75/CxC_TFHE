@@ -1,0 +1,167 @@
+{
+  "a_hex": "f612",
+  "b_hex": "3325",
+  "convolution": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      2,
+      2,
+      5,
+      1,
+      10,
+      3,
+      17,
+      8
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 0.00009190213549103987
+  },
+  "counts": {
+    "extracted_coefficients": 8,
+    "glwe_products": 1,
+    "ks": 70,
+    "packed_lwes": 16,
+    "pbs": 82
+  },
+  "expected_hex": "269a",
+  "input_preparation_seconds_excluded": 0.341012116,
+  "native_input_a": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      2,
+      0,
+      1,
+      0,
+      2,
+      1,
+      3,
+      3
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 0.000017513715653727502
+  },
+  "native_input_b": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      1,
+      1,
+      2,
+      0,
+      3,
+      0,
+      3,
+      0
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 0.000024481618424943008
+  },
+  "output": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      2,
+      2,
+      1,
+      2,
+      2,
+      1,
+      2,
+      0
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 9.509444248934074e-6
+  },
+  "packed_a": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      2,
+      0,
+      1,
+      0,
+      2,
+      1,
+      3,
+      3
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 2.3986598832181905e-8
+  },
+  "packed_b": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      1,
+      1,
+      2,
+      0,
+      3,
+      0,
+      3,
+      0
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 2.7682539302520404e-8
+  },
+  "pattern": "random",
+  "precision": 7,
+  "repetition": 4,
+  "rescaled_a": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      2,
+      0,
+      1,
+      0,
+      2,
+      1,
+      3,
+      3
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 2.461651721352709e-8
+  },
+  "rescaled_b": {
+    "checked": 8,
+    "correct": true,
+    "decoded_digits": [
+      1,
+      1,
+      2,
+      0,
+      3,
+      0,
+      3,
+      0
+    ],
+    "errors": [],
+    "is_failure_probability_bound": false,
+    "max_abs_phase_error_over_decoding_margin": 2.9113531224700395e-8
+  },
+  "status": "full-path-correct",
+  "threads": 32,
+  "timings_seconds": {
+    "digit_decomposition": 0.190125983,
+    "extraction": 0.000013305,
+    "input_rescale": 0.35551383,
+    "normalization": 0.286511556,
+    "packing": 0.112632342,
+    "relinearization": 0.002273578,
+    "tensor": 0.004678323
+  },
+  "total_seconds": 0.951920702,
+  "warmup": false,
+  "whole_multiplier_approved": false,
+  "width": 16
+}

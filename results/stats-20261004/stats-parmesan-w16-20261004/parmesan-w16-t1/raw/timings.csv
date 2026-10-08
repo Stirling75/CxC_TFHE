@@ -1,0 +1,7 @@
+method,width,rayon_threads,trial,warmup,x,y,total_seconds,output_digits,ok,output_value,output_digits_lsb_first
+parmesan-native,16,1,0,true,35488,50505,9.418584996,33,true,1792321440,00000+0+-00-+-+-+0+0+0-0+-++0+-+0
+parmesan-native,16,1,1,false,45304,43692,9.429419116,33,true,1979422368,00000+0+0+-+-+0+-0+-00000+-++-0+0
+parmesan-native,16,1,2,false,15400,2359,9.420152800,33,true,36328600,000+-+0+00-+-+-+0-+-+-+00+0000000
+parmesan-native,16,1,3,false,25044,10872,9.410722243,33,true,272278368,00000+-+-0+00+0-++0+-0+00000+0000
+parmesan-native,16,1,4,false,47475,39948,9.411900607,33,true,1896531300,00+00+-+-+-+00-0+-+-+000+000+-0+0
+parmesan-native,16,1,5,false,49792,16082,9.497069166,33,true,800754944,00000000+0-0+00+0+0-00+-0000+-+00

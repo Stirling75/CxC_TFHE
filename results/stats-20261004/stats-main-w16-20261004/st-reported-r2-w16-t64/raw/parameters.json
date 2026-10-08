@@ -1,0 +1,101 @@
+{
+  "N": 1024,
+  "author_implementation": false,
+  "boundary_delta_log2": 52,
+  "cc2_key": "extracted big key, pre-PBS key switching",
+  "counts": {
+    "br_per_terminal_cbs": 1,
+    "dadda_compressors": 0,
+    "dadda_layers": 0,
+    "emission_pbs": 8,
+    "ggsw_conversions": 47,
+    "input_grouped_cbs": 16,
+    "key_switches": 32,
+    "product_bits": 32,
+    "product_cmux": 2336,
+    "product_cmux_per_bit": 73,
+    "segments": 1,
+    "terminal_binary_cbs": 15,
+    "terminal_cmux": 30,
+    "terminal_note": "Independent four-CMux realization of the paper's two-level two-state step; not recovered author gate counts",
+    "total_blind_rotations": 39
+  },
+  "ggsw": [
+    4,
+    4
+  ],
+  "glwe_sigma": 9.25119974676756e-16,
+  "grouped_selector_box_centering": "q/16; adopted from local audited lift, not confirmed author configuration",
+  "input_preparation": "fresh small-key Gaussian encryptions; excluded from timing; not asserted to meet the paper's bootstrapped variance contract",
+  "inspect": false,
+  "k": 2,
+  "ks": [
+    2,
+    7
+  ],
+  "lwe_dimension": 768,
+  "lwe_sigma": 8.763872947670246e-6,
+  "method": "independent revised-ST reconstruction",
+  "noise_source": "explicit Refined assumption; see ../shokri-revised-comparison/noise_assumption_refined.json",
+  "paper_CC2_boundary": true,
+  "paper_revision": "2026-07-30",
+  "paper_tfhe_rs_version": "1.7.0",
+  "parameter_set": {
+    "auto": [
+      12,
+      3
+    ],
+    "cbs": [
+      4,
+      4
+    ],
+    "cc2_big_key": true,
+    "glwe_dimension": 2,
+    "glwe_sigma": 9.25119974676756e-16,
+    "ks": [
+      2,
+      7
+    ],
+    "lwe_dimension": 768,
+    "lwe_sigma": 8.763872947670246e-6,
+    "name": "reported-decompositions-refined-noise-assumption",
+    "pbs": [
+      15,
+      2
+    ],
+    "polynomial_size": 1024,
+    "split_trace_fft": false,
+    "ss": [
+      17,
+      2
+    ],
+    "terminal_lut_count_log": 2
+  },
+  "pattern": "Random",
+  "pbs": [
+    15,
+    2
+  ],
+  "publication_ready": false,
+  "repetitions": 5,
+  "retuned_candidate": false,
+  "scope": "Diagnostic reconstruction, including final PBS and closing KS. Inspection is outside stage timers but inside total_s; inspected total_s is not a benchmark latency. No author speedup or target-128 claim.",
+  "seed": 20260908,
+  "ss": [
+    17,
+    2
+  ],
+  "tfhe_rs_version": "1.6.1",
+  "theta_input": 2,
+  "theta_terminal": 2,
+  "threads": 64,
+  "total_s_includes_inspection": false,
+  "trace": [
+    12,
+    3
+  ],
+  "trace_fft": "vanilla",
+  "warmup": 1,
+  "whole_multiplier_failure_bound": null,
+  "width": 16
+}

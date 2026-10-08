@@ -1,0 +1,4 @@
+base cost 1.000, union -79.52; 345 (pbs,ks) pairs pass the lift pre-filter
+{"relative_cost": 0.955, "max_union_log2": -129.11, "pbs": [11, 3], "ks": [2, 7], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"relative_cost": 0.955, "max_union_log2": -129.07, "pbs": [12, 3], "ks": [2, 7], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"fft_scale": 1.0, "target": -128.0, "found": 2}

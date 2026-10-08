@@ -1,0 +1,114 @@
+\section{Latency Table}\label{app:latency}
+Tables~\ref{tab:latency} and~\ref{tab:latency-wide} list the mean latency of every method of the main comparison, for all widths and thread budgets of Section~\ref{subsec:setup}; Figure~\ref{fig:overview} plots parts of them. The controls of Table~\ref{tab:breakdown} were measured separately.
+\begin{table}[p]
+\centering
+\small
+\renewcommand{\arraystretch}{1.0}
+\caption{Mean latency in seconds of one multiplication by operand width and number of threads, for $W\le64$. In each block, the methods above the inner rule meet the $2^{-128}$ target of Table~\ref{tab:failure} (the BFV adaptation only up to $W=128$; the paper set of Bernard et al.\ also meets it for $W\le32$), and the fastest of them for each number of threads is set in bold. $^\dagger$Under the model of Bernard et al.~\cite{bernard2026lownoise} for multi-value outputs (Section~\ref{subsec:error}).}
+\label{tab:latency}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+& \multicolumn{7}{c}{Number of threads} \\
+\cmidrule(l){2-8}
+Method & 1 & 2 & 4 & 8 & 16 & 32 & 64 \\
+\midrule[0.8pt]
+\rowcolor{black!8}\multicolumn{8}{@{}l}{\textbf{$W=16$}} \\
+\midrule
+Ours, product-sum & $1.23$ & $0.641$ & $0.369$ & $0.203$ & $0.161$ & $\mathbf{0.155}$ & $0.185$ \\
+Ours, chunk-product & $1.11$ & $\mathbf{0.568}$ & $0.332$ & $\mathbf{0.197}$ & $0.154$ & $0.166$ & $0.182$ \\
+Ours+MVB, product-sum$^\dagger$ & $1.23$ & $0.641$ & $0.373$ & $0.204$ & $\mathbf{0.150}$ & $0.163$ & $0.177$ \\
+Ours+MVB, chunk-product$^\dagger$ & $\mathbf{1.10}$ & $0.571$ & $\mathbf{0.331}$ & $0.199$ & $0.155$ & $0.163$ & $0.174$ \\
+Shokri--Tsoutsos, $n=688$ & $1.63$ & $0.863$ & $0.449$ & $0.248$ & $0.160$ & $0.155$ & $\mathbf{0.169}$ \\
+Bernard et al., KS $(3,6)^\dagger$ & $1.21$ & $0.628$ & $0.447$ & $0.260$ & $0.202$ & $0.197$ & $0.182$ \\
+TFHE-rs, KS $(2,8)$ & $1.91$ & $1.00$ & $0.588$ & $0.323$ & $0.228$ & $0.187$ & $0.209$ \\
+BFV adaptation & $6.77$ & $3.52$ & $1.95$ & $1.19$ & $0.875$ & $0.933$ & $0.925$ \\
+\cmidrule(l){1-8}
+Shokri--Tsoutsos, paper & $0.857$ & $0.455$ & $0.237$ & $0.137$ & $0.097$ & $0.099$ & $0.110$ \\
+Bernard et al., paper$^\dagger$ & $1.14$ & $0.594$ & $0.425$ & $0.250$ & $0.182$ & $0.183$ & $0.185$ \\
+TFHE-rs, default & $1.80$ & $0.941$ & $0.555$ & $0.307$ & $0.219$ & $0.182$ & $0.200$ \\
+Trifan et al. & $4.73$ & $2.52$ & $1.44$ & $0.931$ & $0.700$ & $0.742$ & $0.783$ \\
+PARMESAN & $9.43$ & $5.04$ & $2.61$ & $1.51$ & $0.892$ & $0.516$ & $0.647$ \\
+\midrule[0.8pt]
+\rowcolor{black!8}\multicolumn{8}{@{}l}{\textbf{$W=32$}} \\
+\midrule
+Ours, product-sum & $2.54$ & $1.31$ & $0.758$ & $0.427$ & $0.252$ & $\mathbf{0.198}$ & $0.233$ \\
+Ours, chunk-product & $2.48$ & $1.28$ & $0.744$ & $0.448$ & $0.268$ & $0.251$ & $0.267$ \\
+Ours+MVB, product-sum$^\dagger$ & $2.54$ & $1.31$ & $0.760$ & $0.428$ & $\mathbf{0.246}$ & $0.207$ & $\mathbf{0.229}$ \\
+Ours+MVB, chunk-product$^\dagger$ & $\mathbf{2.34}$ & $\mathbf{1.20}$ & $\mathbf{0.702}$ & $\mathbf{0.420}$ & $0.264$ & $0.226$ & $0.255$ \\
+Shokri--Tsoutsos, $n=688$ & $5.38$ & $2.80$ & $1.44$ & $0.801$ & $0.469$ & $0.326$ & $0.368$ \\
+Bernard et al., KS $(3,6)^\dagger$ & $4.96$ & $2.56$ & $1.41$ & $0.793$ & $0.482$ & $0.338$ & $0.359$ \\
+TFHE-rs, KS $(2,8)$ & $7.60$ & $3.89$ & $2.11$ & $1.15$ & $0.634$ & $0.414$ & $0.434$ \\
+BFV adaptation & $14.5$ & $7.44$ & $4.12$ & $2.60$ & $1.69$ & $1.42$ & $1.57$ \\
+\cmidrule(l){1-8}
+Shokri--Tsoutsos, paper & $3.02$ & $1.56$ & $0.802$ & $0.447$ & $0.286$ & $0.212$ & $0.240$ \\
+Bernard et al., paper$^\dagger$ & $4.67$ & $2.42$ & $1.35$ & $0.756$ & $0.444$ & $0.313$ & $0.341$ \\
+TFHE-rs, default & $7.17$ & $3.66$ & $1.98$ & $1.10$ & $0.599$ & $0.370$ & $0.407$ \\
+Trifan et al. & $18.5$ & $9.78$ & $5.25$ & $3.20$ & $2.08$ & $1.51$ & $1.79$ \\
+PARMESAN & $34.2$ & $17.7$ & $9.18$ & $5.25$ & $3.03$ & $1.79$ & $1.78$ \\
+\midrule[0.8pt]
+\rowcolor{black!8}\multicolumn{8}{@{}l}{\textbf{$W=64$}} \\
+\midrule
+Ours, product-sum & $5.23$ & $\mathbf{2.67}$ & $\mathbf{1.54}$ & $0.867$ & $0.509$ & $\mathbf{0.315}$ & $0.347$ \\
+Ours, chunk-product & $6.22$ & $3.22$ & $1.81$ & $1.01$ & $0.616$ & $0.404$ & $0.419$ \\
+Ours+MVB, product-sum$^\dagger$ & $\mathbf{5.20}$ & $2.68$ & $1.54$ & $\mathbf{0.865}$ & $\mathbf{0.505}$ & $0.317$ & $\mathbf{0.345}$ \\
+Ours+MVB, chunk-product$^\dagger$ & $5.54$ & $2.82$ & $1.61$ & $0.913$ & $0.558$ & $0.366$ & $0.375$ \\
+Shokri--Tsoutsos, $n=688$ & $17.8$ & $9.26$ & $4.77$ & $2.62$ & $1.45$ & $0.877$ & $0.840$ \\
+Bernard et al., KS $(3,6)^\dagger$ & $18.2$ & $9.31$ & $4.91$ & $2.74$ & $1.58$ & $0.935$ & $0.909$ \\
+TFHE-rs, KS $(2,8)$ & $29.9$ & $15.3$ & $7.98$ & $4.35$ & $2.30$ & $1.35$ & $1.25$ \\
+BFV adaptation & $31.0$ & $15.8$ & $8.75$ & $5.53$ & $3.60$ & $2.74$ & $2.69$ \\
+\cmidrule(l){1-8}
+Shokri--Tsoutsos, paper & $11.2$ & $5.76$ & $2.92$ & $1.62$ & $0.927$ & $0.583$ & $0.509$ \\
+Bernard et al., paper$^\dagger$ & $17.0$ & $8.79$ & $4.69$ & $2.62$ & $1.47$ & $0.839$ & $0.854$ \\
+TFHE-rs, default & $28.0$ & $14.4$ & $7.52$ & $4.15$ & $2.18$ & $1.25$ & $1.17$ \\
+Trifan et al. & $73.9$ & $38.6$ & $20.2$ & $11.9$ & $7.07$ & $4.59$ & $4.07$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[p]
+\centering
+\small
+\renewcommand{\arraystretch}{1.0}
+\caption{Mean latency in seconds of one multiplication by operand width and number of threads, for $W\ge128$. In each block, the methods above the inner rule meet the $2^{-128}$ target of Table~\ref{tab:failure} (the BFV adaptation only up to $W=128$; the paper set of Bernard et al.\ also meets it for $W\le32$), and the fastest of them for each number of threads is set in bold. $^\dagger$Under the model of Bernard et al.~\cite{bernard2026lownoise} for multi-value outputs (Section~\ref{subsec:error}).}
+\label{tab:latency-wide}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+& \multicolumn{7}{c}{Number of threads} \\
+\cmidrule(l){2-8}
+Method & 1 & 2 & 4 & 8 & 16 & 32 & 64 \\
+\midrule[0.8pt]
+\rowcolor{black!8}\multicolumn{8}{@{}l}{\textbf{$W=128$}} \\
+\midrule
+Ours, product-sum & $12.9$ & $6.59$ & $3.72$ & $2.09$ & $1.17$ & $0.747$ & $0.688$ \\
+Ours, chunk-product & $17.5$ & $8.99$ & $4.93$ & $2.77$ & $1.54$ & $0.997$ & $0.936$ \\
+Ours+MVB, product-sum$^\dagger$ & $\mathbf{11.9}$ & $\mathbf{6.09}$ & $\mathbf{3.45}$ & $\mathbf{1.93}$ & $\mathbf{1.10}$ & $\mathbf{0.713}$ & $\mathbf{0.632}$ \\
+Ours+MVB, chunk-product$^\dagger$ & $14.2$ & $7.28$ & $4.08$ & $2.29$ & $1.30$ & $0.844$ & $0.802$ \\
+Shokri--Tsoutsos, $n=688$ & $63.5$ & $32.5$ & $17.0$ & $9.16$ & $4.76$ & $2.79$ & $2.47$ \\
+Bernard et al., KS $(3,6)^\dagger$ & $68.6$ & $35.3$ & $18.3$ & $10.1$ & $5.70$ & $3.30$ & $2.90$ \\
+TFHE-rs, KS $(2,8)$ & $118$ & $60.5$ & $31.0$ & $16.9$ & $8.81$ & $5.12$ & $4.52$ \\
+BFV adaptation & $64.9$ & $33.0$ & $18.5$ & $11.5$ & $7.55$ & $5.85$ & $5.29$ \\
+\cmidrule(l){1-8}
+Shokri--Tsoutsos, paper & $43.0$ & $22.0$ & $11.3$ & $6.20$ & $3.25$ & $1.91$ & $1.58$ \\
+Bernard et al., paper$^\dagger$ & $64.9$ & $33.3$ & $17.3$ & $9.63$ & $5.41$ & $3.03$ & $2.74$ \\
+TFHE-rs, default & $111$ & $57.0$ & $29.4$ & $16.1$ & $8.45$ & $4.76$ & $4.20$ \\
+Trifan et al. & $296$ & $153$ & $78.8$ & $45.6$ & $25.3$ & $15.5$ & $13.0$ \\
+\midrule[0.8pt]
+\rowcolor{black!8}\multicolumn{8}{@{}l}{\textbf{$W=256$}} \\
+\midrule
+Ours, product-sum & $32.9$ & $16.7$ & $9.81$ & $6.45$ & $2.84$ & $1.66$ & $1.53$ \\
+Ours, chunk-product & $57.6$ & $29.4$ & $16.1$ & $9.90$ & $4.59$ & $2.65$ & $2.49$ \\
+Ours+MVB, product-sum$^\dagger$ & $\mathbf{28.8}$ & $\mathbf{14.6}$ & $\mathbf{8.61}$ & $\mathbf{5.86}$ & $\mathbf{2.55}$ & $\mathbf{1.44}$ & $\mathbf{1.37}$ \\
+Ours+MVB, chunk-product$^\dagger$ & $40.6$ & $20.7$ & $11.7$ & $7.54$ & $3.36$ & $1.99$ & $1.81$ \\
+Shokri--Tsoutsos, $n=688$ & $235$ & $120$ & $60.5$ & $34.1$ & $17.2$ & $9.91$ & $8.92$ \\
+Bernard et al., KS $(3,6)^\dagger$ & $266$ & $136$ & $70.6$ & $39.7$ & $22.4$ & $12.2$ & $10.5$ \\
+TFHE-rs, KS $(2,8)$ & $474$ & $243$ & $124$ & $68.0$ & $34.9$ & $20.0$ & $17.8$ \\
+BFV adaptation & $142$ & $69.3$ & $38.7$ & $23.7$ & $15.5$ & $11.8$ & $11.2$ \\
+\cmidrule(l){1-8}
+Shokri--Tsoutsos, paper & $170$ & $86.7$ & $44.1$ & $24.2$ & $12.5$ & $7.18$ & $5.89$ \\
+Bernard et al., paper$^\dagger$ & $252$ & $129$ & $66.8$ & $37.9$ & $20.5$ & $11.3$ & $10.3$ \\
+TFHE-rs, default & $449$ & $227$ & $117$ & $65.0$ & $33.2$ & $18.7$ & $16.7$ \\
+Trifan et al. & $1150$ & $601$ & $307$ & $175$ & $95.4$ & $58.3$ & $45.9$ \\
+\bottomrule
+\end{tabular}
+\end{table}

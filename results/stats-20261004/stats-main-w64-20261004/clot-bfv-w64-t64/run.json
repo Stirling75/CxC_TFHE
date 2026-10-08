@@ -1,0 +1,482 @@
+{
+  "command": [
+    "<pkg>/build/bfv/release/bfv-style-probe",
+    "--parameters",
+    "<pkg>/code/server-campaign/adapters/bfv-style/parameters/bfv-n800-range-aware.json",
+    "--benchmark",
+    "--widths",
+    "64",
+    "--threads",
+    "64",
+    "--patterns",
+    "random",
+    "--repetitions",
+    "5",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/stats-main-w64-20261004/clot-bfv-w64-t64/raw"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "64"
+  },
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "thread_budget": 64,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "clot-bfv",
+    "width": 64,
+    "contract": {
+      "family": "bfv",
+      "parameters": "bfv-n800-range-aware.json",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W clean radix-4",
+      "failure_status": "conditional-gaussian-layout-aware",
+      "note": "Independent adaptation of CLOT's k=1 BFV-style tensor primitive; radix re-encoding, packing, extraction and restoration included. Not author code. Binary-key Gaussian and variance-additive model; general independently prepared operands, not identified ciphertext squaring. Native key/noise parameters differ from hybrid."
+    },
+    "whole_multiplier_approved": false,
+    "parameters": {
+      "n": 800,
+      "polynomial_size": 2048,
+      "lwe_sigma": 7.62939453125e-06,
+      "glwe_sigma": 9.25119974676756e-16,
+      "pbs": [
+        15,
+        2
+      ],
+      "encoding_pbs": [
+        1,
+        43
+      ],
+      "ks": [
+        1,
+        15
+      ],
+      "packing": [
+        3,
+        14
+      ],
+      "relin": [
+        12,
+        3
+      ],
+      "input_lut_domain": 4,
+      "normalizer_lut_domain": 8,
+      "degree_aware": true
+    },
+    "preflight": {
+      "parameters": {
+        "n": 800,
+        "polynomial_size": 2048,
+        "lwe_sigma": 7.62939453125e-06,
+        "glwe_sigma": 9.25119974676756e-16,
+        "pbs": [
+          15,
+          2
+        ],
+        "encoding_pbs": [
+          1,
+          43
+        ],
+        "ks": [
+          1,
+          15
+        ],
+        "packing": [
+          3,
+          14
+        ],
+        "relin": [
+          12,
+          3
+        ],
+        "input_lut_domain": 4,
+        "normalizer_lut_domain": 8,
+        "degree_aware": true
+      },
+      "security": {
+        "small_lwe": {
+          "name": "bfv-small-n800-sigma17",
+          "n": 800,
+          "sigma": 7.62939453125e-06,
+          "attacks_rop_log2": {
+            "arora-gb": "infinity",
+            "bkw": 207.59712148489695,
+            "usvp": 141.2454556449678,
+            "bdd": 138.5752030373792,
+            "bdd_hybrid": 138.59794600924548,
+            "bdd_mitm_hybrid": 168.62501297113823,
+            "dual": 145.45783045087438,
+            "dual_hybrid": 134.03319836213717
+          },
+          "minimum_rop_log2": 134.03319836213717,
+          "full_estimator": true,
+          "sample_model": "unlimited",
+          "secret_distribution": "binary",
+          "error_distribution": "discrete Gaussian"
+        },
+        "glwe_lwe_proxy": {
+          "name": "glwe-proxy-2048",
+          "n": 2048,
+          "sigma": 9.25119974676756e-16,
+          "attacks_rop_log2": {
+            "arora-gb": "infinity",
+            "bkw": 340.92192756776166,
+            "usvp": 131.38947137152167,
+            "bdd": 130.45574811634287,
+            "bdd_hybrid": 130.47199016336603,
+            "bdd_mitm_hybrid": 157.46541101442907,
+            "dual": 133.60624459999104,
+            "dual_hybrid": 129.16862115563487
+          },
+          "minimum_rop_log2": 129.16862115563487,
+          "full_estimator": true,
+          "sample_model": "unlimited",
+          "secret_distribution": "binary",
+          "error_distribution": "discrete Gaussian"
+        }
+      },
+      "rows": [
+        {
+          "width": 8,
+          "events": 34,
+          "raw_log2_union": -239.2631661869977,
+          "families": {
+            "input_reencoding": {
+              "count": 8,
+              "raw_log2_union": -952.7440249031489
+            },
+            "bit_extraction": {
+              "count": 15,
+              "raw_log2_union": -15207.315071799585
+            },
+            "normalization": {
+              "count": 7,
+              "raw_log2_union": -239.2631661869977
+            },
+            "output_decoding": {
+              "count": 4,
+              "raw_log2_union": -2963038228.8261285
+            }
+          },
+          "worst_event": {
+            "kind": "normalization",
+            "label": [
+              2,
+              "final"
+            ],
+            "variance_before_ks": 1.1325954554239064e+27,
+            "spacing": 1152921504606846976,
+            "log2_gaussian": -242.07046652978045
+          },
+          "conditional_model_target_pass": true
+        },
+        {
+          "width": 16,
+          "events": 90,
+          "raw_log2_union": -237.26298535654766,
+          "families": {
+            "input_reencoding": {
+              "count": 16,
+              "raw_log2_union": -951.7440249031489
+            },
+            "bit_extraction": {
+              "count": 38,
+              "raw_log2_union": -15205.369683025181
+            },
+            "normalization": {
+              "count": 28,
+              "raw_log2_union": -237.26298535654766
+            },
+            "output_decoding": {
+              "count": 8,
+              "raw_log2_union": -2963038227.8261285
+            }
+          },
+          "worst_event": {
+            "kind": "normalization",
+            "label": [
+              2,
+              "final"
+            ],
+            "variance_before_ks": 3.074187664722032e+27,
+            "spacing": 1152921504606846976,
+            "log2_gaussian": -242.0700080461368
+          },
+          "conditional_model_target_pass": true
+        },
+        {
+          "width": 32,
+          "events": 216,
+          "raw_log2_union": -235.82172338193573,
+          "families": {
+            "input_reencoding": {
+              "count": 32,
+              "raw_log2_union": -950.7440249031489
+            },
+            "bit_extraction": {
+              "count": 92,
+              "raw_log2_union": -15160.067605424128
+            },
+            "normalization": {
+              "count": 76,
+              "raw_log2_union": -235.82172338193573
+            },
+            "output_decoding": {
+              "count": 16,
+              "raw_log2_union": -2963038226.8261285
+            }
+          },
+          "worst_event": {
+            "kind": "normalization",
+            "label": [
+              2,
+              "final"
+            ],
+            "variance_before_ks": 1.1083255528076798e+28,
+            "spacing": 1152921504606846976,
+            "log2_gaussian": -242.06811681972889
+          },
+          "conditional_model_target_pass": true
+        },
+        {
+          "width": 64,
+          "events": 516,
+          "raw_log2_union": -234.41640033316315,
+          "families": {
+            "input_reencoding": {
+              "count": 64,
+              "raw_log2_union": -949.7440249031489
+            },
+            "bit_extraction": {
+              "count": 219,
+              "raw_log2_union": -13834.331742603312
+            },
+            "normalization": {
+              "count": 201,
+              "raw_log2_union": -234.41640033316315
+            },
+            "output_decoding": {
+              "count": 32,
+              "raw_log2_union": -2963038225.8261285
+            }
+          },
+          "worst_event": {
+            "kind": "normalization",
+            "label": [
+              2,
+              "final"
+            ],
+            "variance_before_ks": 4.4090323086144926e+28,
+            "spacing": 1152921504606846976,
+            "log2_gaussian": -242.0603229908633
+          },
+          "conditional_model_target_pass": true,
+          "conditional_union_log2": -234.41640033316315
+        },
+        {
+          "width": 128,
+          "events": 1167,
+          "raw_log2_union": -233.2012628237316,
+          "families": {
+            "input_reencoding": {
+              "count": 128,
+              "raw_log2_union": -948.7440249031489
+            },
+            "bit_extraction": {
+              "count": 511,
+              "raw_log2_union": -3644.8360286046945
+            },
+            "normalization": {
+              "count": 464,
+              "raw_log2_union": -233.2012628237316
+            },
+            "output_decoding": {
+              "count": 64,
+              "raw_log2_union": -2963038224.8261285
+            }
+          },
+          "worst_event": {
+            "kind": "normalization",
+            "label": [
+              3,
+              "low"
+            ],
+            "variance_before_ks": 1.763612923445797e+29,
+            "spacing": 1152921504606846976,
+            "log2_gaussian": -242.02909547506144
+          },
+          "conditional_model_target_pass": true
+        },
+        {
+          "width": 256,
+          "events": 2649,
+          "raw_log2_union": -145.51605066565025,
+          "families": {
+            "input_reencoding": {
+              "count": 256,
+              "raw_log2_union": -947.7440249031489
+            },
+            "bit_extraction": {
+              "count": 1161,
+              "raw_log2_union": -145.51605066565025
+            },
+            "normalization": {
+              "count": 1104,
+              "raw_log2_union": -231.92221605627
+            },
+            "output_decoding": {
+              "count": 128,
+              "raw_log2_union": -2963038223.8261285
+            }
+          },
+          "worst_event": {
+            "kind": "bit_extraction",
+            "label": [
+              127,
+              0
+            ],
+            "variance_before_ks": 1.0241028476783067e+35,
+            "spacing": 9.223372036854776e+18,
+            "log2_gaussian": -152.5160489886653
+          },
+          "conditional_model_target_pass": true
+        }
+      ],
+      "security_report_sha256": {
+        "security-search-additional-full-20260918.json": "97884b3d503e11eff62700aaeda66dff66f4e5231d4d47121dd0eedbc9d91a1c",
+        "st-retune-security-full-20260907.json": "d9767a461147be60022684fe4bd48aa2397250918287876c98eecac3fc8b36ae"
+      },
+      "conditional_preflight_pass": true,
+      "whole_multiplier_approved": false,
+      "scope": "general XY; clean radix-4 input/output; no coefficient padding",
+      "limitations": [
+        "Gaussian and variance-additive primitive heuristic",
+        "Layout-aware CLOT C.1 coefficient-sum adaptation, not the dense envelope",
+        "Existing FFT model, not a certified tail bound for this encoding BSK",
+        "GLWE security uses a conventional LWE proxy",
+        "Secret-dependent relinearization/evaluation-key security is not newly proved"
+      ]
+    },
+    "analysis": {
+      "width": 64,
+      "events": 516,
+      "raw_log2_union": -234.41640033316315,
+      "families": {
+        "input_reencoding": {
+          "count": 64,
+          "raw_log2_union": -949.7440249031489
+        },
+        "bit_extraction": {
+          "count": 219,
+          "raw_log2_union": -13834.331742603312
+        },
+        "normalization": {
+          "count": 201,
+          "raw_log2_union": -234.41640033316315
+        },
+        "output_decoding": {
+          "count": 32,
+          "raw_log2_union": -2963038225.8261285
+        }
+      },
+      "worst_event": {
+        "kind": "normalization",
+        "label": [
+          2,
+          "final"
+        ],
+        "variance_before_ks": 4.4090323086144926e+28,
+        "spacing": 1152921504606846976,
+        "log2_gaussian": -242.0603229908633
+      },
+      "conditional_model_target_pass": true,
+      "conditional_union_log2": -234.41640033316315
+    },
+    "whole_product_log2_estimate": -234.41640033316315,
+    "failure_basis": "conditional Gaussian screen",
+    "failure_target_met": true,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "eb7508a60717a89cf4583b471a22961019e87bb5a028d87629d56f52626302be",
+  "exit_code": 0,
+  "process_elapsed_seconds": 87.47517326090019,
+  "peak_rss_bytes": 4619284480,
+  "user_cpu_seconds": 429.502988,
+  "system_cpu_seconds": 2.68513,
+  "validated": true
+}

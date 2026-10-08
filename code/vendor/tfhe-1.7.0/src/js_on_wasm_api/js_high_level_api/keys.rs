@@ -1,0 +1,254 @@
+use crate::high_level_api as hlapi;
+use crate::js_on_wasm_api::js_high_level_api::client::{TfheClientKey, TfheCompactPublicKey};
+use crate::js_on_wasm_api::shortint::ShortintCompactPublicKeyEncryptionParameters;
+use crate::js_on_wasm_api::{catch_panic, catch_panic_result, into_js_error};
+use wasm_bindgen::prelude::*;
+
+/// Initialize a cross-origin worker pool for parallel computation.
+///
+/// This is an alternative to `initThreadPool` for environments where
+/// cross-origin isolation headers (COOP/COEP) cannot be set.
+/// It registers the coordinator Service Worker and starts the worker pool.
+/// If `num_workers` is `None`, the number of workers is determined automatically.
+#[cfg(feature = "cross-origin-wasm-api")]
+#[wasm_bindgen]
+#[allow(
+    clippy::future_not_send,
+    reason = "JS event loop is single-threaded, Send is not needed"
+)]
+pub async fn init_cross_origin_worker_pool(
+    coordinator_url: &str,
+    num_workers: Option<u32>,
+) -> Result<(), JsValue> {
+    wasm_par_mq::register_coordinator(coordinator_url)
+        .await
+        .map_err(|e| JsValue::from_str(&e))?;
+    wasm_par_mq::init_pool_sync(num_workers)
+        .await
+        .map_err(|e| JsValue::from_str(&e))
+}
+
+/// Register the coordinator Service Worker for cross-origin parallelism.
+///
+/// This must be called from the main thread before using
+/// [`init_cross_origin_worker_pool_from_worker`].
+#[cfg(feature = "cross-origin-wasm-api")]
+#[wasm_bindgen]
+#[allow(
+    clippy::future_not_send,
+    reason = "JS event loop is single-threaded, Send is not needed"
+)]
+pub async fn register_cross_origin_coordinator(coordinator_url: &str) -> Result<(), JsValue> {
+    wasm_par_mq::register_coordinator(coordinator_url)
+        .await
+        .map_err(|e| JsValue::from_str(&e))
+}
+
+/// Initialize a cross-origin worker pool from within a Web Worker context
+/// (e.g., a Comlink worker).
+///
+/// The coordinator Service Worker must already be registered from the main
+/// thread via [`register_cross_origin_coordinator`] before calling this.
+/// If `num_workers` is `None`, the number of workers is determined automatically.
+#[cfg(feature = "cross-origin-wasm-api")]
+#[wasm_bindgen]
+#[allow(
+    clippy::future_not_send,
+    reason = "JS event loop is single-threaded, Send is not needed"
+)]
+pub async fn init_cross_origin_worker_pool_from_worker(
+    num_workers: Option<u32>,
+) -> Result<(), JsValue> {
+    wasm_par_mq::init_pool_sync_from_worker(num_workers)
+        .await
+        .map_err(|e| JsValue::from_str(&e))
+}
+
+// Wasm cannot generate a normal server key, only a compressed one
+#[wasm_bindgen]
+pub struct TfheCompressedServerKey(pub(crate) hlapi::CompressedServerKey);
+
+#[wasm_bindgen]
+impl TfheCompressedServerKey {
+    #[wasm_bindgen]
+    pub fn new(client_key: &TfheClientKey) -> Result<Self, JsError> {
+        catch_panic(|| Self(hlapi::CompressedServerKey::new(&client_key.0)))
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_serialize(&self, serialized_size_limit: u64) -> Result<Vec<u8>, JsError> {
+        let mut buffer = vec![];
+        catch_panic_result(|| {
+            crate::safe_serialization::SerializationConfig::new(serialized_size_limit)
+                .serialize_into(&self.0, &mut buffer)
+                .map_err(into_js_error)
+        })?;
+
+        Ok(buffer)
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_deserialize(buffer: &[u8], serialized_size_limit: u64) -> Result<Self, JsError> {
+        catch_panic_result(|| {
+            crate::safe_serialization::DeserializationConfig::new(serialized_size_limit)
+                .disable_conformance()
+                .deserialize_from(buffer)
+                .map(Self)
+                .map_err(into_js_error)
+        })
+    }
+}
+
+#[wasm_bindgen]
+pub struct TfheServerKey(pub(crate) hlapi::ServerKey);
+
+#[wasm_bindgen]
+impl TfheServerKey {
+    #[wasm_bindgen]
+    pub fn new(client_key: &TfheClientKey) -> Result<Self, JsError> {
+        catch_panic_result(|| Ok(Self(hlapi::ServerKey::new(&client_key.0))))
+    }
+}
+
+#[wasm_bindgen]
+pub fn set_server_key(server_key: &TfheServerKey) -> Result<(), JsError> {
+    catch_panic_result(|| {
+        crate::set_server_key(server_key.0.clone());
+        Ok(())
+    })
+}
+
+#[wasm_bindgen]
+pub struct TfhePublicKey(pub(crate) hlapi::PublicKey);
+
+#[wasm_bindgen]
+impl TfhePublicKey {
+    #[wasm_bindgen]
+    pub fn new(client_key: &TfheClientKey) -> Result<Self, JsError> {
+        catch_panic_result(|| {
+            let uses_big_params = client_key.0.key.block_parameters().encryption_key_choice()
+                == crate::shortint::parameters::EncryptionKeyChoice::Big;
+            if uses_big_params {
+                return Err(JsError::new(
+                    "PublicKey using big parameters not compatible wasm",
+                ));
+            }
+            Ok(Self(hlapi::PublicKey::new(&client_key.0)))
+        })
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_serialize(&self, serialized_size_limit: u64) -> Result<Vec<u8>, JsError> {
+        let mut buffer = vec![];
+        catch_panic_result(|| {
+            crate::safe_serialization::SerializationConfig::new(serialized_size_limit)
+                .serialize_into(&self.0, &mut buffer)
+                .map_err(into_js_error)
+        })?;
+
+        Ok(buffer)
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_deserialize(buffer: &[u8], serialized_size_limit: u64) -> Result<Self, JsError> {
+        catch_panic_result(|| {
+            crate::safe_serialization::DeserializationConfig::new(serialized_size_limit)
+                .disable_conformance()
+                .deserialize_from(buffer)
+                .map(Self)
+                .map_err(into_js_error)
+        })
+    }
+}
+
+#[wasm_bindgen]
+pub struct TfheCompressedPublicKey(pub(crate) hlapi::CompressedPublicKey);
+
+#[wasm_bindgen]
+impl TfheCompressedPublicKey {
+    #[wasm_bindgen]
+    pub fn new(client_key: &TfheClientKey) -> Result<Self, JsError> {
+        catch_panic(|| Self(hlapi::CompressedPublicKey::new(&client_key.0)))
+    }
+
+    #[wasm_bindgen]
+    pub fn decompress(&self) -> Result<TfhePublicKey, JsError> {
+        catch_panic(|| TfhePublicKey(self.0.decompress()))
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_serialize(&self, serialized_size_limit: u64) -> Result<Vec<u8>, JsError> {
+        let mut buffer = vec![];
+        catch_panic_result(|| {
+            crate::safe_serialization::SerializationConfig::new(serialized_size_limit)
+                .serialize_into(&self.0, &mut buffer)
+                .map_err(into_js_error)
+        })?;
+
+        Ok(buffer)
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_deserialize(buffer: &[u8], serialized_size_limit: u64) -> Result<Self, JsError> {
+        catch_panic_result(|| {
+            crate::safe_serialization::DeserializationConfig::new(serialized_size_limit)
+                .disable_conformance()
+                .deserialize_from(buffer)
+                .map(Self)
+                .map_err(into_js_error)
+        })
+    }
+}
+
+#[wasm_bindgen]
+pub struct TfheCompressedCompactPublicKey(pub(crate) hlapi::CompressedCompactPublicKey);
+
+#[wasm_bindgen]
+impl TfheCompressedCompactPublicKey {
+    #[wasm_bindgen]
+    pub fn new(client_key: &TfheClientKey) -> Result<Self, JsError> {
+        catch_panic(|| Self(hlapi::CompressedCompactPublicKey::new(&client_key.0)))
+    }
+
+    #[wasm_bindgen]
+    pub fn decompress(&self) -> Result<TfheCompactPublicKey, JsError> {
+        catch_panic(|| TfheCompactPublicKey(self.0.decompress()))
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_serialize(&self, serialized_size_limit: u64) -> Result<Vec<u8>, JsError> {
+        let mut buffer = vec![];
+        catch_panic_result(|| {
+            crate::safe_serialization::SerializationConfig::new(serialized_size_limit)
+                .serialize_into(&self.0, &mut buffer)
+                .map_err(into_js_error)
+        })?;
+
+        Ok(buffer)
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_deserialize(buffer: &[u8], serialized_size_limit: u64) -> Result<Self, JsError> {
+        catch_panic_result(|| {
+            crate::safe_serialization::DeserializationConfig::new(serialized_size_limit)
+                .disable_conformance()
+                .deserialize_from(buffer)
+                .map(Self)
+                .map_err(into_js_error)
+        })
+    }
+
+    #[wasm_bindgen]
+    pub fn safe_deserialize_conformant(
+        buffer: &[u8],
+        serialized_size_limit: u64,
+        conformance_params: &ShortintCompactPublicKeyEncryptionParameters,
+    ) -> Result<Self, JsError> {
+        catch_panic_result(|| {
+            crate::safe_serialization::DeserializationConfig::new(serialized_size_limit)
+                .deserialize_from(buffer, &conformance_params.compact_pke_params)
+                .map(Self)
+                .map_err(into_js_error)
+        })
+    }
+}

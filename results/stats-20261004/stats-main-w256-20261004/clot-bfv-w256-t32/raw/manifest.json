@@ -1,0 +1,104 @@
+{
+  "benchmark": true,
+  "coefficient_padding": false,
+  "competitive_benchmark": false,
+  "compiled_source_blake3": {
+    "Cargo.lock": "aa246a48093ae52a5a4fb12ac5cbb85ac7bc2d1d2dbe98eeaa9ee3d28b9f4178",
+    "Cargo.toml": "fba03094bcb852d4e73bf0fa1a940f97779382f88f1a0f774b47b8bc7d0abd8c",
+    "src/arithmetic.rs": "4ddc5688282e75c9197df576df2c4a54c4f0a9ecf278efd5db75326c7a511d09",
+    "src/crypto.rs": "b666eaf8ad07f26b7088b0c770151e70bbd951e16e3fb7b57584e10aedd8fa47",
+    "src/main.rs": "303bfa7a881b58ac1fddec0ea8c8d37fdcbcdf75c4c96de92626553f0cc651b2"
+  },
+  "evaluation_key_payload_bytes": {
+    "encoding_fourier_bsk": 2254438400,
+    "fourier_bsk": 104857600,
+    "ksk": 196853760,
+    "packing": 939524096,
+    "relinearization": 98304
+  },
+  "executable_blake3": "5dee983ea32781024a5be3a1f0bc84ce6d92c23a46b76613b8a624397978f917",
+  "failure_bound": null,
+  "host": {
+    "architecture": "x86_64",
+    "cpu_affinity_set_by_adapter": false,
+    "evaluation_threads": 32,
+    "external_affinity_record": "campaign run.json, when launched by the campaign runner",
+    "os": "linux"
+  },
+  "input_contract": "bootstrapped big-key radix-4, delta=2^59",
+  "kernel_only": false,
+  "key_generation_seconds": 62.172825495,
+  "key_randomness": "OS seeder, fresh per process",
+  "method": "independent-clot-style-convolution-probe",
+  "normalizer": "dependency-graph execution of the serial public-degree partition; shared low/carry KS",
+  "output_contract": "same-key radix-4, delta=2^59, lower W bits (full mode only)",
+  "parameter_file": "<pkg>/code/server-campaign/adapters/bfv-style/parameters/bfv-n800-range-aware.json",
+  "parameters": {
+    "degree_aware": true,
+    "encoding_pbs": [
+      1,
+      43
+    ],
+    "glwe_sigma": 9.251199746767559e-16,
+    "input_lut_domain": 4,
+    "ks": [
+      1,
+      15
+    ],
+    "lwe_sigma": 7.62939453125e-6,
+    "n": 800,
+    "normalizer_lut_domain": 8,
+    "packing": [
+      3,
+      14
+    ],
+    "pbs": [
+      15,
+      2
+    ],
+    "polynomial_size": 2048,
+    "relin": [
+      12,
+      3
+    ]
+  },
+  "patterns": [
+    "random"
+  ],
+  "plaintext_seed": 20260908,
+  "plan_only": false,
+  "plans": [
+    {
+      "cbs": 0,
+      "digits": 128,
+      "encoding_precision": 11,
+      "ks_total": 1972,
+      "max_convolution_coefficient": 1152,
+      "no_negacyclic_wrap": true,
+      "normalizer_dependency_stages": 250,
+      "normalizer_tasks": 555,
+      "pbs_bit_extraction": 1161,
+      "pbs_input_rescale": 256,
+      "pbs_normalization": 1104,
+      "pbs_total": 2521,
+      "plaintext_modulus": 2048,
+      "polynomial_degree": 254,
+      "radix": 4,
+      "standalone_cmux": 0,
+      "width": 256
+    }
+  ],
+  "preset": "external-parameters",
+  "repetitions": 3,
+  "security_estimate_for_new_key_set": null,
+  "sources": [
+    "https://eprint.iacr.org/2021/729.pdf",
+    "https://www.iacr.org/archive/asiacrypt2021/130900334/130900334.pdf"
+  ],
+  "tensor_backend": "TFHE-rs exact u128 polynomial product modulo 2^128, centered lifts",
+  "tfhe_version": "1.6.1",
+  "timing_contract": "continuous-evaluator-wall-clock-v1",
+  "verify_serial": false,
+  "warmup": 1,
+  "whole_multiplier_approved": false
+}

@@ -1,0 +1,6 @@
+{
+  "git": {
+    "sha1": "77d8124eb9f0ed85e2b325cddf73957edfa27880"
+  },
+  "path_in_vcs": "utils/tfhe-safe-serialize"
+}

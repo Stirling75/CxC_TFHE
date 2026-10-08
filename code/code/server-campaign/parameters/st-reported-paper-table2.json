@@ -1,0 +1,15 @@
+{
+  "name": "reported-decompositions-refined-noise-assumption",
+  "lwe_dimension": 768,
+  "polynomial_size": 1024,
+  "glwe_dimension": 2,
+  "lwe_sigma": 8.763872947670246e-06,
+  "glwe_sigma": 9.25119974676756e-16,
+  "pbs": [15, 2],
+  "ks": [2, 7],
+  "auto": [12, 3],
+  "ss": [17, 2],
+  "cbs": [4, 4],
+  "terminal_lut_count_log": 2,
+  "split_trace_fft": false
+}

@@ -1,0 +1,14 @@
+category,width,n,excess_kurtosis,standard_error
+final addition, refreshed,64,200,-0.312,0.346
+final addition, unrefreshed terms,64,6200,0.080,0.062
+wave 0,64,5800,0.172,0.064
+final addition, refreshed,128,2100,-0.166,0.107
+final addition, unrefreshed terms,128,4300,0.055,0.075
+later wave, refreshed,128,2700,-0.091,0.094
+later wave, unrefreshed terms,128,500,-0.054,0.219
+wave 0,128,8800,0.022,0.052
+final addition, refreshed,256,2070,0.099,0.108
+final addition, unrefreshed terms,256,1770,0.023,0.116
+later wave, refreshed,256,2370,-0.058,0.101
+later wave, unrefreshed terms,256,2940,-0.052,0.090
+wave 0,256,7980,0.063,0.055

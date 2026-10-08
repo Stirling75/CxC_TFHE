@@ -1,0 +1,25 @@
+=== 2026-10-07 02:33:22 st-r2-n688 W=16 (load 0.48 4.61 7.14)
+st-r2-n688: W=16, T=16, conditional-gaussian, estimate -136.6 (meets 2^-128)
+  mean=0.160310s, all outputs correct
+st-r2-n688: W=16, T=32, conditional-gaussian, estimate -136.6 (meets 2^-128)
+  mean=0.155002s, all outputs correct
+st-r2-n688: W=16, T=64, conditional-gaussian, estimate -136.6 (meets 2^-128)
+  mean=0.168995s, all outputs correct
+Results: <pkg>/results/paired-st-r2-n688-w16-20261007
+=== 2026-10-07 02:38:43 st-r2-n688 W=32 (load 0.09 1.74 5.14)
+st-r2-n688: W=32, T=16, conditional-gaussian, estimate -134.8 (meets 2^-128)
+  mean=0.468630s, all outputs correct
+st-r2-n688: W=32, T=32, conditional-gaussian, estimate -134.8 (meets 2^-128)
+  mean=0.326404s, all outputs correct
+st-r2-n688: W=32, T=64, conditional-gaussian, estimate -134.8 (meets 2^-128)
+  mean=0.367769s, all outputs correct
+Results: <pkg>/results/paired-st-r2-n688-w32-20261007
+=== 2026-10-07 02:44:16 st-r2-n688 W=64 (load 0.05 0.77 3.70)
+st-r2-n688: W=64, T=16, conditional-gaussian, estimate -133.0 (meets 2^-128)
+  mean=1.450391s, all outputs correct
+st-r2-n688: W=64, T=32, conditional-gaussian, estimate -133.0 (meets 2^-128)
+  mean=0.877348s, all outputs correct
+st-r2-n688: W=64, T=64, conditional-gaussian, estimate -133.0 (meets 2^-128)
+  mean=0.839540s, all outputs correct
+Results: <pkg>/results/paired-st-r2-n688-w64-20261007
+=== 2026-10-07 02:45:16 done (load 12.36 3.55 4.44)

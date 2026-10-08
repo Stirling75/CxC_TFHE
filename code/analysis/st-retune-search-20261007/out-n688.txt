@@ -1,0 +1,2 @@
+base cost 1.000, union -53.32; 290 (pbs,ks) pairs pass the lift pre-filter
+{"fft_scale": 1.0, "target": -128.0, "found": 0}

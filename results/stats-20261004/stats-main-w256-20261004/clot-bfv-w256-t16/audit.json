@@ -1,0 +1,61 @@
+{
+  "run": "<pkg>/results/stats-main-w256-20261004/clot-bfv-w256-t16/raw",
+  "validated_cases": 4,
+  "cases": [
+    {
+      "file": "w256-random-r0.json",
+      "sha256": "e75be24cab62090b7ae8653de99aaf07a8540b548d57ae60ce692e93d366ab39",
+      "warmup": true
+    },
+    {
+      "file": "w256-random-r1.json",
+      "sha256": "cc8067dfa53dbde0e8453f61c46d956d864317b764018757144bff073a2cee0a",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r2.json",
+      "sha256": "dc363dc6cf54287d855aab6c555190e81ff7aed7445e25eb5aebe8f4dab206e3",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r3.json",
+      "sha256": "fca033ba620fdbea8c97cb88b4727b816b74370f066cc384e41f8ccbf42944f2",
+      "warmup": false
+    }
+  ],
+  "manifest_sha256": "8bed4e96bab4aec8d935f3e65b9a33b3c7ed64c947e92b09439380d078fbdabf",
+  "audit_source_sha256": "affb653ba65e5282b29cc1b55adac4b437e47385efe924473ab107b4ac704e80",
+  "noise_model_sha256": "69160a6a988a33107717a2d240c12b8d78bfda301c6bda48dbe4bfe920292381",
+  "primitive_model_sha256": "e2e12dad5a9a35ab2d1042fd7245ee91494ce0e4eacd8f8647e7514ea35ab91b",
+  "serial_ciphertext_equivalence_checked": false,
+  "summaries": [
+    {
+      "width": 256,
+      "pattern": "random",
+      "threads": 16,
+      "repetitions": 3,
+      "warmup": 1,
+      "seconds": [
+        15.401597347,
+        15.590296298,
+        15.485012361
+      ],
+      "mean_seconds": 15.492302002,
+      "sample_sd_seconds": 0.09456044456619717,
+      "mean_stage_seconds": {
+        "digit_decomposition": 2.1170995306666667,
+        "extraction": 0.0002562763333333333,
+        "input_rescale": 5.616992335,
+        "normalization": 7.157614329,
+        "packing": 0.5924768576666667,
+        "relinearization": 0.002235449333333333,
+        "tensor": 0.005266456
+      },
+      "conditional_union_log2": -145.51605066565025,
+      "pbs": 2521,
+      "ks": 1972
+    }
+  ],
+  "whole_multiplier_approved": false,
+  "timing_contract": "continuous-evaluator-wall-clock-v1"
+}

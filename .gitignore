@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+/code/build/
+/code/results/
+/code/code/**/target/
+/paper-scripts/out/

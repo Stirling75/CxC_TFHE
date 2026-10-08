@@ -1,0 +1,14 @@
+bkw                  :: rop: ≈2^209.1, m: ≈2^195.8, mem: ≈2^196.8, b: 3, t1: 0, t2: 27, ℓ: 2, #cod: 767, #top: 0, #test: 72, tag: coded-bkw
+usvp                 :: rop: ≈2^270.2, red: ≈2^270.2, δ: 1.002227, β: 892, d: 893, tag: usvp
+bdd                  :: rop: ≈2^136.4, red: ≈2^135.8, svp: ≈2^134.8, β: 374, η: 406, d: 1524, tag: bdd
+dual                 :: rop: ≈2^142.9, mem: ≈2^92.1, m: 743, β: 396, d: 1580, ↻: 1, tag: dual
+dual_hybrid          :: rop: ≈2^132.3, red: ≈2^132.2, guess: ≈2^128.0, β: 357, p: 2, ζ: 0, t: 110, β': 366, N: ≈2^75.4, m: 837
+lwe-trifan arora-gb inf
+lwe-trifan bkw 209.0826116626966
+lwe-trifan usvp 270.1889820906088
+lwe-trifan bdd 136.42916715290843
+lwe-trifan bdd_hybrid 136.44995557932916
+lwe-trifan bdd_mitm_hybrid 165.74658496726101
+lwe-trifan dual 142.93093902510478
+lwe-trifan dual_hybrid 132.27764458544655
+RESULT lwe-trifan n=837 log2sigma=-18.2: 132.28 (dual_hybrid)

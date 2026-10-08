@@ -1,0 +1,5229 @@
+{
+  "width": 64,
+  "mode": "cached",
+  "squaring": false,
+  "chunk_bits": 8,
+  "log2_failure": null,
+  "reference_screen_log2": null,
+  "variance_reference_only": true,
+  "shared_selector_analysis_status": "unresolved-trace-to-ggsw-covariance",
+  "kernel": "tree",
+  "paired_product_reference": false,
+  "public_scalar": null,
+  "public_groups": null,
+  "env": {
+    "CBS_FAILURE_PRESET": "hybrid-8x8",
+    "CBS_PARAM_PROFILE": "m2c2-gaussian",
+    "CBS_CACHED_PRODUCT": "1",
+    "CBS_SHARED_PREPROCESSING": "1",
+    "FUSED_PRODUCTS_PER_GROUP": "0",
+    "FUSED_KERNEL": "tree",
+    "FUSED_EXPLORATORY": "1",
+    "CACHED_MULT_SQUARING": "0",
+    "CBS_CENTERED_MS": "1",
+    "CBS_CENTER_SELECTOR_BOX": "1",
+    "CBS_NORMALIZER_CENTERED_MS": "1",
+    "CBS_NORMALIZER_CHUNK_CAP": "15",
+    "DIRECT_LOG_LUT_COUNT": "2",
+    "CBS_PARALLEL_DIGIT_LIFT": "1",
+    "CBS_PARALLEL_CMUX_CELLS": "1",
+    "DIRECT_AUTO_FFT": "split40",
+    "PBS_BASE_LOG": "23",
+    "PBS_LEVEL": "1",
+    "KS_BASE_LOG": "2",
+    "KS_LEVEL": "8",
+    "DIRECT_AUTO_BASE_LOG": "10",
+    "DIRECT_AUTO_LEVEL": "4",
+    "DIRECT_SS_BASE_LOG": "15",
+    "DIRECT_SS_LEVEL": "3",
+    "DIRECT_CBS_BASE_LOG": "5",
+    "DIRECT_CBS_LEVEL": "4",
+    "CBS_LIFT_PBS_BASE_LOG": "9",
+    "CBS_LIFT_PBS_LEVEL": "4",
+    "CBS_LIFT_KS_BASE_LOG": "7",
+    "CBS_LIFT_KS_LEVEL": "2",
+    "CBS_RING_SHAPE": "2048x1",
+    "CBS_SECRET_LAYOUT": "contiguous"
+  },
+  "waves": [
+    [
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              4,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              0,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              4,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              0,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            6,
+            5,
+            4,
+            3,
+            2
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            8,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            7,
+            3,
+            4,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            8,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            7,
+            3,
+            4,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            8,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            7,
+            3,
+            4,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              8,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              4,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              0,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            8,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            7,
+            3,
+            4,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            10,
+            7,
+            3,
+            4,
+            8
+          ],
+          [
+            9,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            10,
+            7,
+            3,
+            4,
+            8
+          ],
+          [
+            9,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            10,
+            7,
+            3,
+            4,
+            8
+          ],
+          [
+            9,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              12,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              8,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              4,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              0,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            10,
+            7,
+            3,
+            4,
+            8
+          ],
+          [
+            9,
+            5,
+            1,
+            2,
+            6
+          ],
+          [
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            12,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            11,
+            7,
+            3,
+            4,
+            0
+          ],
+          [
+            10,
+            8,
+            6
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            12,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            11,
+            7,
+            3,
+            4,
+            0
+          ],
+          [
+            10,
+            8,
+            6
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            12,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            11,
+            7,
+            3,
+            4,
+            0
+          ],
+          [
+            10,
+            8,
+            6
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              20,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              16,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              12,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              8,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              4,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              0,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            12,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            11,
+            7,
+            3,
+            4,
+            0
+          ],
+          [
+            10,
+            8,
+            6
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              28,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              24,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              20,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              16,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              12,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              8,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              4,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              28,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            14,
+            11,
+            7,
+            3,
+            4
+          ],
+          [
+            13,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            12,
+            10,
+            8,
+            6,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              28,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              24,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              20,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              16,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              12,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              8,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              4,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              28,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            14,
+            11,
+            7,
+            3,
+            4
+          ],
+          [
+            13,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            12,
+            10,
+            8,
+            6,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              28,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              24,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              20,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              16,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              12,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              8,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              4,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              28,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            14,
+            11,
+            7,
+            3,
+            4
+          ],
+          [
+            13,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            12,
+            10,
+            8,
+            6,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              24,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              28,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              20,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              4,
+              24,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              16,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              8,
+              20,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              12,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              12,
+              16,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              8,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              16,
+              12,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              4,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              20,
+              8,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              0,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              24,
+              4,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              28,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            14,
+            11,
+            7,
+            3,
+            4
+          ],
+          [
+            13,
+            9,
+            5,
+            1,
+            2
+          ],
+          [
+            12,
+            10,
+            8,
+            6,
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false,
+          false
+        ]
+      }
+    ],
+    [
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              0
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              1
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              2
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              12,
+              3
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              8,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              4
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              5
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              6
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              16,
+              7
+            ]
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          [
+            2
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          [
+            2
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          [
+            2
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            5,
+            4,
+            3,
+            1,
+            0
+          ],
+          [
+            2
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            5,
+            4,
+            3,
+            2,
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            5,
+            4,
+            3,
+            2,
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            5,
+            4,
+            3,
+            2,
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "linear": [
+          false,
+          false
+        ]
+      }
+    ],
+    [
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              2
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": [
+              0,
+              0,
+              3
+            ]
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": false,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 2,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          true
+        ]
+      },
+      {
+        "terms": [
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          },
+          {
+            "bound": 3,
+            "refreshed": true,
+            "source": null
+          }
+        ],
+        "groups": [
+          [
+            2,
+            1,
+            0
+          ]
+        ],
+        "linear": [
+          false
+        ]
+      }
+    ]
+  ],
+  "final_columns": [
+    [
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": [
+          0,
+          0,
+          1
+        ]
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": [
+          0,
+          0,
+          2
+        ]
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": [
+          0,
+          0,
+          3
+        ]
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": false,
+        "source": null
+      }
+    ],
+    [
+      {
+        "bound": 2,
+        "refreshed": true,
+        "source": null
+      },
+      {
+        "bound": 3,
+        "refreshed": true,
+        "source": null
+      }
+    ]
+  ],
+  "audit_products": null,
+  "model_sha256": {
+    "cbs_variance_estimator.py": "e2e12dad5a9a35ab2d1042fd7245ee91494ce0e4eacd8f8647e7514ea35ab91b",
+    "parameters.json": "f4e64509740b0c77138651fc6d7e873ca17fcb7871542fd971a66ebba7a18033"
+  },
+  "planner_sha256": {
+    "make_plan.py": "615a07c9375338d9cd4674a3824b3c3a3104c9149e8ca532933eec457589a30b",
+    "trace_projection.py": "db81e80b1c33323f029bd68e3311bbd09bb588a7267c5499e148077642d04577",
+    "scheme_switch_covariance.py": "a39cdcad8c2ea886aeebc0742da0287d2ede03351ca0e2c80a41dce14b7a5b46",
+    "test_plan.py": "211945cee6a8b79eb006235b7a041c8274052e54e305a667322927f9748b3aea",
+    "gaussian_covariance.py": "6fc56bb995e65cf380653232be46e68985de305a0e7398d6bfb942887e311d46",
+    "verify_constructions.py": "1af3f7f44eb9b15562c11a12de52944240796bda836c1e10eefbc811b3333daa",
+    "external_product_covariance.py": "32cc67e7f419fc428ddab12b933a9b0e8525a3f121387d3227cfa61829819ee6",
+    "reassess_selectors.py": "ba437fb259aba3ee643036bea24bf8f66b2fa226f51170b4dab092ef23920090",
+    "baseline_study.py": "48da296cadd9c1fec701591f4991f89f95dac8a9d79ff9ee56a02b9e45f916f3",
+    "fused_model.py": "e631684730cb4f04efa466d4756f5a0969861d9c6c225f8338969d8adb8a4c97"
+  },
+  "note": "Fixed reference partitions and variances are diagnostic comparators. Trace-to-GGSW coefficient covariance needs a derivation, including for the shared lift used by baseline/cached modes. No fused failure bound is claimed; baseline/cached values only reproduce the prior model.",
+  "reference_screen_applies_to_ring": false,
+  "final_direct": true,
+  "linear_caps": [
+    40,
+    1000
+  ]
+}

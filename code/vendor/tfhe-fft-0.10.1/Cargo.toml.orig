@@ -1,0 +1,57 @@
+[package]
+name = "tfhe-fft"
+version = "0.10.1"
+edition = "2021"
+description = "tfhe-fft is a pure Rust high performance fast Fourier transform library."
+readme = "README.md"
+repository = "https://github.com/zama-ai/tfhe-rs"
+license = "BSD-3-Clause-Clear"
+homepage = "https://zama.org/"
+keywords = ["fft"]
+
+[dependencies]
+aligned-vec = { workspace = true }
+bytemuck = { workspace = true }
+dyn-stack = { workspace = true }
+num-complex = { workspace = true, features = ["bytemuck"] }
+pulp = { workspace = true }
+serde = { workspace = true, optional = true }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+js-sys = { workspace = true }
+
+[features]
+default = ["std", "avx512"]
+fft128 = []
+avx512 = ["pulp/x86-v4"]
+std = ["pulp/std", "dyn-stack/std", "dyn-stack/alloc"]
+serde = ["dep:serde", "num-complex/serde"]
+
+[dev-dependencies]
+rustfft = "6.0"
+rand = { workspace = true }
+bincode = { workspace = true }
+more-asserts = "0.3.1"
+serde_json = "1.0.96"
+dyn-stack = { workspace = true, features = ["alloc"] }
+
+[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+wasm-bindgen-test = "0.3"
+wasm-bindgen = { workspace = true }
+getrandom = { workspace = true, features = ["js"] }
+
+[target.'cfg(all(not(target_os = "windows"), not(target_arch = "wasm32")))'.dev-dependencies]
+rug = "1.19.1"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
+criterion = "0.5"
+fftw-sys = { version = "0.6", default-features = false, features = ["system"] }
+
+[[bench]]
+name = "fft"
+harness = false
+required-features = ["serde"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--html-in-header", "katex-header.html", "--cfg", "docsrs"]

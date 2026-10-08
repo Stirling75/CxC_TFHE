@@ -1,0 +1,30 @@
+row,category,width,ratio
+selector,product-sum,16,0.290
+selector,chunk-product,16,0.253
+selector,4-bit,16,0.356
+reduction,final addition, refreshed,64,0.612
+reduction,final addition, unrefreshed terms,64,0.362
+reduction,wave 0,64,0.228
+reduction,final addition, refreshed,128,0.529
+reduction,final addition, unrefreshed terms,128,0.497
+reduction,later wave, refreshed,128,0.550
+reduction,later wave, unrefreshed terms,128,0.401
+reduction,wave 0,128,0.250
+reduction,final addition, refreshed,256,0.544
+reduction,final addition, unrefreshed terms,256,0.499
+reduction,later wave, refreshed,256,0.535
+reduction,later wave, unrefreshed terms,256,0.451
+reduction,wave 0,256,0.296
+mvb-digit,digit,64,0.371
+mvb-digit,digit,128,0.367
+mvb-digit,digit,256,0.374
+bernard,||w||^2=5,64,0.512
+bernard,||w||^2=17,64,0.503
+bernard,||w||^2=35,64,0.539
+bernard,||w||^2=36,64,0.558
+bernard,||w||^2=39,64,0.499
+bernard,||w||^2=49,64,0.460
+bernard,||w||^2=17,128,0.569
+bernard,||w||^2=36,128,0.560
+bernard,||w||^2=39,128,0.547
+bernard,||w||^2=49,128,0.501

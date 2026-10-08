@@ -1,0 +1,56 @@
+{
+  "command": [
+    "<pkg>/build/ring/release/tfhe_radix_baseline",
+    "--width",
+    "256",
+    "--threads",
+    "1",
+    "--repetitions",
+    "3",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/stats-main-w256-20261004/tfhe-rs-w256-t1/raw"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "1"
+  },
+  "cpu_ids": [
+    0
+  ],
+  "thread_budget": 1,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "tfhe-rs",
+    "width": 256,
+    "contract": {
+      "family": "radix",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W clean radix-4",
+      "failure_status": "library-per-PBS",
+      "tfhe_rs": "1.6.1",
+      "primitive_log2_p_fail": -128.597
+    },
+    "whole_multiplier_approved": false,
+    "whole_product_log2_estimate": -113.83929748222948,
+    "failure_basis": "per-PBS library label + log2(measured PBS count), union bound",
+    "failure_target_met": false,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "62dd15b4c437a7a3d7c5f0353201930acae7c33b9b60d8bac484df95af5d1530",
+  "exit_code": 0,
+  "process_elapsed_seconds": 1812.0668510199757,
+  "peak_rss_bytes": 679821312,
+  "user_cpu_seconds": 1810.185608,
+  "system_cpu_seconds": 1.531728,
+  "validated": true
+}

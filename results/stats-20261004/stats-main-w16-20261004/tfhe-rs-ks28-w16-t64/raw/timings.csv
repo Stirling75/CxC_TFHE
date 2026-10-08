@@ -1,0 +1,7 @@
+method,width,threads,trial,warmup,total_seconds,pbs_count,ok
+tfhe-rs-1.6.1-gaussian,16,64,0,true,0.243543859,116,true
+tfhe-rs-1.6.1-gaussian,16,64,1,false,0.214326579,116,true
+tfhe-rs-1.6.1-gaussian,16,64,2,false,0.224485848,116,true
+tfhe-rs-1.6.1-gaussian,16,64,3,false,0.193697991,116,true
+tfhe-rs-1.6.1-gaussian,16,64,4,false,0.203332938,116,true
+tfhe-rs-1.6.1-gaussian,16,64,5,false,0.210940202,116,true

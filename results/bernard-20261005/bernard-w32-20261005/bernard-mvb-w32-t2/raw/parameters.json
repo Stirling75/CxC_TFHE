@@ -1,0 +1,52 @@
+{
+  "blind_rotations": 218,
+  "identical": false,
+  "input": "identity-PBS-refreshed clean radix-4 blocks; preparation excluded",
+  "ks_base_log": 4,
+  "ks_level": 4,
+  "lwe_dimension": 930,
+  "method": "Bernard et al. (ePrint 2026/2310) radix multiplier, our reimplementation",
+  "order": "balanced",
+  "output": "clean radix-4 XY modulo 2^W (TFHE-rs full_propagate_parallelized)",
+  "parameter": "PG,12.8 (n=930, PBS 23,1)",
+  "parameters": {
+    "carry_modulus": 4,
+    "ciphertext_modulus": {
+      "modulus": 0,
+      "scalar_bits": 64
+    },
+    "encryption_key_choice": "Big",
+    "glwe_dimension": 1,
+    "glwe_noise_distribution": {
+      "Gaussian": {
+        "mean": 0.0,
+        "std": 2.845267479601915e-15
+      }
+    },
+    "ks_base_log": 4,
+    "ks_level": 4,
+    "log2_p_fail": -128.597,
+    "lwe_dimension": 930,
+    "lwe_noise_distribution": {
+      "Gaussian": {
+        "mean": 0.0,
+        "std": 6.782362904013915e-7
+      }
+    },
+    "max_noise_level": 5,
+    "message_modulus": 4,
+    "modulus_switch_noise_reduction_params": "CenteredMeanNoiseReduction",
+    "pbs_base_log": 23,
+    "pbs_level": 1,
+    "polynomial_size": 2048
+  },
+  "phi_max": 12.8,
+  "repetitions": 5,
+  "rule": "heaviest",
+  "seed": 20260908,
+  "tfhe_rs": "1.6.1",
+  "threads": 2,
+  "ticks": 109,
+  "warmup": 1,
+  "width": 32
+}

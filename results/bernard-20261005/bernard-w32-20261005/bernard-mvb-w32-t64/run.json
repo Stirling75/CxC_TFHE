@@ -1,0 +1,172 @@
+{
+  "command": [
+    "<pkg>/build/ring/release/mvb_radix_mul",
+    "--width",
+    "32",
+    "--threads",
+    "64",
+    "--repetitions",
+    "5",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/bernard-w32-20261005/bernard-mvb-w32-t64/raw",
+    "--schedule",
+    "<pkg>/results/bernard-w32-20261005/bernard-mvb-w32-t64/schedule.json",
+    "--ks",
+    "4,4"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "64"
+  },
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "thread_budget": 64,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "bernard-mvb",
+    "width": 32,
+    "contract": {
+      "family": "bernard",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W clean radix-4",
+      "failure_status": "model-schedule",
+      "tfhe_rs": "1.6.1",
+      "phi": 12.8,
+      "ks": [
+        4,
+        4
+      ],
+      "note": "Our reimplementation of Bernard et al. (ePrint 2026/2310), Ours (w/ shift), PG,12.8 of their Table 1 (n=930, KS (4,4), PBS (23,1)), heaviest rule, balanced order, TFHE-rs 1.6.1 carry propagation."
+    },
+    "whole_multiplier_approved": false,
+    "analysis": {
+      "1": {
+        "ab": -128.0372567457389,
+        "identical": -128.03042106413955,
+        "blind_rotations": 218,
+        "ticks": 218
+      },
+      "2": {
+        "ab": -128.03460569780026,
+        "identical": -128.02778253605663,
+        "blind_rotations": 218,
+        "ticks": 109
+      },
+      "4": {
+        "ab": -128.01947748476007,
+        "identical": -128.01272533110634,
+        "blind_rotations": 218,
+        "ticks": 55
+      },
+      "8": {
+        "ab": -128.09002205222853,
+        "identical": -128.08293235804805,
+        "blind_rotations": 221,
+        "ticks": 28
+      },
+      "16": {
+        "ab": -128.19917603394015,
+        "identical": -128.19153059532854,
+        "blind_rotations": 224,
+        "ticks": 15
+      },
+      "32": {
+        "ab": -128.33327280800242,
+        "identical": -128.32488482215874,
+        "blind_rotations": 231,
+        "ticks": 9
+      },
+      "64": {
+        "ab": -128.55113574662928,
+        "identical": -128.54138504999028,
+        "blind_rotations": 241,
+        "ticks": 6
+      }
+    },
+    "whole_product_log2_estimate": -128.01272533110634,
+    "failure_basis": "conditional Gaussian screen over the public folding schedule",
+    "failure_target_met": true,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "45936e7475de3f152dba487743f924b68c1335d78e4a8559b888e1b78775dab7",
+  "exit_code": 0,
+  "process_elapsed_seconds": 2.9513296720106155,
+  "peak_rss_bytes": 167485440,
+  "user_cpu_seconds": 64.73498,
+  "system_cpu_seconds": 0.41262499999999996,
+  "validated": true
+}

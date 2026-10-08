@@ -1,0 +1,15 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+hybrid-grouped-rev-mvb,256,1,3,28.787380086333332,0.04108617604703546,lower-W clean radix-4,conditional-gaussian,False,True,-129.9883945087528,True,conditional Gaussian screen,True,729251840
+hybrid-cached-rev-mvb,256,1,3,40.627155949666665,0.08587253592196768,lower-W clean radix-4,conditional-gaussian,False,True,-131.7963641077173,True,conditional Gaussian screen,True,722489344
+hybrid-cached-rev-mvb,256,2,3,20.728441913666668,0.03775104845249014,lower-W clean radix-4,conditional-gaussian,False,True,-131.7963641077173,True,conditional Gaussian screen,True,656388096
+hybrid-grouped-rev-mvb,256,2,3,14.638751539666666,0.005054638012555452,lower-W clean radix-4,conditional-gaussian,False,True,-129.9883945087528,True,conditional Gaussian screen,True,662409216
+hybrid-grouped-rev-mvb,256,4,3,8.610784692,0.021076238090826923,lower-W clean radix-4,conditional-gaussian,False,True,-129.9883945087528,True,conditional Gaussian screen,True,660840448
+hybrid-cached-rev-mvb,256,4,3,11.696472202666667,0.014482018253145204,lower-W clean radix-4,conditional-gaussian,False,True,-131.7963641077173,True,conditional Gaussian screen,True,651968512
+hybrid-cached-rev-mvb,256,8,3,7.541293246333334,0.041914419210802314,lower-W clean radix-4,conditional-gaussian,False,True,-131.7963641077173,True,conditional Gaussian screen,True,657403904
+hybrid-grouped-rev-mvb,256,8,3,5.859783279666666,0.01810054550975247,lower-W clean radix-4,conditional-gaussian,False,True,-129.9883945087528,True,conditional Gaussian screen,True,671866880
+hybrid-grouped-rev-mvb,256,16,3,2.5471650246666666,0.022583469350354223,lower-W clean radix-4,conditional-gaussian,False,True,-129.9883945087528,True,conditional Gaussian screen,True,699879424
+hybrid-cached-rev-mvb,256,16,3,3.3550659693333333,0.015022969242481447,lower-W clean radix-4,conditional-gaussian,False,True,-131.7963641077173,True,conditional Gaussian screen,True,731860992
+hybrid-cached-rev-mvb,256,32,3,1.9866897503333334,0.007858532309072694,lower-W clean radix-4,conditional-gaussian,False,True,-131.7963641077173,True,conditional Gaussian screen,True,882806784
+hybrid-grouped-rev-mvb,256,32,3,1.4383676863333332,0.0250509298757678,lower-W clean radix-4,conditional-gaussian,False,True,-129.9883945087528,True,conditional Gaussian screen,True,782372864
+hybrid-grouped-rev-mvb,256,64,3,1.3684965386666668,0.007791029537312372,lower-W clean radix-4,conditional-gaussian,False,True,-129.9883945087528,True,conditional Gaussian screen,True,951824384
+hybrid-cached-rev-mvb,256,64,3,1.8145045036666667,0.017971094277521082,lower-W clean radix-4,conditional-gaussian,False,True,-131.7963641077173,True,conditional Gaussian screen,True,1035689984

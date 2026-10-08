@@ -1,0 +1,331 @@
+{
+  "width": 16,
+  "products": [
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 0,
+      "column": 0
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 1,
+      "column": 1
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 2,
+      "column": 2
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 3,
+      "column": 3
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 4,
+      "column": 4
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 5,
+      "column": 5
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 6,
+      "column": 6
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 7,
+      "column": 7
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 8,
+      "column": 8
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 9,
+      "column": 9
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 10,
+      "column": 10
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 11,
+      "column": 11
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 12,
+      "column": 12
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 13,
+      "column": 13
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 14,
+      "column": 14
+    },
+    {
+      "left": 0,
+      "right": 0,
+      "bit": 15,
+      "column": 15
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 0,
+      "column": 8
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 1,
+      "column": 9
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 2,
+      "column": 10
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 3,
+      "column": 11
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 4,
+      "column": 12
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 5,
+      "column": 13
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 6,
+      "column": 14
+    },
+    {
+      "left": 0,
+      "right": 1,
+      "bit": 7,
+      "column": 15
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 0,
+      "column": 8
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 1,
+      "column": 9
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 2,
+      "column": 10
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 3,
+      "column": 11
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 4,
+      "column": 12
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 5,
+      "column": 13
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 6,
+      "column": 14
+    },
+    {
+      "left": 1,
+      "right": 0,
+      "bit": 7,
+      "column": 15
+    }
+  ],
+  "initial": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ],
+    [
+      6
+    ],
+    [
+      7
+    ],
+    [
+      8,
+      16,
+      24
+    ],
+    [
+      9,
+      17,
+      25
+    ],
+    [
+      10,
+      18,
+      26
+    ],
+    [
+      11,
+      19,
+      27
+    ],
+    [
+      12,
+      20,
+      28
+    ],
+    [
+      13,
+      21,
+      29
+    ],
+    [
+      14,
+      22,
+      30
+    ],
+    [
+      15,
+      23,
+      31
+    ]
+  ],
+  "layers": [],
+  "final_columns": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ],
+    [
+      6
+    ],
+    [
+      7
+    ],
+    [
+      8,
+      16,
+      24
+    ],
+    [
+      9,
+      17,
+      25
+    ],
+    [
+      10,
+      18,
+      26
+    ],
+    [
+      11,
+      19,
+      27
+    ],
+    [
+      12,
+      20,
+      28
+    ],
+    [
+      13,
+      21,
+      29
+    ],
+    [
+      14,
+      22,
+      30
+    ],
+    [
+      15,
+      23,
+      31
+    ]
+  ],
+  "value_count": 32
+}

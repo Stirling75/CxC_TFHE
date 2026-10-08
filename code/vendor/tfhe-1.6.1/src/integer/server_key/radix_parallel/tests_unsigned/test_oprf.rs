@@ -1,0 +1,296 @@
+use crate::core_crypto::commons::generators::DeterministicSeeder;
+use crate::core_crypto::commons::math::random::tests::{
+    cumulate, dkw_alpha_from_epsilon, sup_diff,
+};
+use crate::integer::keycache::KEY_CACHE;
+use crate::integer::oprf::{OprfPrivateKey, OprfServerKey};
+use crate::integer::server_key::radix_parallel::tests_long_run::OpSequenceFunctionExecutor;
+use crate::integer::server_key::radix_parallel::tests_unsigned::CpuOprfExecutor;
+use crate::integer::tests::create_parameterized_test;
+use crate::integer::{IntegerKeyKind, RadixCiphertext, RadixClientKey, ServerKey};
+use crate::shortint::parameters::*;
+use crate::Tag;
+use rand::Rng;
+use statrs::distribution::ContinuousCDF;
+use std::collections::HashMap;
+use std::num::NonZeroU64;
+use tfhe_csprng::generators::DefaultRandomGenerator;
+use tfhe_csprng::seeders::Seed;
+
+create_parameterized_test!(oprf_uniformity_unsigned {
+    PARAM_MESSAGE_2_CARRY_2_KS_PBS_GAUSSIAN_2M128
+});
+create_parameterized_test!(oprf_any_range_unsigned {
+    PARAM_MESSAGE_2_CARRY_2_KS_PBS_GAUSSIAN_2M128
+});
+create_parameterized_test!(oprf_almost_uniformity_unsigned {
+    PARAM_MESSAGE_2_CARRY_2_KS_PBS_GAUSSIAN_2M128
+});
+
+fn oprf_uniformity_unsigned<P>(param: P)
+where
+    P: Into<TestParameters>,
+{
+    let executor =
+        CpuOprfExecutor::new(&|oprf_key: &OprfServerKey,
+                               seed: Seed,
+                               random_bits_count: u64,
+                               num_blocks: u64,
+                               sk: &ServerKey| {
+            oprf_key.par_generate_oblivious_pseudo_random_unsigned_integer_bounded(
+                seed,
+                random_bits_count,
+                num_blocks,
+                sk,
+            )
+        });
+    oprf_uniformity_test(param, executor);
+}
+
+fn oprf_any_range_unsigned<P>(param: P)
+where
+    P: Into<TestParameters>,
+{
+    let executor =
+        CpuOprfExecutor::new(&|oprf_key: &OprfServerKey,
+                               seed: Seed,
+                               num_input_random_bits: u64,
+                               excluded_upper_bound: u64,
+                               num_blocks_output: u64,
+                               sk: &ServerKey| {
+            oprf_key.par_generate_oblivious_pseudo_random_unsigned_custom_range(
+                seed,
+                num_input_random_bits,
+                NonZeroU64::new(excluded_upper_bound).unwrap(),
+                num_blocks_output,
+                sk,
+            )
+        });
+    oprf_any_range_test(param, executor);
+}
+
+fn oprf_almost_uniformity_unsigned<P>(param: P)
+where
+    P: Into<TestParameters>,
+{
+    let executor =
+        CpuOprfExecutor::new(&|oprf_key: &OprfServerKey,
+                               seed: Seed,
+                               num_input_random_bits: u64,
+                               excluded_upper_bound: u64,
+                               num_blocks_output: u64,
+                               sk: &ServerKey| {
+            oprf_key.par_generate_oblivious_pseudo_random_unsigned_custom_range(
+                seed,
+                num_input_random_bits,
+                NonZeroU64::new(excluded_upper_bound).unwrap(),
+                num_blocks_output,
+                sk,
+            )
+        });
+    oprf_almost_uniformity_test(param, executor);
+}
+
+pub(crate) fn square(a: f64) -> f64 {
+    a * a
+}
+
+pub(crate) fn uniformity_p_value<F>(f: F, sample_count: usize, distinct_values: u64) -> f64
+where
+    F: FnMut(usize) -> u64,
+{
+    let values: Vec<_> = (0..sample_count).map(f).collect();
+    let mut values_count = HashMap::new();
+    for i in &values {
+        *values_count.entry(i).or_insert(0) += 1;
+    }
+
+    let single_expected_count = sample_count as f64 / distinct_values as f64;
+
+    let distance: f64 = (0..distinct_values)
+        .map(|value| *values_count.get(&value).unwrap_or(&0))
+        .map(|count| square(count as f64 - single_expected_count) / single_expected_count)
+        .sum();
+
+    statrs::distribution::ChiSquared::new((distinct_values - 1) as f64)
+        .unwrap()
+        .sf(distance)
+}
+
+pub(crate) fn internal_test_uniformity<F>(
+    sample_count: usize,
+    p_value_limit: f64,
+    distinct_values: u64,
+    f: F,
+) where
+    F: FnMut(usize) -> u64,
+{
+    let p_value = uniformity_p_value(f, sample_count, distinct_values);
+    assert!(
+        p_value_limit < p_value,
+        "p_value (={p_value}) expected to be bigger than {p_value_limit}"
+    );
+}
+
+pub(crate) fn setup_oprf_test<I, O, E>(
+    param: impl Into<TestParameters>,
+    executor: &mut E,
+) -> RadixClientKey
+where
+    E: OpSequenceFunctionExecutor<I, O>,
+{
+    let (cks, mut sks) = KEY_CACHE.get_from_params(param, IntegerKeyKind::Radix);
+    sks.set_deterministic_pbs_execution(true);
+    let oprf_priv_key = OprfPrivateKey::new(&cks);
+
+    let mut rng = rand::thread_rng();
+    let seed: u128 = rng.gen();
+    println!("seed: {seed:?}");
+    let mut deterministic_seeder = DeterministicSeeder::<DefaultRandomGenerator>::new(Seed(seed));
+    let temp_cks = crate::ClientKey::from_raw_parts(
+        cks.clone(),
+        None,
+        None,
+        None,
+        None,
+        None,
+        Some(oprf_priv_key),
+        Tag::default(),
+    );
+    let comp_sks = crate::CompressedServerKey::new(&temp_cks);
+    let cks = RadixClientKey::from((cks, 1));
+    executor.setup(&cks, &comp_sks, &mut deterministic_seeder);
+    cks
+}
+
+pub(crate) fn oprf_uniformity_test<P, E>(param: P, mut executor: E)
+where
+    P: Into<TestParameters>,
+    E: for<'a> OpSequenceFunctionExecutor<(Seed, u64, u64), RadixCiphertext>,
+{
+    let cks = setup_oprf_test(param, &mut executor);
+
+    let sample_count: usize = 10_000;
+    let p_value_limit: f64 = 0.000_01;
+    let random_bits_count = 3;
+    let num_blocks = 2;
+    let distinct_values = 1u64 << random_bits_count;
+
+    internal_test_uniformity(sample_count, p_value_limit, distinct_values, |seed| {
+        let img: RadixCiphertext =
+            executor.execute((Seed(seed as u128), random_bits_count, num_blocks as u64));
+        cks.decrypt(&img)
+    });
+}
+
+pub(crate) fn oprf_any_range_test<P, E>(param: P, mut executor: E)
+where
+    P: Into<TestParameters>,
+    E: for<'a> OpSequenceFunctionExecutor<(Seed, u64, u64, u64), RadixCiphertext>,
+{
+    let cks = setup_oprf_test(param, &mut executor);
+
+    let num_loops = 100;
+
+    for s in 0..num_loops {
+        let seed = Seed(s);
+
+        for num_input_random_bits in [1, 2, 63, 64] {
+            for (excluded_upper_bound, num_blocks_output) in [(3, 1), (3, 32), ((1 << 32) + 1, 64)]
+            {
+                let img = executor.execute((
+                    seed,
+                    num_input_random_bits,
+                    excluded_upper_bound,
+                    num_blocks_output as u64,
+                ));
+
+                assert_eq!(img.blocks.len(), num_blocks_output);
+
+                let decrypted: u64 = cks.decrypt(&img);
+
+                assert!(decrypted < excluded_upper_bound);
+            }
+        }
+    }
+}
+
+pub(crate) fn oprf_almost_uniformity_test<P, E>(param: P, mut executor: E)
+where
+    P: Into<TestParameters>,
+    E: for<'a> OpSequenceFunctionExecutor<(Seed, u64, u64, u64), RadixCiphertext>,
+{
+    let cks = setup_oprf_test(param, &mut executor);
+
+    let sample_count: usize = 10_000;
+    let p_value_limit: f64 = 0.001;
+    let num_input_random_bits: u64 = 4;
+    let num_blocks_output = 64;
+    let excluded_upper_bound = 10;
+
+    let values: Vec<u64> = (0..sample_count)
+        .map(|seed| {
+            let img = executor.execute((
+                Seed(seed as u128),
+                num_input_random_bits,
+                excluded_upper_bound,
+                num_blocks_output,
+            ));
+            cks.decrypt(&img)
+        })
+        .collect();
+
+    let p_value_upper_bound = p_value_upper_bound_oprf_almost_uniformity_from_values(
+        &values,
+        num_input_random_bits,
+        excluded_upper_bound,
+    );
+
+    assert!(p_value_limit < p_value_upper_bound);
+}
+
+pub(crate) fn p_value_upper_bound_oprf_almost_uniformity_from_values(
+    values: &[u64],
+    num_input_random_bits: u64,
+    excluded_upper_bound: u64,
+) -> f64 {
+    let density = oprf_density_function(excluded_upper_bound, num_input_random_bits);
+
+    let theoretical_pdf = probability_density_function_from_density(&density);
+
+    let mut bins = vec![0_u64; excluded_upper_bound as usize];
+    for value in values.iter().copied() {
+        bins[value as usize] += 1;
+    }
+
+    let cumulative_bins = cumulate(&bins);
+    let theoretical_cdf = cumulate(&theoretical_pdf);
+    let sup_diff = sup_diff(&cumulative_bins, &theoretical_cdf);
+
+    dkw_alpha_from_epsilon(values.len() as f64, sup_diff)
+}
+
+pub(crate) fn oprf_density_function(
+    excluded_upper_bound: u64,
+    num_input_random_bits: u64,
+) -> Vec<usize> {
+    let random_input_upper_bound = 1 << num_input_random_bits;
+
+    let mut density = vec![0_usize; excluded_upper_bound as usize];
+
+    for i in 0..random_input_upper_bound {
+        let output = ((i * excluded_upper_bound) >> num_input_random_bits) as usize;
+
+        density[output] += 1;
+    }
+    density
+}
+
+pub(crate) fn probability_density_function_from_density(density: &[usize]) -> Vec<f64> {
+    let total_count: usize = density.iter().copied().sum();
+
+    density
+        .iter()
+        .map(|count| *count as f64 / total_count as f64)
+        .collect()
+}

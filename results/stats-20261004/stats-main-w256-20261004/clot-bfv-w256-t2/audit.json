@@ -1,0 +1,61 @@
+{
+  "run": "<pkg>/results/stats-main-w256-20261004/clot-bfv-w256-t2/raw",
+  "validated_cases": 4,
+  "cases": [
+    {
+      "file": "w256-random-r0.json",
+      "sha256": "9e7e56df10634d5000ed6a4499e2534fd3e4f57f2293d25722a824aa0e340f29",
+      "warmup": true
+    },
+    {
+      "file": "w256-random-r1.json",
+      "sha256": "5ed03d433ca4597d7e8a5a88a531498252198a412c9a044117d9432959f8cd73",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r2.json",
+      "sha256": "7d60895157b311a16cf57c0a89d79817530e8f01c728d59bd196e00c4a1068e4",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r3.json",
+      "sha256": "f6d3de1aad8ba19001755dc71b963bad7607523072918661c4a36527f4ba6abc",
+      "warmup": false
+    }
+  ],
+  "manifest_sha256": "bd1e17f448391073c5c377758d24c2e4b47faa2304d36aef354991ec64fc3fbb",
+  "audit_source_sha256": "affb653ba65e5282b29cc1b55adac4b437e47385efe924473ab107b4ac704e80",
+  "noise_model_sha256": "69160a6a988a33107717a2d240c12b8d78bfda301c6bda48dbe4bfe920292381",
+  "primitive_model_sha256": "e2e12dad5a9a35ab2d1042fd7245ee91494ce0e4eacd8f8647e7514ea35ab91b",
+  "serial_ciphertext_equivalence_checked": false,
+  "summaries": [
+    {
+      "width": 256,
+      "pattern": "random",
+      "threads": 2,
+      "repetitions": 3,
+      "warmup": 1,
+      "seconds": [
+        69.478229175,
+        69.168958512,
+        69.256656398
+      ],
+      "mean_seconds": 69.30128136166667,
+      "sample_sd_seconds": 0.1593914247530337,
+      "mean_stage_seconds": {
+        "digit_decomposition": 13.878191338666667,
+        "extraction": 0.00024540233333333335,
+        "input_rescale": 38.57748543833333,
+        "normalization": 12.466278822333333,
+        "packing": 4.370983697,
+        "relinearization": 0.0021401723333333332,
+        "tensor": 0.0044843949999999995
+      },
+      "conditional_union_log2": -145.51605066565025,
+      "pbs": 2521,
+      "ks": 1972
+    }
+  ],
+  "whole_multiplier_approved": false,
+  "timing_contract": "continuous-evaluator-wall-clock-v1"
+}

@@ -1,0 +1,116 @@
+{
+  "command": [
+    "<pkg>/build/ring/release/mvb_radix_mul",
+    "--width",
+    "64",
+    "--threads",
+    "8",
+    "--repetitions",
+    "5",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/bernard-w64-20261005/bernard-mvb-w64-t8/raw",
+    "--schedule",
+    "<pkg>/results/bernard-w64-20261005/bernard-mvb-w64-t8/schedule.json",
+    "--ks",
+    "4,4"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "8"
+  },
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "thread_budget": 8,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "bernard-mvb",
+    "width": 64,
+    "contract": {
+      "family": "bernard",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W clean radix-4",
+      "failure_status": "model-schedule",
+      "tfhe_rs": "1.6.1",
+      "phi": 12.8,
+      "ks": [
+        4,
+        4
+      ],
+      "note": "Our reimplementation of Bernard et al. (ePrint 2026/2310), Ours (w/ shift), PG,12.8 of their Table 1 (n=930, KS (4,4), PBS (23,1)), heaviest rule, balanced order, TFHE-rs 1.6.1 carry propagation."
+    },
+    "whole_multiplier_approved": false,
+    "analysis": {
+      "1": {
+        "ab": -126.0132589672093,
+        "identical": -126.00989346097177,
+        "blind_rotations": 885,
+        "ticks": 885
+      },
+      "2": {
+        "ab": -126.01260668664163,
+        "identical": -126.00924269992225,
+        "blind_rotations": 885,
+        "ticks": 443
+      },
+      "4": {
+        "ab": -126.00302540378495,
+        "identical": -125.99968365831508,
+        "blind_rotations": 885,
+        "ticks": 222
+      },
+      "8": {
+        "ab": -126.02082924087567,
+        "identical": -126.01744604910095,
+        "blind_rotations": 888,
+        "ticks": 112
+      },
+      "16": {
+        "ab": -126.0497712706812,
+        "identical": -126.04631960499646,
+        "blind_rotations": 890,
+        "ticks": 57
+      },
+      "32": {
+        "ab": -126.10512038830964,
+        "identical": -126.10153389382263,
+        "blind_rotations": 902,
+        "ticks": 30
+      },
+      "64": {
+        "ab": -126.20868188962797,
+        "identical": -126.20482883516891,
+        "blind_rotations": 932,
+        "ticks": 17
+      }
+    },
+    "whole_product_log2_estimate": -125.99968365831508,
+    "failure_basis": "conditional Gaussian screen over the public folding schedule",
+    "failure_target_met": false,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "45936e7475de3f152dba487743f924b68c1335d78e4a8559b888e1b78775dab7",
+  "exit_code": 0,
+  "process_elapsed_seconds": 17.35661005694419,
+  "peak_rss_bytes": 151277568,
+  "user_cpu_seconds": 131.557358,
+  "system_cpu_seconds": 0.269074,
+  "validated": true
+}

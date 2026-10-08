@@ -1,0 +1,4 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+st-r2-n704,256,16,5,17.5756175554,0.050694861903444334,lower-W small-key CC2,conditional-gaussian,False,True,-153.31665761657274,True,conditional Gaussian screen,True,917139456
+st-r2-n704,256,32,5,10.077290023,0.0525250892307704,lower-W small-key CC2,conditional-gaussian,False,True,-153.31665761657274,True,conditional Gaussian screen,True,945127424
+st-r2-n704,256,64,5,9.241979404,0.038491727326740055,lower-W small-key CC2,conditional-gaussian,False,True,-153.31665761657274,True,conditional Gaussian screen,True,1007742976

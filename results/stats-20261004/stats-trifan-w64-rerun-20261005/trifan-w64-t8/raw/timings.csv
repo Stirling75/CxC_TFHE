@@ -1,0 +1,5 @@
+method,preset,width,output_width,threads,pattern,seed,trial,warmup,input_state,input_pbs,logical_lut_calls,trivial_lut_calls,real_pbs,library_pbs_count,total_s,x_hex,y_hex,expected_hex,output_hex,ok
+trifan-pruned,m1c1-gaussian,64,64,8,random,20260908,0,true,bootstrapped,128,6176,0,6176,6176,11.940370651,8563d9f7e1bfbbc8,d50bf4e6cdf431c1,f7decfe5071dd9c8,f7decfe5071dd9c8,true
+trifan-pruned,m1c1-gaussian,64,64,8,random,20260908,1,false,bootstrapped,128,6176,0,6176,6176,11.935890607,39a4f881cd830f4d,b4f2e26b494444f1,5078c2254de5db7d,5078c2254de5db7d,true
+trifan-pruned,m1c1-gaussian,64,64,8,random,20260908,2,false,bootstrapped,128,6176,0,6176,6176,11.942661376,2dfcb37dfbbeb900,da7715e3c68aa44a,3ef2da96ada57a00,3ef2da96ada57a00,true
+trifan-pruned,m1c1-gaussian,64,64,8,random,20260908,3,false,bootstrapped,128,6176,0,6176,6176,11.938473932,12874e0329af204e,ee99944ca5447d5b,db2de7f92ebe91ba,db2de7f92ebe91ba,true

@@ -1,0 +1,15 @@
+{
+  "name": "st-cc2-n1088-candidate",
+  "lwe_dimension": 1088,
+  "polynomial_size": 2048,
+  "glwe_dimension": 1,
+  "lwe_sigma": 2.9802322387695312e-8,
+  "glwe_sigma": 9.25119974676756e-16,
+  "pbs": [11, 3],
+  "ks": [1, 23],
+  "auto": [8, 6],
+  "ss": [13, 4],
+  "cbs": [5, 4],
+  "terminal_lut_count_log": 1,
+  "split_trace_fft": true
+}

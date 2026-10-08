@@ -1,0 +1,5 @@
+method,width,threads,trial,warmup,total_seconds,folding_seconds,propagation_seconds,blind_rotations,propagation_pbs,ok
+bernard-mvb,256,32,0,true,11.437817845,10.885870211,0.551947634,14319,754,true
+bernard-mvb,256,32,1,false,11.287486919,10.708066788,0.579420131,14319,754,true
+bernard-mvb,256,32,2,false,11.272277208,10.666414173,0.605863035,14319,754,true
+bernard-mvb,256,32,3,false,11.379620605,10.827494072,0.552126533,14319,754,true

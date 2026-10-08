@@ -1,0 +1,14 @@
+bkw                  :: rop: ≈2^340.9, m: ≈2^325.0, mem: ≈2^326.0, b: 5, t1: 0, t2: 66, ℓ: 4, #cod: 1883, #top: 0, #test: 172, tag: coded-bkw
+usvp                 :: rop: ≈2^136.1, red: ≈2^136.1, δ: 1.004210, β: 369, d: 3862, tag: usvp
+bdd                  :: rop: ≈2^135.0, red: ≈2^134.7, svp: ≈2^132.3, β: 364, η: 397, d: 3950, tag: bdd
+dual                 :: rop: ≈2^138.3, mem: ≈2^88.9, m: 1965, β: 373, d: 4013, ↻: 1, tag: dual
+dual_hybrid          :: rop: ≈2^133.3, red: ≈2^133.3, guess: ≈2^128.0, β: 355, p: 2, ζ: 0, t: 110, β': 370, N: ≈2^76.0, m: ≈2^11.0
+glwe-512x4-48.3 arora-gb inf
+glwe-512x4-48.3 bkw 340.92192756776166
+glwe-512x4-48.3 usvp 136.06185418393497
+glwe-512x4-48.3 bdd 134.96750601042004
+glwe-512x4-48.3 bdd_hybrid 134.97758609994366
+glwe-512x4-48.3 bdd_mitm_hybrid 163.12342663420424
+glwe-512x4-48.3 dual 138.32977499530284
+glwe-512x4-48.3 dual_hybrid 133.34882979707908
+RESULT glwe-512x4-48.3 n=2048 log2sigma=-48.3: 133.35 (dual_hybrid)

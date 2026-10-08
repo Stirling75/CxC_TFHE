@@ -1,0 +1,101 @@
+{
+  "N": 2048,
+  "author_implementation": false,
+  "boundary_delta_log2": 52,
+  "cc2_key": "extracted big key, pre-PBS key switching",
+  "counts": {
+    "br_per_terminal_cbs": 2,
+    "dadda_compressors": 0,
+    "dadda_layers": 0,
+    "emission_pbs": 8,
+    "ggsw_conversions": 47,
+    "input_grouped_cbs": 16,
+    "key_switches": 32,
+    "product_bits": 32,
+    "product_cmux": 1344,
+    "product_cmux_per_bit": 42,
+    "segments": 1,
+    "terminal_binary_cbs": 15,
+    "terminal_cmux": 30,
+    "terminal_note": "Independent four-CMux realization of the paper's two-level two-state step; not recovered author gate counts",
+    "total_blind_rotations": 54
+  },
+  "ggsw": [
+    5,
+    4
+  ],
+  "glwe_sigma": 9.251199746767559e-16,
+  "grouped_selector_box_centering": "q/16; adopted from local audited lift, not confirmed author configuration",
+  "input_preparation": "identity PBS and closing KS produce small-key CC2 inputs outside timing",
+  "inspect": false,
+  "k": 1,
+  "ks": [
+    2,
+    7
+  ],
+  "lwe_dimension": 688,
+  "lwe_sigma": 0.000029478037381739656,
+  "method": "independent revised-ST reconstruction",
+  "noise_source": "independently selected candidate; see parameter_set",
+  "paper_CC2_boundary": true,
+  "paper_revision": "2026-07-30",
+  "paper_tfhe_rs_version": "1.7.0",
+  "parameter_set": {
+    "auto": [
+      5,
+      9
+    ],
+    "cbs": [
+      5,
+      4
+    ],
+    "cc2_big_key": true,
+    "glwe_dimension": 1,
+    "glwe_sigma": 9.251199746767559e-16,
+    "ks": [
+      2,
+      7
+    ],
+    "lwe_dimension": 688,
+    "lwe_sigma": 0.000029478037381739656,
+    "name": "st-cc2-r2-n688",
+    "pbs": [
+      11,
+      3
+    ],
+    "polynomial_size": 2048,
+    "split_trace_fft": true,
+    "ss": [
+      10,
+      5
+    ],
+    "terminal_lut_count_log": 1
+  },
+  "pattern": "Random",
+  "pbs": [
+    11,
+    3
+  ],
+  "publication_ready": false,
+  "repetitions": 5,
+  "retuned_candidate": true,
+  "scope": "Diagnostic reconstruction, including final PBS and closing KS. Inspection is outside stage timers but inside total_s; inspected total_s is not a benchmark latency. No author speedup or target-128 claim.",
+  "seed": 20260908,
+  "ss": [
+    10,
+    5
+  ],
+  "tfhe_rs_version": "1.6.1",
+  "theta_input": 2,
+  "theta_terminal": 1,
+  "threads": 1,
+  "total_s_includes_inspection": false,
+  "trace": [
+    5,
+    9
+  ],
+  "trace_fft": "split40",
+  "warmup": 1,
+  "whole_multiplier_failure_bound": null,
+  "width": 16
+}

@@ -1,0 +1,46 @@
+[package]
+name = "ring-variant-multiplier"
+version = "0.1.0"
+edition = "2021"
+publish = false
+autobins = false
+
+[[bin]]
+name = "ring_variant_hybrid"
+path = "src/bin/hybrid_cxc.rs"
+
+[[bin]]
+name = "tfhe_radix_baseline"
+path = "src/bin/tfhe_radix_baseline.rs"
+
+[[bin]]
+name = "mvb_radix_mul"
+path = "src/bin/mvb_radix_mul.rs"
+
+[[bin]]
+name = "st_boundary_probe"
+path = "src/bin/st_boundary_probe.rs"
+
+[[bin]]
+name = "st_revised_reconstruction"
+path = "src/bin/st_revised_reconstruction.rs"
+
+[dependencies]
+anyhow = "1.0"
+aligned-vec = "0.5.0"
+clap = { version = "4.5", features = ["derive"] }
+csv = "1.3"
+dyn-stack = "0.13"
+rand = { version = "0.8", features = ["small_rng"] }
+rayon = "1.10"
+reborrow = "0.5"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tfhe = { version = "=1.6.1", features = ["integer", "shortint", "pbs-stats"] }
+tfhe-fft = "0.10"
+
+[features]
+# Measurement-only noise audit: enables the CBS_NOISE_PROBE decryption
+# callback used by scripts/failure_analysis/. The released benchmark binary
+# is built without it, so no decryption path exists in normal runs.
+noise-audit = []

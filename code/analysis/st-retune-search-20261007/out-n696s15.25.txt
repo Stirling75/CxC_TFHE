@@ -1,0 +1,9 @@
+base cost 1.000, union -103.89; 385 (pbs,ks) pairs pass the lift pre-filter
+{"relative_cost": 0.955, "max_union_log2": -162.66, "pbs": [11, 3], "ks": [2, 7], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"relative_cost": 0.955, "max_union_log2": -162.6, "pbs": [12, 3], "ks": [2, 7], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"relative_cost": 0.955, "max_union_log2": -134.17, "pbs": [13, 3], "ks": [2, 7], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"relative_cost": 0.965, "max_union_log2": -148.57, "pbs": [11, 3], "ks": [2, 8], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"relative_cost": 0.965, "max_union_log2": -148.52, "pbs": [12, 3], "ks": [2, 8], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"relative_cost": 0.975, "max_union_log2": -134.51, "pbs": [11, 3], "ks": [2, 9], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"relative_cost": 0.975, "max_union_log2": -134.47, "pbs": [12, 3], "ks": [2, 9], "auto": [5, 9], "ss": [10, 5], "cbs": [5, 4]}
+{"fft_scale": 1.0, "target": -128.0, "found": 7}

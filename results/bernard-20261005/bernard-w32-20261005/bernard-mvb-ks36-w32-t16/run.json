@@ -1,0 +1,124 @@
+{
+  "command": [
+    "<pkg>/build/ring/release/mvb_radix_mul",
+    "--width",
+    "32",
+    "--threads",
+    "16",
+    "--repetitions",
+    "5",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/bernard-w32-20261005/bernard-mvb-ks36-w32-t16/raw",
+    "--schedule",
+    "<pkg>/results/bernard-w32-20261005/bernard-mvb-ks36-w32-t16/schedule.json",
+    "--ks",
+    "3,6"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "16"
+  },
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "thread_budget": 16,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "bernard-mvb-ks36",
+    "width": 32,
+    "contract": {
+      "family": "bernard",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W clean radix-4",
+      "failure_status": "model-schedule",
+      "tfhe_rs": "1.6.1",
+      "phi": 12.8,
+      "ks": [
+        3,
+        6
+      ],
+      "note": "As bernard-mvb with the key switch (3,6), the cheapest change found that meets the whole-multiplication target at every width (phi_max 12.8 kept; lower phi does not help)."
+    },
+    "whole_multiplier_approved": false,
+    "analysis": {
+      "1": {
+        "ab": -135.07693922622295,
+        "identical": -135.07147522071335,
+        "blind_rotations": 218,
+        "ticks": 218
+      },
+      "2": {
+        "ab": -135.07370474816304,
+        "identical": -135.0682529559734,
+        "blind_rotations": 218,
+        "ticks": 109
+      },
+      "4": {
+        "ab": -135.05608185692043,
+        "identical": -135.05069613129652,
+        "blind_rotations": 218,
+        "ticks": 55
+      },
+      "8": {
+        "ab": -135.13374357307777,
+        "identical": -135.1280605691382,
+        "blind_rotations": 221,
+        "ticks": 28
+      },
+      "16": {
+        "ab": -135.25403681505713,
+        "identical": -135.24786069742123,
+        "blind_rotations": 224,
+        "ticks": 15
+      },
+      "32": {
+        "ab": -135.40518683436096,
+        "identical": -135.39833015663572,
+        "blind_rotations": 231,
+        "ticks": 9
+      },
+      "64": {
+        "ab": -135.66100017614096,
+        "identical": -135.65281700947236,
+        "blind_rotations": 241,
+        "ticks": 6
+      }
+    },
+    "whole_product_log2_estimate": -135.05069613129652,
+    "failure_basis": "conditional Gaussian screen over the public folding schedule",
+    "failure_target_met": true,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "45936e7475de3f152dba487743f924b68c1335d78e4a8559b888e1b78775dab7",
+  "exit_code": 0,
+  "process_elapsed_seconds": 3.8934571869904175,
+  "peak_rss_bytes": 172937216,
+  "user_cpu_seconds": 43.91394,
+  "system_cpu_seconds": 0.185999,
+  "validated": true
+}

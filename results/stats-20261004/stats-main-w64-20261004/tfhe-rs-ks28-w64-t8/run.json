@@ -1,0 +1,70 @@
+{
+  "command": [
+    "<pkg>/build/ring/release/tfhe_radix_baseline",
+    "--width",
+    "64",
+    "--threads",
+    "8",
+    "--repetitions",
+    "5",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/stats-main-w64-20261004/tfhe-rs-ks28-w64-t8/raw",
+    "--ks",
+    "2,8"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "8"
+  },
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "thread_budget": 8,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "tfhe-rs-ks28",
+    "width": 64,
+    "contract": {
+      "family": "radix",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W clean radix-4",
+      "failure_status": "model-per-PBS",
+      "tfhe_rs": "1.6.1",
+      "primitive_log2_p_fail": -148.8,
+      "ks": [
+        2,
+        8
+      ],
+      "note": "TFHE-rs 1.6.1 mul_parallelized with the default 2M128 Gaussian set and the key switch (2,8) of our restoration. Per-PBS estimate under our model at the maximum noise level 5: 2^-148.8 (2^-128.9 with the default KS (3,5), matching the library label 2^-128.6)."
+    },
+    "whole_multiplier_approved": false,
+    "whole_product_log2_estimate": -138.008837111445,
+    "failure_basis": "per-PBS library label + log2(measured PBS count), union bound",
+    "failure_target_met": true,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "62dd15b4c437a7a3d7c5f0353201930acae7c33b9b60d8bac484df95af5d1530",
+  "exit_code": 0,
+  "process_elapsed_seconds": 27.899254566058517,
+  "peak_rss_bytes": 211521536,
+  "user_cpu_seconds": 213.277334,
+  "system_cpu_seconds": 0.289939,
+  "validated": true
+}

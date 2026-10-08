@@ -1,0 +1,46 @@
+{
+  "command": [
+    "<pkg>/build/parmesan/release/parmesan-benchmark",
+    "32",
+    "1",
+    "5",
+    "1",
+    "<pkg>/results/stats-parmesan-w32-20261004/parmesan-w32-t1/raw",
+    "20260908"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "1"
+  },
+  "cpu_ids": [
+    0
+  ],
+  "thread_budget": 1,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "parmesan",
+    "width": 32,
+    "contract": {
+      "family": "parmesan",
+      "widths": [
+        16,
+        32
+      ],
+      "output": "full redundant signed binary",
+      "failure_status": "native-unanalysed",
+      "note": "Author algorithm on TFHE-rs 0.5.4. Extra OS threads are restricted by Linux CPU affinity, not by Rayon count."
+    },
+    "whole_multiplier_approved": false,
+    "whole_product_log2_estimate": -28.86,
+    "failure_basis": "Gaussian model of TFHE-rs 0.5.4 M4_C0 (about 2^-40 per PBS) over 725 / 2617 PBS, union bound",
+    "failure_target_met": false,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "2dfe9a2f268191541751af4bd76f749375e6b5cdac12c3ce76cac7090015335c",
+  "exit_code": 0,
+  "process_elapsed_seconds": 206.77682300901506,
+  "peak_rss_bytes": 148996096,
+  "user_cpu_seconds": 206.478608,
+  "system_cpu_seconds": 0.255948,
+  "validated": true
+}

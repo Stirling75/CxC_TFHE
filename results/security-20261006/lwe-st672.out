@@ -1,0 +1,14 @@
+bkw                  :: rop: ≈2^207.7, m: ≈2^195.2, mem: ≈2^196.2, b: 3, t1: 0, t2: 18, ℓ: 2, #cod: 610, #top: 0, #test: 64, tag: coded-bkw
+usvp                 :: rop: ≈2^137.8, red: ≈2^137.8, δ: 1.004104, β: 383, d: 1196, tag: usvp
+bdd                  :: rop: ≈2^134.9, red: ≈2^134.3, svp: ≈2^133.5, β: 370, η: 401, d: 1196, tag: bdd
+dual                 :: rop: ≈2^142.8, mem: ≈2^92.1, m: 576, β: 397, d: 1248, ↻: 1, tag: dual
+dual_hybrid          :: rop: ≈2^130.4, red: ≈2^130.1, guess: ≈2^128.0, β: 351, p: 2, ζ: 0, t: 110, β': 359, N: ≈2^74.2, m: 672
+lwe-st672 arora-gb inf
+lwe-st672 bkw 207.6580161789758
+lwe-st672 usvp 137.84360583014018
+lwe-st672 bdd 134.91101529748457
+lwe-st672 bdd_hybrid 134.9352645126042
+lwe-st672 bdd_mitm_hybrid 164.49826497210353
+lwe-st672 dual 142.83047305967617
+lwe-st672 dual_hybrid 130.40736626487305
+RESULT lwe-st672 n=672 log2sigma=-14.35: 130.41 (dual_hybrid)

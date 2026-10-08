@@ -1,0 +1,107 @@
+{
+  "estimator_commit": "6019056011d10d7e9c30a0d5da2d2f729fbc2eec",
+  "sage": "SageMath version 10.9.rc0, Release Date: 2026-04-19",
+  "note": "GLWE rows are the kN-dimensional LWE proxy, not a ring-specific proof.",
+  "rows": [
+    {
+      "name": "small-1024-sigma-minus25",
+      "n": 1024,
+      "sigma": 2.9802322387695312e-08,
+      "attacks_rop_log2": {
+        "arora-gb": Infinity,
+        "bkw": 210.55134590538978,
+        "usvp": 126.59002722149779,
+        "bdd": 124.82545991070691,
+        "bdd_hybrid": 124.84412970529874,
+        "bdd_mitm_hybrid": 151.78535957950623,
+        "dual": 129.55831018583024,
+        "dual_hybrid": 122.1910849719924
+      },
+      "minimum_rop_log2": 122.1910849719924,
+      "full_estimator": true,
+      "sample_model": "unlimited",
+      "secret_distribution": "binary",
+      "error_distribution": "discrete Gaussian"
+    },
+    {
+      "name": "small-1088-sigma-minus25",
+      "n": 1088,
+      "sigma": 2.9802322387695312e-08,
+      "attacks_rop_log2": {
+        "arora-gb": Infinity,
+        "bkw": 211.0327945538624,
+        "usvp": 134.71548075329775,
+        "bdd": 132.92240375330744,
+        "bdd_hybrid": 132.94353077414263,
+        "bdd_mitm_hybrid": 161.31210520514009,
+        "dual": 138.0534057965056,
+        "dual_hybrid": 129.62202981194332
+      },
+      "minimum_rop_log2": 129.62202981194332,
+      "full_estimator": true,
+      "sample_model": "unlimited",
+      "secret_distribution": "binary",
+      "error_distribution": "discrete Gaussian"
+    },
+    {
+      "name": "small-1152-sigma-minus25",
+      "n": 1152,
+      "sigma": 2.9802322387695312e-08,
+      "attacks_rop_log2": {
+        "arora-gb": Infinity,
+        "bkw": 264.87370923659734,
+        "usvp": 143.0812855455521,
+        "bdd": 141.1028511944862,
+        "bdd_hybrid": 141.11921919778848,
+        "bdd_mitm_hybrid": 170.9679747776631,
+        "dual": 146.39784707748666,
+        "dual_hybrid": 137.32845831493336
+      },
+      "minimum_rop_log2": 137.32845831493336,
+      "full_estimator": true,
+      "sample_model": "unlimited",
+      "secret_distribution": "binary",
+      "error_distribution": "discrete Gaussian"
+    },
+    {
+      "name": "small-1152-sigma-minus26",
+      "n": 1152,
+      "sigma": 1.4901161193847656e-08,
+      "attacks_rop_log2": {
+        "arora-gb": Infinity,
+        "bkw": 248.50755836061685,
+        "usvp": 137.60021991620474,
+        "bdd": 135.89304921167044,
+        "bdd_hybrid": 135.90595065174674,
+        "bdd_mitm_hybrid": 164.80092094765476,
+        "dual": 140.81846308293345,
+        "dual_hybrid": 132.57599929918413
+      },
+      "minimum_rop_log2": 132.57599929918413,
+      "full_estimator": true,
+      "sample_model": "unlimited",
+      "secret_distribution": "binary",
+      "error_distribution": "discrete Gaussian"
+    },
+    {
+      "name": "glwe-proxy-2048",
+      "n": 2048,
+      "sigma": 9.25119974676756e-16,
+      "attacks_rop_log2": {
+        "arora-gb": Infinity,
+        "bkw": 340.92192756776166,
+        "usvp": 131.38947137152167,
+        "bdd": 130.45574811634287,
+        "bdd_hybrid": 130.47199016336603,
+        "bdd_mitm_hybrid": 157.46541101442907,
+        "dual": 133.60624459999104,
+        "dual_hybrid": 129.16862115563487
+      },
+      "minimum_rop_log2": 129.16862115563487,
+      "full_estimator": true,
+      "sample_model": "unlimited",
+      "secret_distribution": "binary",
+      "error_distribution": "discrete Gaussian"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "command": [
+    "<pkg>/build/bitwise/release/bitwise-campaign",
+    "--preset",
+    "m1c1-gaussian",
+    "--methods",
+    "trifan-pruned",
+    "--widths",
+    "256",
+    "--threads",
+    "16",
+    "--patterns",
+    "random",
+    "--repetitions",
+    "2",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/w256-t2-64-20261002/trifan-w256-t16/raw",
+    "--allow-unverified-parameters"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "16"
+  },
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "thread_budget": 16,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "trifan",
+    "width": 256,
+    "contract": {
+      "family": "bitwise",
+      "circuit": "trifan-pruned",
+      "preset": "m1c1-gaussian",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W bits",
+      "failure_status": "library-per-PBS",
+      "primitive_log2_p_fail": -128.186,
+      "note": "Our iterative CSA shortint port with unused upper columns/carries pruned."
+    },
+    "whole_multiplier_approved": false,
+    "logical_lut_calls": 98432,
+    "primitive_log2_p_fail": -128.186,
+    "whole_product_log2_estimate": -111.59916021203819,
+    "failure_basis": "per-PBS library label + log2(logical LUT calls), union bound",
+    "failure_target_met": false,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "ce70e96c1c69d22dcdcd3c70a36656980ff692107c2185c9305d9f18775731e8",
+  "exit_code": 0,
+  "process_elapsed_seconds": 289.36777143890504,
+  "peak_rss_bytes": 175636480,
+  "user_cpu_seconds": 4337.992006,
+  "system_cpu_seconds": 1.343942,
+  "validated": true
+}

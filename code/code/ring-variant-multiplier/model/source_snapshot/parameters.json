@@ -1,0 +1,189 @@
+{
+  "tfhe_rs": {
+    "version": "1.6.1",
+    "parameter": "PARAM_MESSAGE_2_CARRY_2_KS_PBS_GAUSSIAN_2M128",
+    "lwe_dimension": 866,
+    "glwe_dimension": 1,
+    "polynomial_size": 2048,
+    "lwe_noise_standard_deviation": 2.046151696979124e-06,
+    "glwe_noise_standard_deviation": 2.845267479601915e-15,
+    "pbs": [
+      23,
+      1
+    ],
+    "key_switch": [
+      3,
+      5
+    ],
+    "log2_p_fail": -128.597
+  },
+  "hybrid_common": {
+    "tfhe_profile": "m2c2-gaussian",
+    "normalizer_capacity": 15,
+    "normalizer_pbs": [
+      23,
+      1
+    ],
+    "normalizer_key_switch": [
+      2,
+      8
+    ],
+    "automorphism": [
+      9,
+      5
+    ],
+    "scheme_switch": [
+      13,
+      3
+    ],
+    "direct_log_lut_count": 2,
+    "row_bits": 4,
+    "output_row_bits": 4,
+    "centered_normalizer_modulus_switch": true,
+    "selector_lift_centered_ms": true,
+    "selector_box_centered": true,
+    "target_failure_bits": 128,
+    "failure_estimation_model": "source-aware Gaussian estimate with analytic variance propagation, a whole-multiplier union bound, and a strict raw log2(p_fail) < -128 gate; see scripts/failure_analysis/",
+    "failure_bound_derivation": "scripts/failure_analysis/verify_failure_bounds.py"
+  },
+  "hybrid_4x4": {
+    "selector_lift_pbs": [
+      12,
+      3
+    ],
+    "selector_lift_key_switch": [
+      7,
+      2
+    ],
+    "circuit_bootstrap": [
+      4,
+      5
+    ],
+    "estimated_worst_union_log2_p_fail": -133.7339909333571,
+    "union_log2_p_fail_by_width": {
+      "16": -141.62764837912184,
+      "32": -139.52788694325073,
+      "64": -137.63100726610185,
+      "128": -135.69831451833184,
+      "256": -133.7339909333571
+    },
+    "estimated_worst_union_log2_p_fail_squaring": -132.49042592246127,
+    "union_log2_p_fail_by_width_squaring": {
+      "16": -135.29405122376454,
+      "32": -135.00186569145387,
+      "64": -134.5285143697981,
+      "128": -133.6640310840359,
+      "256": -132.49042592246127
+    }
+  },
+  "hybrid_8x8": {
+    "selector_lift_pbs": [
+      9,
+      4
+    ],
+    "selector_lift_key_switch": [
+      7,
+      2
+    ],
+    "circuit_bootstrap": [
+      3,
+      6
+    ],
+    "lookup_prefix_bits": 8,
+    "estimated_worst_union_log2_p_fail": -129.58938750414472,
+    "union_log2_p_fail_by_width": {
+      "16": -141.61433057052196,
+      "32": -136.0810573843057,
+      "64": -133.78538922408163,
+      "128": -131.6573130024517,
+      "256": -129.58938750414472
+    },
+    "estimated_worst_union_log2_p_fail_squaring": -129.51847172689864,
+    "union_log2_p_fail_by_width_squaring": {
+      "16": -141.21685214844726,
+      "32": -135.49046900107817,
+      "64": -133.51528243651154,
+      "128": -131.52329562189075,
+      "256": -129.51847172689864
+    }
+  },
+  "submitted_reference": {
+    "normalizer_pbs": [
+      23,
+      1
+    ],
+    "normalizer_key_switch": [
+      2,
+      8
+    ],
+    "automorphism": [
+      7,
+      7
+    ],
+    "scheme_switch": [
+      17,
+      2
+    ],
+    "selector_lift_key_switch": [
+      4,
+      4
+    ],
+    "hybrid_4x4": {
+      "selector_lift_pbs": [
+        12,
+        3
+      ],
+      "circuit_bootstrap": [
+        3,
+        6
+      ],
+      "w256_squaring_log2_p_fail": -130.95294700947395
+    },
+    "hybrid_8x8": {
+      "selector_lift_pbs": [
+        9,
+        4
+      ],
+      "circuit_bootstrap": [
+        3,
+        6
+      ],
+      "w256_squaring_log2_p_fail": -125.85786057688827
+    }
+  },
+  "shokri_tsoutsos": {
+    "parameter": "SHOKRI_TSOUTSOS_TABLE1",
+    "limb_bits": 16,
+    "product_chunk_bits": 8,
+    "lwe_dimension": 768,
+    "glwe_dimension": 2,
+    "polynomial_size": 1024,
+    "lwe_noise_standard_deviation": 8.763872947670246e-06,
+    "glwe_noise_standard_deviation": 9.25119974676756e-16,
+    "pbs": [
+      15,
+      2
+    ],
+    "key_switch": [
+      3,
+      4
+    ],
+    "automorphism": [
+      8,
+      5
+    ],
+    "scheme_switch": [
+      17,
+      2
+    ],
+    "circuit_bootstrap": [
+      7,
+      2
+    ],
+    "log_lut_count": 2,
+    "vartheta": 1,
+    "tau": 2,
+    "centered_modulus_switch": true,
+    "paper_reported_log2_p_fail": -157.25
+  }
+}

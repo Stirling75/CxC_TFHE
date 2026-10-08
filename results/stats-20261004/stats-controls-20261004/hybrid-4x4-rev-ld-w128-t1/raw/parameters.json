@@ -1,0 +1,65 @@
+{
+  "auto": [
+    8,
+    5
+  ],
+  "auto_fft": "split40",
+  "carry_modulus": 4,
+  "cbs": [
+    6,
+    3
+  ],
+  "cbs_ring": [
+    2048,
+    1
+  ],
+  "ciphertext_modulus": {
+    "modulus": 0,
+    "scalar_bits": 64
+  },
+  "glwe_noise_distribution": {
+    "Gaussian": {
+      "mean": 0.0,
+      "std": 2.845267479601915e-15
+    }
+  },
+  "input": "PBS-refreshed radix-4",
+  "input_scale": 8,
+  "ks": [
+    2,
+    8
+  ],
+  "lift_ks": [
+    7,
+    2
+  ],
+  "lift_pbs": [
+    9,
+    4
+  ],
+  "log_lut_count": 2,
+  "lwe_dimension": 866,
+  "lwe_noise_distribution": {
+    "Gaussian": {
+      "mean": 0.0,
+      "std": 2.046151696979124e-6
+    }
+  },
+  "message_modulus": 4,
+  "normalizer_ring": [
+    2048,
+    1
+  ],
+  "operand_pattern": "random",
+  "pbs": [
+    23,
+    1
+  ],
+  "random_operands_seed": 20260908,
+  "ss": [
+    12,
+    4
+  ],
+  "tfhe_rs": "1.6.1",
+  "whole_multiplier_log2_failure": null
+}

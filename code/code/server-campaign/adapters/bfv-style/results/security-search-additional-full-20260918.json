@@ -1,0 +1,49 @@
+{
+  "estimator_commit": "6019056011d10d7e9c30a0d5da2d2f729fbc2eec",
+  "sage": "SageMath version 10.9.rc0, Release Date: 2026-04-19",
+  "reduction_cost_model": "<estimator.reduction.MATZOV object at 0x11d5e9010>",
+  "reduction_shape_model": "<function GSA at 0x11d6122a0>",
+  "note": "GLWE rows are the kN-dimensional LWE proxy, not a ring-specific proof.",
+  "rows": [
+    {
+      "name": "bfv-small-n800-sigma17",
+      "n": 800,
+      "sigma": 7.62939453125e-06,
+      "attacks_rop_log2": {
+        "arora-gb": "infinity",
+        "bkw": 207.59712148489695,
+        "usvp": 141.2454556449678,
+        "bdd": 138.5752030373792,
+        "bdd_hybrid": 138.59794600924548,
+        "bdd_mitm_hybrid": 168.62501297113823,
+        "dual": 145.45783045087438,
+        "dual_hybrid": 134.03319836213717
+      },
+      "minimum_rop_log2": 134.03319836213717,
+      "full_estimator": true,
+      "sample_model": "unlimited",
+      "secret_distribution": "binary",
+      "error_distribution": "discrete Gaussian"
+    },
+    {
+      "name": "bfv-small-n832-sigma18",
+      "n": 832,
+      "sigma": 3.814697265625e-06,
+      "attacks_rop_log2": {
+        "arora-gb": "infinity",
+        "bkw": 209.8670554734864,
+        "usvp": 139.4211877456765,
+        "bdd": 136.97169435875938,
+        "bdd_hybrid": 136.99432580665803,
+        "bdd_mitm_hybrid": 166.6830653709615,
+        "dual": 143.49518599867812,
+        "dual_hybrid": 132.30855024971578
+      },
+      "minimum_rop_log2": 132.30855024971578,
+      "full_estimator": true,
+      "sample_model": "unlimited",
+      "secret_distribution": "binary",
+      "error_distribution": "discrete Gaussian"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+trifan,64,1,3,73.93656279833334,0.03337515452759589,lower-W bits,library-per-PBS,False,True,-115.59354296273193,False,"per-PBS library label + log2(logical LUT calls), union bound",True,176160768
+trifan,64,2,3,38.564384061666665,0.010448770419329933,lower-W bits,library-per-PBS,False,True,-115.59354296273193,False,"per-PBS library label + log2(logical LUT calls), union bound",True,176160768
+trifan,64,4,3,20.162760987,0.015565994462980594,lower-W bits,library-per-PBS,False,True,-115.59354296273193,False,"per-PBS library label + log2(logical LUT calls), union bound",True,175112192
+trifan,64,8,3,11.939008638333334,0.003416908157973078,lower-W bits,library-per-PBS,False,True,-115.59354296273193,False,"per-PBS library label + log2(logical LUT calls), union bound",True,174063616
+trifan,64,16,3,7.068145613666666,0.022483286249704432,lower-W bits,library-per-PBS,False,True,-115.59354296273193,False,"per-PBS library label + log2(logical LUT calls), union bound",True,175636480
+trifan,64,32,3,4.590939655666666,0.02417207687517389,lower-W bits,library-per-PBS,False,True,-115.59354296273193,False,"per-PBS library label + log2(logical LUT calls), union bound",True,174063616
+trifan,64,64,3,4.070550006666666,0.029550464107872623,lower-W bits,library-per-PBS,False,True,-115.59354296273193,False,"per-PBS library label + log2(logical LUT calls), union bound",True,175112192

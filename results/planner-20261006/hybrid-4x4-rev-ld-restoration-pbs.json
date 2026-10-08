@@ -1,0 +1,46 @@
+{
+  "description": "Planner (dry-run) restoration bootstrapping counts of the 4x4 local-product control; no timing. Generated with: sh run.sh bench --dry-run --research --methods hybrid-4x4-rev-ld --widths 16 32 64 128 256 --threads 1 --output <dir>. Restoration PBS on one thread = reduction_pbs + final_addition_pbs.sequential (matches the measured normalization_pbs at W=128: 1431).",
+  "method": "hybrid-4x4-rev-ld",
+  "widths": {
+    "16": {
+      "reduction_pbs": 13,
+      "final_addition_pbs": {
+        "sequential": 16,
+        "parallel": 23
+      },
+      "whole_product_log2_estimate": -137.14772318176844
+    },
+    "32": {
+      "reduction_pbs": 62,
+      "final_addition_pbs": {
+        "sequential": 32,
+        "parallel": 49
+      },
+      "whole_product_log2_estimate": -135.58447522950516
+    },
+    "64": {
+      "reduction_pbs": 279,
+      "final_addition_pbs": {
+        "sequential": 64,
+        "parallel": 101
+      },
+      "whole_product_log2_estimate": -133.27923409146004
+    },
+    "128": {
+      "reduction_pbs": 1303,
+      "final_addition_pbs": {
+        "sequential": 128,
+        "parallel": 205
+      },
+      "whole_product_log2_estimate": -132.28052261900135
+    },
+    "256": {
+      "reduction_pbs": 5348,
+      "final_addition_pbs": {
+        "sequential": 256,
+        "parallel": 507
+      },
+      "whole_product_log2_estimate": -130.38853211454395
+    }
+  }
+}
