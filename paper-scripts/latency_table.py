@@ -10,7 +10,7 @@ MEETS = [("hybrid-grouped-rev-ld", "Ours, product-sum"), ("hybrid-cached-rev-ld"
          ("hybrid-grouped-rev-mvb", "Ours+MVB, product-sum$^\\dagger$"), ("hybrid-cached-rev-mvb", "Ours+MVB, chunk-product$^\\dagger$"),
          ("st-r2-n688", "Shokri--Tsoutsos, $n=688$"), ("bernard-mvb-ks36", "Bernard et al., KS $(3,6)^\\dagger$"),
          ("tfhe-rs-ks28", "TFHE-rs, KS $(2,8)$"), ("clot-bfv", "BFV adaptation")]
-MISSES = [("st-reported-r2", "Shokri--Tsoutsos, paper"), ("bernard-mvb", "Bernard et al., paper$^\\dagger$"), ("tfhe-rs", "TFHE-rs, default"),
+MISSES = [("st-reported-r2", "Shokri--Tsoutsos, paper"), ("bernard-mvb", "Bernard et al., paper$^\\dagger$"), ("tfhe-rs", "TFHE-rs, KS $(3,5)$"),
           ("trifan", "Trifan et al."), ("parmesan", "PARMESAN")]
 T = (1, 2, 4, 8, 16, 32, 64)
 data = {}

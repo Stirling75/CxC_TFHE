@@ -88,8 +88,8 @@ commands. You can also run `sh run.sh list` to see the full catalogue.
 | --- | --- |
 | Ours, product-sum / chunk-product lookup | `hybrid-grouped-rev-ld` / `hybrid-cached-rev-ld` |
 | Ours+MVB | `hybrid-grouped-rev-mvb`, `hybrid-cached-rev-mvb` |
-| TFHE-rs, KS (2,8) / default | `tfhe-rs-ks28` / `tfhe-rs` |
-| Shokri-Tsoutsos, n=688 / paper | `st-r2-n688` / `st-reported-r2` |
+| TFHE-rs, KS (2,8) / KS (3,5) | `tfhe-rs-ks28` / `tfhe-rs` |
+| Shokri-Tsoutsos, retuned (n=688) / paper | `st-r2-n688` / `st-reported-r2` |
 | Bernard et al., KS (3,6) / paper | `bernard-mvb-ks36` / `bernard-mvb` |
 | BFV adaptation | `clot-bfv` |
 | Trifan et al. / PARMESAN | `trifan` / `parmesan` |

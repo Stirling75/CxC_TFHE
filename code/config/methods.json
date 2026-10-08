@@ -12,7 +12,7 @@
     "failure_status": "library-per-PBS",
     "tfhe_rs": "1.6.1",
     "primitive_log2_p_fail": -128.597,
-    "note": "TFHE-rs 1.6.1 radix multiplication, default parameters."
+    "note": "TFHE-rs 1.6.1 radix multiplication, Gaussian 2M128 set with the library key switch (3,5)."
   },
   "trifan": {
     "family": "bitwise",
@@ -367,7 +367,7 @@
       2,
       8
     ],
-    "note": "TFHE-rs 1.6.1 radix multiplication with the key switch (2,8)."
+    "note": "TFHE-rs 1.6.1 radix multiplication, Gaussian 2M128 set with the key switch (2,8)."
   },
   "hybrid-grouped-rev-mvb": {
     "family": "hybrid",

@@ -7,7 +7,7 @@ D = Path(sys.argv[1]); OUT = Path(sys.argv[2])
 T = ["1", "2", "4", "8", "16", "32", "64"]
 rows = [("Ours, product-sum", "ours-ps"), ("Ours, chunk-product", "ours-cp"),
         ("Ours+MVB, product-sum$^\\dagger$", "ours-ps-mvb"),
-        ("Shokri--Tsoutsos~\\cite{shokri2026accelerating}, $n=688$", "st"),
+        ("Shokri--Tsoutsos~\\cite{shokri2026accelerating}, retuned", "st"),
         ("Bernard et al.~\\cite{bernard2026lownoise}, KS $(3,6)^\\dagger$", "bernard"),
         ("TFHE-rs~\\cite{tfhe_rs}, KS $(2,8)$", "tfhe-rs"),
         ("BFV adaptation~\\cite{chillotti2021improved}", "bfv")]
