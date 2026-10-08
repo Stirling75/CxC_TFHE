@@ -1,10 +1,5 @@
-"""Legacy diagnostic reference for the sequential product-sum kernel.
-
-The scalar trace-to-GGSW propagation in this reference is under audit. This
-module preserves the old partition for paired kernel experiments; it must NOT
-select or approve parameters. See gaussian_covariance.py and GAUSSIAN_AUDIT.md.
-No empirical calibration or added safety factor is used.
-"""
+"""Column model of product-sum lookup used by the schedule and the failure
+estimate (heterogeneous_screen.py)."""
 import math
 from dataclasses import replace
 
@@ -20,9 +15,8 @@ def primitive(level=7):
 
 
 def columns(width, capacity, prim, shared_prefix=False):
-    """`shared_prefix` models the first candidates that full groups starting at
-    the same index share (used by the failure estimate; the schedule search keeps
-    the earlier independent model, so the measured schedules are unchanged)."""
+    """`shared_prefix` models the first candidates shared by full groups that
+    start at the same index (used by the failure estimate)."""
     assert 1 <= capacity <= 45
     result = [[] for _ in range(width // 2)]
     for q in range(len(result)):

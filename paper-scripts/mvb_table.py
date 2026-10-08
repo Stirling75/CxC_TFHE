@@ -1,10 +1,5 @@
-"""Write out/mvb-table.tex: the body of the table comparing the restoration
-without and with multi-value folds (MVB), from ../results.
-
-Latency without MVB is the merged main comparison (summaries.txt, later files
-override earlier ones, as for the figures); latency with MVB, restoration PBS
-counts come from the run records of each campaign, and failure estimates from
-../results/estimates-20261007/estimates.json (estimates.py)."""
+"""Write out/mvb-table.tex (Table 9) from the latencies of summaries.txt, the
+PBS counts of the run records, and results/estimates/estimates.json."""
 import csv, json, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
@@ -21,11 +16,11 @@ for line in (HERE / "summaries.txt").read_text().splitlines():
     for r in csv.DictReader(open(HERE / line)):
         lat[(r["method"], int(r["width"]), int(r["threads"]))] = float(r["mean_seconds"])
 
-EST = json.loads((RES / "estimates-20261007" / "estimates.json").read_text())
+EST = json.loads((RES / "estimates" / "estimates.json").read_text())
 
 def run(method, w):
-    camp = (f"mvb-20261005/mvb-w{w}-20261005" if method.endswith("mvb")
-            else f"stats-20261004/stats-main-w{w}-20261004")
+    camp = (f"mvb/w{w}" if method.endswith("mvb")
+            else f"main/w{w}")
     return json.loads((RES / camp / f"{method}-w{w}-t1" / "run.json").read_text())["resolved"]
 
 def pbs(res, w):

@@ -1,20 +1,10 @@
-"""Export the phase-breakdown figure data from raw per-trial timings.
-
-out/data/breakdown-wide.csv:    single-thread seconds per phase at W = 64, 128, 256
-out/data/breakdown-threads.csv: percentage per phase at W = 128 for T = 1, 4, 16, 64,
-                                plus the mean total latency (s)
-out/data/restoration-pbs.csv:   restoration bootstrappings on one thread (W = 16..256)
-
-Phases: sel = circuit-bootstrapping selector lifts (cbs_ms), look = lookup /
-external products (ext_ms), rest = restoration (normalization_ms). Warm-up rows
-are excluded. Source: results/stats-20261004/stats-main-w*-20261004 (5 runs, 3 at W=256)
-and stats-controls-20261004 for the 4x4 local-product control.
-"""
+"""Export the phase timings of results/main (warm-up excluded) and the
+restoration PBS counts, with results/planner for the 4-bit control."""
 import csv, json
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-STATS = HERE.parent / "results" / "stats-20261004"
+STATS = HERE.parent / "results"
 OUT = HERE / "out" / "data"
 PS, CP, PP4 = "hybrid-grouped-rev-ld", "hybrid-cached-rev-ld", "hybrid-4x4-rev-ld"
 
@@ -32,7 +22,7 @@ def mean(r, col):
 
 
 def phases(method, w, t):
-    r = rows(f"stats-main-w{w}-20261004", method, w, t)
+    r = rows(f"main/w{w}", method, w, t)
     return [mean(r, c) / 1000 for c in ("cbs_ms", "ext_ms", "normalization_ms")], mean(r, "total_ms") / 1000
 
 
@@ -50,12 +40,12 @@ with open(OUT / "breakdown-threads.csv", "w") as f:
         f.write(f"{i} {t} " + " ".join(f"{v:.2f}" for v in pct) + f" {ta:.3f} {tb:.3f}\n")
 # ps/cp: measured normalization_pbs (constant over trials). pp4 (4x4 local-product
 # control): planner count reduction_pbs + sequential final additions, recorded in
-# results/planner-20261006 (equals the measured 1431 at W=128).
-PLAN = json.load(open(HERE.parent / "results" / "planner-20261006" / "hybrid-4x4-rev-ld-restoration-pbs.json"))["widths"]
+# results/planner (equals the measured 1431 at W=128).
+PLAN = json.load(open(HERE.parent / "results" / "planner" / "hybrid-4x4-rev-ld-restoration-pbs.json"))["widths"]
 with open(OUT / "restoration-pbs.csv", "w") as f:
     f.write("W ps cp pp4\n")
     for w in (16, 32, 64, 128, 256):
-        cells = [str(int(mean(rows(f"stats-main-w{w}-20261004", m, w, 1), "normalization_pbs"))) for m in (PS, CP)]
+        cells = [str(int(mean(rows(f"main/w{w}", m, w, 1), "normalization_pbs"))) for m in (PS, CP)]
         pl = PLAN[str(w)]
         cells.append(str(pl["reduction_pbs"] + pl["final_addition_pbs"]["sequential"]))
         f.write(f"{w} " + " ".join(cells) + "\n")

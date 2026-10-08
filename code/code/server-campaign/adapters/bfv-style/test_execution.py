@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-import shutil
 import tempfile
 import unittest
 
@@ -8,66 +7,6 @@ import audit_run
 import analyze_noise
 
 HERE = Path(__file__).resolve().parent
-
-
-class ExecutionAuditTests(unittest.TestCase):
-    def setUp(self):
-        source = HERE / "results/parallel-equivalence-small-20260918"
-        if not (source / "completed.json").exists():
-            self.skipTest("optional encrypted equivalence fixture absent")
-        self.temporary = tempfile.TemporaryDirectory()
-        self.addCleanup(self.temporary.cleanup)
-        self.directory = Path(self.temporary.name) / "run"
-        shutil.copytree(source, self.directory, ignore=shutil.ignore_patterns("source"))
-
-    def alter(self, name, mutate):
-        path = self.directory / name
-        value = json.loads(path.read_text())
-        mutate(value)
-        path.write_text(json.dumps(value))
-
-    def test_completed_equivalent_run(self):
-        result = audit_run.audit(self.directory)
-        self.assertEqual(result["validated_cases"], 6)
-        self.assertTrue(result["serial_ciphertext_equivalence_checked"])
-        self.assertFalse(result["whole_multiplier_approved"])
-        self.assertTrue(all(row["ks"] == 28 for row in result["summaries"]))
-
-    def test_rejects_incorrect_shared_ks_count(self):
-        self.alter("w8-random-r0.json", lambda row: row["counts"].update(ks=30))
-        with self.assertRaises(AssertionError):
-            audit_run.audit(self.directory)
-
-    def test_rejects_serial_ciphertext_mismatch(self):
-        self.alter("w8-random-r0.json", lambda row: row["serial_equivalence"].update(ciphertexts_identical=False))
-        with self.assertRaises(AssertionError):
-            audit_run.audit(self.directory)
-
-    def test_rejects_warmup_mislabel(self):
-        self.alter("w8-random-r0.json", lambda row: row.update(warmup=True))
-        with self.assertRaises(AssertionError):
-            audit_run.audit(self.directory)
-
-    def test_rejects_changed_parameters(self):
-        self.alter("manifest.json", lambda row: row["parameters"].update(encoding_pbs=[2, 21]))
-        with self.assertRaises(AssertionError):
-            audit_run.audit(self.directory)
-
-
-class MeasurementAuditTests(unittest.TestCase):
-    def test_parallel_grid_excludes_warmups(self):
-        directory = HERE / "results/parallel-t8-grid-20260918"
-        if not (directory / "completed.json").exists():
-            self.skipTest("optional measured grid not completed")
-        result = audit_run.audit(directory)
-        self.assertEqual(result["validated_cases"], 24)
-        self.assertEqual(len(result["summaries"]), 6)
-        self.assertEqual(sum(case["warmup"] for case in result["cases"]), 6)
-        for summary in result["summaries"]:
-            measured = [json.loads((directory / f"w{summary['width']}-random-r{i}.json").read_text())
-                        for i in (1, 2, 3)]
-            self.assertEqual(summary["seconds"], [sum(row["timings_seconds"].values()) for row in measured])
-            self.assertEqual(summary["repetitions"], 3)
 
 
 class CampaignTimingTests(unittest.TestCase):

@@ -1,23 +1,10 @@
-"""Table 6: ratio of measured to modeled noise variance, from the decrypted
-intermediate ciphertexts in ../results/noise-20261007 and the model in
-../code. Writes out/data/noise-ratios.csv (one row per category) and
-out/data/noise-kurtosis.csv (excess kurtosis of the normalized errors of the
-reduction and final-addition inputs per category, with sample size and the
-standard error sqrt(24/n)), and prints the range of each table row.
-
-  selectors/    GGSW selector row errors (W=16, two multiplications) for the
-                three parameter sets of Table 4; model sigma_G^2, Eq. (2)
-  restoration/  inputs of the reduction groups and of the final addition of
-                product-sum lookup (W=64, 128, 256); model V_T, Eq. (4), as
-                recorded in model.json of each run
-  mvb-digit/    digits of Ours+MVB (product-sum) after a multi-value fold;
-                against the budget 8 V_PBS of Eq. (5)
-  bernard/      blind-rotation inputs of Bernard et al. (paper set, KS (4,4));
-                against ||w||_2^2 V_PBS of Eq. (5)"""
+"""Table 6: compare the errors of decrypted intermediate ciphertexts in
+results/noise with the modeled variances, and write out/data/noise-ratios.csv
+and out/data/noise-kurtosis.csv."""
 import collections, csv, gzip, json, math, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
-N = HERE.parent / "results" / "noise-20261007"
+N = HERE.parent / "results" / "noise"
 sys.path.insert(0, str(HERE.parent / "code" / "scripts"))
 sys.path.insert(0, str(HERE.parent / "code" / "code" / "ring-variant-multiplier" / "model" / "bernard"))
 import cases

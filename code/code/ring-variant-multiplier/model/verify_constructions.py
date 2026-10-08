@@ -307,8 +307,7 @@ def main():
             "interleaved_log2_failure": est.pbs_input_log2_pfail(p.lwe_n, est.Q, p.poly_n, 0,
                 est.Q / 64, variance, "gaussian", centered_binary_ms=True)})
     write_csv("interleaved_margin_screen.csv", ms_rows)
-    metadata = {"date": "2026-09-05", "analytic_gaussian_only": True,
-        "crypto_implementation_changed": False, "empirical_floor": False,
+    metadata = {"analytic_gaussian_only": True, "empirical_floor": False,
         "source_sha256": {str(f.relative_to(ROOT)): hashlib.sha256(f.read_bytes()).hexdigest()
                            for f in (ROOT / "source_snapshot").glob("*")},
         "primitive_log2_variances": {str(bits): {"gadget": math.log2(base.primitive_for(bits)[1].cmux_gadget_var),

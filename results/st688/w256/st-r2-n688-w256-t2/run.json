@@ -1,0 +1,95 @@
+{
+  "command": [
+    "<pkg>/build/ring/release/st_revised_reconstruction",
+    "--width",
+    "256",
+    "--threads",
+    "2",
+    "--repetitions",
+    "3",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/stats-st688-w256-20261007/st-r2-n688-w256-t2/raw",
+    "--parameters",
+    "<pkg>/code/server-campaign/parameters/st-cc2-r2-n688.json",
+    "--allow-unverified-parameters"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "2"
+  },
+  "cpu_ids": [
+    0,
+    1
+  ],
+  "thread_budget": 2,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "st-r2-n688",
+    "width": 256,
+    "contract": {
+      "family": "st",
+      "parameters": "st-cc2-r2-n688.json",
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W small-key CC2",
+      "failure_status": "conditional-gaussian",
+      "note": "n=688, sigma 2^-15.05 (128.05 bits); tightest set with screen <= -128 at W16-256; same decompositions as st-r2-n704."
+    },
+    "whole_multiplier_approved": false,
+    "parameters": {
+      "name": "st-cc2-r2-n688",
+      "lwe_dimension": 688,
+      "polynomial_size": 2048,
+      "glwe_dimension": 1,
+      "lwe_sigma": 2.9478037381739656e-05,
+      "glwe_sigma": 9.25119974676756e-16,
+      "pbs": [
+        11,
+        3
+      ],
+      "ks": [
+        2,
+        7
+      ],
+      "auto": [
+        5,
+        9
+      ],
+      "ss": [
+        10,
+        5
+      ],
+      "cbs": [
+        5,
+        4
+      ],
+      "terminal_lut_count_log": 1,
+      "split_trace_fft": true,
+      "cc2_big_key": true
+    },
+    "analysis": {
+      "same_as": "../st-r2-n688-w256-t1/run.json",
+      "key": "resolved.analysis"
+    },
+    "whole_product_log2_estimate": -129.1056893239728,
+    "failure_basis": "conditional Gaussian screen",
+    "failure_target_met": true,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "9c75cf7cb6e319cda86a533e07c11195c2794a1721f5e4c43ece610652f78201",
+  "exit_code": 0,
+  "process_elapsed_seconds": 510.5732077830471,
+  "peak_rss_bytes": 878833664,
+  "user_cpu_seconds": 990.173392,
+  "system_cpu_seconds": 0.895928,
+  "validated": true
+}

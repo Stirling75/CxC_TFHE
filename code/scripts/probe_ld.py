@@ -1,5 +1,5 @@
 """Noise-probe or timing run of hybrid METHOD at WIDTH on THREADS (cpus 0..T-1) with TRIALS (1 warmup) locally.
-Usage: ld_run.py METHOD WIDTH THREADS TRIALS OUTDIR [probe]"""
+Usage: probe_ld.py METHOD WIDTH THREADS TRIALS OUTDIR [probe]"""
 import json, os, subprocess, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]

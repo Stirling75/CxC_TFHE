@@ -162,7 +162,7 @@ class RetuningTests(unittest.TestCase):
             check_security_row(row)
 
     def test_retained_security_report_is_accepted(self):
-        security = json.loads((st.ROOT / "results/st-retune-security-full-20260907.json").read_text())
+        security = json.loads((st.ROOT / "results/st-retune-security.json").read_text())
         for row in security["rows"]:
             check_security_row(row)
 

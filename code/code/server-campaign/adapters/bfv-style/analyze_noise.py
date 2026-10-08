@@ -3,7 +3,7 @@
 
 No fitted probe floor, parameter approval, or security certification. The
 layout-aware extension assumes variance-additive primitive errors, as do the
-underlying literature estimates. See NOISE_ANALYSIS.md for its scope.
+underlying literature estimates.
 """
 import argparse
 import hashlib

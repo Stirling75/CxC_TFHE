@@ -11,7 +11,8 @@
     "output": "lower-W clean radix-4",
     "failure_status": "library-per-PBS",
     "tfhe_rs": "1.6.1",
-    "primitive_log2_p_fail": -128.597
+    "primitive_log2_p_fail": -128.597,
+    "note": "TFHE-rs 1.6.1 radix multiplication, default parameters."
   },
   "trifan": {
     "family": "bitwise",
@@ -27,7 +28,7 @@
     "output": "lower-W bits",
     "failure_status": "library-per-PBS",
     "primitive_log2_p_fail": -128.186,
-    "note": "Our iterative CSA shortint port with unused upper columns/carries pruned."
+    "note": "Trifan et al., carry-save multiplier ported to the one-bit sets of TFHE-rs, truncated to W bits."
   },
   "parmesan": {
     "family": "parmesan",
@@ -37,7 +38,7 @@
     ],
     "output": "full redundant signed binary",
     "failure_status": "native-unanalysed",
-    "note": "Author algorithm on TFHE-rs 0.5.4. Extra OS threads are restricted by Linux CPU affinity, not by Rayon count."
+    "note": "PARMESAN, authors' code on TFHE-rs 0.5.4 (W = 16, 32)."
   },
   "clot-bfv": {
     "family": "bfv",
@@ -51,7 +52,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian-layout-aware",
-    "note": "Independent adaptation of CLOT's k=1 BFV-style tensor primitive; radix re-encoding, packing, extraction and restoration included. Not author code. Binary-key Gaussian and variance-additive model; general independently prepared operands, not identified ciphertext squaring. Native key/noise parameters differ from hybrid."
+    "note": "BFV-style multiplication of Chillotti et al. on TFHE radix inputs and outputs, including packing and conversion."
   },
   "st-r2-n704": {
     "family": "st",
@@ -65,7 +66,7 @@
     ],
     "output": "lower-W extracted-key CC2",
     "failure_status": "conditional-gaussian",
-    "note": "CC2 under the extracted key with pre-PBS key switching (reading R2 of the paper). n=704, sigma 2^-15.2 (lattice estimator 132.4 bits), N=2048; fastest decomposition with screen <= -128 at W16-256 (work-20261002/st-r2)."
+    "note": "Shokri-Tsoutsos, retuned set (n = 704)."
   },
   "st-reported-r2": {
     "family": "st",
@@ -81,7 +82,7 @@
     ],
     "output": "lower-W extracted-key CC2 at delta 2^52",
     "failure_status": "unverifiable-paper-parameters",
-    "note": "Paper Table 2 parameters with CC2 under the extracted key and pre-PBS key switching (reading R2), at the paper's CC2 scale 2^52. Noise assumed from Refined TFHE.",
+    "note": "Shokri-Tsoutsos, paper parameters.",
     "cc2_big_key": true
   },
   "hybrid-grouped-rev-ld": {
@@ -112,7 +113,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "hybrid-grouped-rev with carry-only reduction: linear digits (sum - 4*carry) where the digit variance stays within 40 V_PBS (1000 V_PBS in the wave feeding the final addition), chosen for AB and A=B; the final addition reads unrefreshed digits directly.",
+    "note": "Ours, product-sum lookup.",
     "lift_pbs": [
       8,
       5
@@ -159,7 +160,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "hybrid-cached-rev with carry-only reduction (linear digits), as hybrid-grouped-rev-ld.",
+    "note": "Ours, chunk-product lookup.",
     "lift_pbs": [
       9,
       4
@@ -201,7 +202,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "hybrid-grouped-rev-no-cache with carry-only reduction (linear digits), as hybrid-grouped-rev-ld.",
+    "note": "Control: product-sum lookup without the row cache.",
     "lift_pbs": [
       8,
       5
@@ -248,7 +249,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "hybrid-8x8-rev with carry-only reduction (linear digits), as hybrid-grouped-rev-ld.",
+    "note": "Control: chunk-product lookup without the row cache.",
     "lift_pbs": [
       9,
       4
@@ -287,7 +288,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "hybrid-4x4-rev with carry-only reduction (linear digits), as hybrid-grouped-rev-ld.",
+    "note": "Control: per product, 4-bit chunks.",
     "lift_pbs": [
       9,
       4
@@ -334,7 +335,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "Control: chunk-product lookup without the row cache but with the shared reduction key switch of hybrid-cached-rev-ld.",
+    "note": "Control: chunk-product lookup without the row cache and shared key switch.",
     "lift_pbs": [
       9,
       4
@@ -366,7 +367,7 @@
       2,
       8
     ],
-    "note": "TFHE-rs 1.6.1 mul_parallelized with the default 2M128 Gaussian set and the key switch (2,8) of our restoration. Per-PBS estimate under our model at the maximum noise level 5: 2^-148.8 (2^-128.9 with the default KS (3,5), matching the library label 2^-128.6)."
+    "note": "TFHE-rs 1.6.1 radix multiplication with the key switch (2,8)."
   },
   "hybrid-grouped-rev-mvb": {
     "family": "hybrid",
@@ -396,7 +397,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "hybrid-grouped-rev-ld with every reduction group that has a carry evaluated by one multi-value bootstrapping (Bernard et al., ePrint 2026/2310, fold factor); digit variance 8 V_PBS under uncorrelated extracted coefficients.",
+    "note": "Ours+MVB, product-sum lookup.",
     "lift_pbs": [
       8,
       5
@@ -444,7 +445,7 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian",
-    "note": "hybrid-cached-rev-ld with every reduction group that has a carry evaluated by one multi-value bootstrapping (Bernard et al., ePrint 2026/2310, fold factor); digit variance 8 V_PBS under uncorrelated extracted coefficients.",
+    "note": "Ours+MVB, chunk-product lookup.",
     "lift_pbs": [
       9,
       4
@@ -476,7 +477,7 @@
       4,
       4
     ],
-    "note": "Our reimplementation of Bernard et al. (ePrint 2026/2310), Ours (w/ shift), PG,12.8 of their Table 1 (n=930, KS (4,4), PBS (23,1)), heaviest rule, balanced order, TFHE-rs 1.6.1 carry propagation."
+    "note": "Bernard et al., paper set P_G,12.8."
   },
   "bernard-mvb-ks36": {
     "family": "bernard",
@@ -495,7 +496,7 @@
       3,
       6
     ],
-    "note": "As bernard-mvb with the key switch (3,6), the cheapest change found that meets the whole-multiplication target at every width (phi_max 12.8 kept; lower phi does not help)."
+    "note": "Bernard et al. with the key switch (3,6)."
   },
   "st-r2-n688": {
     "family": "st",
@@ -509,6 +510,6 @@
     ],
     "output": "lower-W extracted-key CC2",
     "failure_status": "conditional-gaussian",
-    "note": "n=688, sigma 2^-15.05 (128.05 bits); tightest set with screen <= -128 at W16-256 from a finer search n=656..704; same decompositions as st-r2-n704."
+    "note": "Shokri-Tsoutsos, retuned set (n = 688)."
   }
 }

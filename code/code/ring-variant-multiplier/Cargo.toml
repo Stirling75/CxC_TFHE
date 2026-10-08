@@ -41,6 +41,5 @@ tfhe-fft = "0.10"
 
 [features]
 # Measurement-only noise audit: enables the CBS_NOISE_PROBE decryption
-# callback used by scripts/failure_analysis/. The released benchmark binary
-# is built without it, so no decryption path exists in normal runs.
+# callback used by noise-probe runs. Benchmark builds do not enable it.
 noise-audit = []

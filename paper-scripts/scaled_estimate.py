@@ -1,6 +1,6 @@
 """Section 6.2: the worst estimate of product-sum lookup (W=256, identical
 operands) with every modeled variance scaled by the largest measured ratio of
-Table 6, 0.61, on the same schedule."""
+Table 6, rounded to 0.61, on the same schedule."""
 import math, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "code" / "scripts"))

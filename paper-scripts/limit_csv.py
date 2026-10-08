@@ -1,12 +1,12 @@
 """Write out/data/limit-{ps,cp}{128,256}.csv (Figure 4) from
-../results/limit-sweep-20261006/sweep.txt: for each limit L, the reduction
+../results/limit-sweep/sweep.txt: for each limit L, the reduction
 bootstrappings saved relative to L=0 (%), the log2 failure estimate (worse of
 separate and identical operands), and the plotted value clipped at -124.4."""
 import re, collections
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 rows = collections.defaultdict(dict)
-for line in (HERE.parent / "results" / "limit-sweep-20261006" / "sweep.txt").read_text().splitlines():
+for line in (HERE.parent / "results" / "limit-sweep" / "sweep.txt").read_text().splitlines():
     m = re.match(r'(\S+) W(\d+) cap=\s*(\d+) red_pbs=\s*(\d+) AB=(\S+) AA=(\S+)', line)
     if m:
         mode = "ps" if m.group(1).startswith("grouped") else "cp"

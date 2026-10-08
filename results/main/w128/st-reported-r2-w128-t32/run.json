@@ -1,0 +1,129 @@
+{
+  "command": [
+    "<pkg>/build/ring/release/st_revised_reconstruction",
+    "--width",
+    "128",
+    "--threads",
+    "32",
+    "--repetitions",
+    "5",
+    "--warmup",
+    "1",
+    "--seed",
+    "20260908",
+    "--output",
+    "<pkg>/results/stats-main-w128-20261004/st-reported-r2-w128-t32/raw",
+    "--refined-noise-assumption",
+    "--boundary-delta-log2",
+    "52",
+    "--cc2-big-key"
+  ],
+  "environment_overrides": {
+    "RAYON_NUM_THREADS": "32"
+  },
+  "cpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "thread_budget": 32,
+  "affinity_enforced": true,
+  "resolved": {
+    "method": "st-reported-r2",
+    "width": 128,
+    "contract": {
+      "family": "st",
+      "parameters": "st-reported-paper-table2.json",
+      "reported": true,
+      "boundary_delta_log2": 52,
+      "widths": [
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "output": "lower-W small-key CC2 at delta 2^61",
+      "failure_status": "unverifiable-paper-parameters",
+      "note": "Paper Table 2 parameters with CC2 under the extracted key and pre-PBS key switching (reading R2), at the paper's CC2 scale 2^52. Noise assumed from Refined TFHE.",
+      "cc2_big_key": true
+    },
+    "whole_multiplier_approved": false,
+    "parameters": {
+      "name": "reported-decompositions-refined-noise-assumption",
+      "lwe_dimension": 768,
+      "polynomial_size": 1024,
+      "glwe_dimension": 2,
+      "lwe_sigma": 8.763872947670246e-06,
+      "glwe_sigma": 9.25119974676756e-16,
+      "pbs": [
+        15,
+        2
+      ],
+      "ks": [
+        2,
+        7
+      ],
+      "auto": [
+        12,
+        3
+      ],
+      "ss": [
+        17,
+        2
+      ],
+      "cbs": [
+        4,
+        4
+      ],
+      "terminal_lut_count_log": 2,
+      "split_trace_fft": false,
+      "cc2_big_key": true
+    },
+    "analysis": {
+      "same_as": "../st-reported-r2-w128-t1/run.json",
+      "key": "resolved.analysis"
+    },
+    "whole_product_log2_estimate": "nan",
+    "failure_basis": "unverifiable: paper Table 2 parameters with assumed noise and CC2 delta 2^52; screen not applicable",
+    "failure_target_met": false,
+    "screen_failed": false
+  },
+  "whole_multiplier_approved": false,
+  "binary_sha256": "9c75cf7cb6e319cda86a533e07c11195c2794a1721f5e4c43ece610652f78201",
+  "exit_code": 0,
+  "process_elapsed_seconds": 29.300399797968566,
+  "peak_rss_bytes": 523677696,
+  "user_cpu_seconds": 358.230051,
+  "system_cpu_seconds": 0.7390329999999999,
+  "validated": true
+}

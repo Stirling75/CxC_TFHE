@@ -3,7 +3,7 @@ Categories: reduction inputs of wave 0 (product digits), later waves with / with
 digits, and the block sums of the final addition with / without unrefreshed digits.
 Per category: mean(res^2/model) (model conservative if <= 1), excess kurtosis of z,
 max |z|, slot mismatches, and the largest per-position measured/model variance ratio.
-Usage: probe_analyze.py DIR..."""
+Usage: probe_ld_analyze.py DIR..."""
 import csv, json, math, sys, collections
 import numpy as np
 

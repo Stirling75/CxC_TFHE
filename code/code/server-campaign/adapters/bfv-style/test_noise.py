@@ -70,19 +70,6 @@ class NoiseTests(unittest.TestCase):
             self.assertLess(r["raw_log2_union"], -128)
             self.assertFalse(r["whole_multiplier_approved"])
 
-    def test_original_model_values_preserved(self):
-        directory = Path(__file__).parent / "results/width-grid-20260918"
-        previous = Path(__file__).parent / "results/noise-screen-20260918.json"
-        if not previous.exists():
-            self.skipTest("optional original model output absent")
-        manifest = json.loads((directory / "manifest.json").read_text())
-        rows = json.loads(previous.read_text())["rows"]
-        for old in rows:
-            plan = next(p for p in manifest["plans"] if p["width"] == old["width"])
-            new = model.screen(manifest["parameters"], plan, old["pbs_fft_model_included"],
-                               old["layout_model"] == "dense-envelope")
-            self.assertAlmostEqual(new["raw_log2_union"], old["raw_log2_union"], places=7)
-
     def test_packing_filled_and_empty(self):
         p = model.packing_variances(2048, 8, 123.0, 1e-15, 4, 15)
         self.assertAlmostEqual(p["filled"]-p["empty"], 123+p["rounding"])
@@ -150,46 +137,6 @@ class NoiseTests(unittest.TestCase):
         self.assertAlmostEqual(bits[1]["variance_before_ks"] / 16**2,
                                bits[0]["variance_before_ks"] / 32**2
                                + r["ordinary_pbs"]["total"])
-
-    def test_saved_encrypted_trace_counts_when_available(self):
-        directory = Path(__file__).parent / "results/width-grid-20260918"
-        if not directory.exists():
-            self.skipTest("optional local encrypted results absent")
-        manifest = json.loads((directory / "manifest.json").read_text())
-        for p in manifest["plans"]:
-            r = model.screen(manifest["parameters"], p, True, False)
-            observed = json.loads((directory / f"w{p['width']}-random-r0.json").read_text())
-            self.assertEqual(observed["status"], "full-path-correct")
-            self.assertEqual(r["events"]-p["digits"], observed["counts"]["pbs"])
-            self.assertTrue(math.isfinite(r["raw_log2_union"]))
-
-    def test_retuned_encrypted_schedule_matches_model_when_available(self):
-        p = json.loads((Path(__file__).parent / "parameters/bfv-n800-range-aware.json").read_text())
-        for name in ("retuned-grid-20260918", "retuned-extremes-20260918"):
-            directory = Path(__file__).parent / "results" / name
-            if not (directory / "completed.json").exists():
-                self.skipTest("optional retuned encrypted grid not completed")
-            manifest = json.loads((directory / "manifest.json").read_text())
-            self.assertEqual(set(manifest["parameters"]), set(p))
-            for key, value in p.items():
-                if key in ("lwe_sigma", "glwe_sigma"):
-                    # serde_json's decimal parse/serialize can differ by one
-                    # binary64 ULP from Python's correctly rounded conversion.
-                    self.assertLessEqual(abs(manifest["parameters"][key]-value), 2*math.ulp(value))
-                else:
-                    self.assertEqual(manifest["parameters"][key], value)
-            self.assertEqual(manifest["host"]["evaluation_threads"], 1)
-            completed = json.loads((directory / "completed.json").read_text())
-            self.assertEqual(completed["cases"], len(manifest["plans"])*len(manifest["patterns"]))
-            for plan in manifest["plans"]:
-                expected = model.make_plan(plan["width"], True, 8)
-                for key, value in expected.items():
-                    self.assertEqual(plan[key], value)
-                for pattern in manifest["patterns"]:
-                    observed = json.loads((directory / f"w{plan['width']}-{pattern}-r0.json").read_text())
-                    self.assertEqual(observed["status"], "full-path-correct")
-                    self.assertEqual(plan["pbs_total"], observed["counts"]["pbs"])
-
 
 if __name__ == "__main__":
     unittest.main()

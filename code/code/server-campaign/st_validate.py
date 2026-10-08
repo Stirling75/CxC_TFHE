@@ -156,7 +156,7 @@ def main():
             events = json.loads((directory / f"events-w{row['width']}.json").read_text())
             assert events == checked["events"]
         models[model["parameters"]["name"]] = model
-    security_path = ROOT / "results/st-retune-security-full-20260907.json"
+    security_path = ROOT / "results/st-retune-security.json"
     security = json.loads(security_path.read_text())
     assert security["estimator_commit"] == "6019056011d10d7e9c30a0d5da2d2f729fbc2eec"
     assert len(security["rows"]) == 5

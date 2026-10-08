@@ -1,13 +1,8 @@
-"""Recompute the whole-multiplication failure estimates of our configurations
-(Tables 5 and 9, Table S3) with the model in ../code/scripts and write
-../results/estimates-20261007/estimates.json. For each method and width it
-stores the log2 estimate for separately prepared (AB) and identical (AA)
-operands, the per-family terms of Table S3, and the restoration bootstrapping
-counts, and writes out/data/failure-ours.csv (rounded, compared by `make check`).
-It stops if a schedule differs from the plan.json of the measured run.
-The estimates recorded in run.json of the measurement campaigns predate a
-refinement of the model (shared first candidates, selector margin) and differ
-from these by at most 0.1."""
+"""Recompute the failure estimates of our configurations, check their schedules
+against the measured plan.json, and write out/data/failure-ours.csv and
+out/estimates.json (--save: results/estimates/estimates.json). The estimates in
+run.json of the timing runs come from an earlier version of the model and
+differ from these by at most 0.1."""
 import json, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
@@ -37,10 +32,10 @@ def canon(plan):
     return waves, json.dumps(rest, sort_keys=True)
 
 def measured_plan(m, w):
-    camp = {"hybrid-grouped-rev-mvb": f"mvb-20261005/mvb-w{w}-20261005",
-            "hybrid-cached-rev-mvb": f"mvb-20261005/mvb-w{w}-20261005",
-            "hybrid-4x4-rev-ld": "stats-20261004/stats-controls-20261004"}.get(
-            m, f"stats-20261004/stats-main-w{w}-20261004")
+    camp = {"hybrid-grouped-rev-mvb": f"mvb/w{w}",
+            "hybrid-cached-rev-mvb": f"mvb/w{w}",
+            "hybrid-4x4-rev-ld": "controls"}.get(
+            m, f"main/w{w}")
     f = RES / camp / f"{m}-w{w}-t1" / "plan.json"
     return load(f) if f.exists() else None
 
@@ -61,7 +56,7 @@ for m in METHODS:
         print(m, w, "measured plan" if mp else "", f"AB={ab['conditional_union_log2']:.1f} AA={aa['conditional_union_log2']:.1f}", flush=True)
 (HERE / "out" / "data").mkdir(parents=True, exist_ok=True)
 (HERE / "out" / "data" / "failure-ours.csv").write_text("\n".join(rows) + "\n")
-dst = RES / "estimates-20261007" / "estimates.json" if "--save" in sys.argv else HERE / "out" / "estimates.json"
+dst = RES / "estimates" / "estimates.json" if "--save" in sys.argv else HERE / "out" / "estimates.json"
 dst.parent.mkdir(parents=True, exist_ok=True)
 dst.write_text(json.dumps(out, indent=1) + "\n")
 print("wrote", dst, "and out/data/failure-ours.csv")

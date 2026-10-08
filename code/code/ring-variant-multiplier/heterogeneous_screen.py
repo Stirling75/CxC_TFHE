@@ -29,7 +29,7 @@ e = base.est
 # half a box, so after the modulus switch to 2N=4096 (index step D=q/4096=2^52) a
 # correct blind-rotation index lies in [-64, 63] around the message centre.  The
 # body is rounded to the nearest index, so the phase perturbation must stay in
-# [-64.5 D, +63.5 D).  The previous screen used the symmetric +-64 D cell.
+# [-64.5 D, +63.5 D).
 NORMALIZER_MS_MODULUS = 4096
 CELL_UPPER_STEPS = 63.5
 CELL_LOWER_STEPS = 64.5
@@ -82,8 +82,8 @@ def primitive(n, auto, ss, lift_ks=(5, 3), *, chunk_bits=8, cbs=None):
     # RevHomTrace (Lee-Yoon, TCHES 2026(1), Theorem 4): the trace adds at most
     # 4 log N V_MS + log N V_Auto per coefficient. Scheme switching multiplies
     # the trace output by a binary key polynomial (N/2 per coefficient, Refined
-    # CBS composition). Validated against measured GGSW row errors in
-    # the selector-model study (not included) (model >= measurement by 1.9-3.4x).
+    # CBS composition). Compared with measured selector rows in
+    # paper-scripts/noise_table.py.
     trace_var = (4 * math.log2(n) * e.get_var_modswitch_1bit(n, k)
                  + math.log2(n) * (auto_crypto + auto_fft))
     pbs = e.get_var_pbs(n, k, profile.lwe_n, q, profile.glwe_var,

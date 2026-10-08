@@ -8,8 +8,8 @@ from pathlib import Path
 import analyze_noise as noise
 
 HERE = Path(__file__).resolve().parent
-SMALL = HERE / "results/security-search-additional-full-20260918.json"
-RING = HERE.parents[1] / "results/st-retune-security-full-20260907.json"
+SMALL = HERE / "results/security-search.json"
+RING = HERE.parents[1] / "results/st-retune-security.json"
 ESTIMATOR_COMMIT = "6019056011d10d7e9c30a0d5da2d2f729fbc2eec"
 ATTACKS = {"arora-gb", "bkw", "usvp", "bdd", "bdd_hybrid", "bdd_mitm_hybrid",
            "dual", "dual_hybrid"}

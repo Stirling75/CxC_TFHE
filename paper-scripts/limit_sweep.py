@@ -1,7 +1,7 @@
 """Recompute the sweep of the linear-digit limit L (Figure 4, Table S4):
 reduction bootstrappings and failure estimates of the restoration plan for
 L = 0, 5, ..., 100, before the automatic lowering of L. Writes
-../results/limit-sweep-20261006/sweep.txt (takes several minutes)."""
+../results/limit-sweep/sweep.txt (takes several minutes)."""
 import sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
@@ -31,4 +31,4 @@ for m in ("hybrid-grouped-rev-ld", "hybrid-cached-rev-ld"):
             ab = next(x for x in t if not x[1]); aa = next(x for x in t if x[1])
             out.append(f"{m[7:14]} W{W} cap={cap:5d} red_pbs={ab[3]:5d} AB={ab[2]:.1f} AA={aa[2]:.1f}")
             print(out[-1], flush=True)
-(HERE.parent / "results" / "limit-sweep-20261006" / "sweep.txt").write_text("\n".join(out) + "\n")
+(HERE.parent / "results" / "limit-sweep" / "sweep.txt").write_text("\n".join(out) + "\n")

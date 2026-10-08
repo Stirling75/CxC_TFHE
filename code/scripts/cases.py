@@ -25,13 +25,11 @@ CRATES = {
 DEFAULT = ["hybrid-grouped-rev-ld", "hybrid-cached-rev-ld", "tfhe-rs-ks28", "st-r2-n688",
            "bernard-mvb-ks36", "trifan", "parmesan", "clot-bfv"]
 TARGET_LOG2 = -128
-# Whole-product failure estimates not recomputed from a packaged screen.
-# Source: the failure-methodology notes behind the paper failure table (not included).
+# Fixed estimates; these are not recomputed by packaged screens.
 RADIX_PBS_COUNTS = {16: 116, 32: 455, 64: 1772, 128: 6967, 256: 27702}
 PARMESAN_LOG2 = {16: -30.72, 32: -28.86}
-# clot-bfv W=256: the Gaussian screen passes, but encrypted measurements refute
-# its independence assumption for the dominant quotient x error term
-# (validation notes not included). Calibrated estimate range (low, high).
+# clot-bfv W=256: measurements refute the Gaussian model of the dominant quotient
+# error term. Calibrated estimate range (low, high), not a certified bound.
 CLOT_REFUTED = {256: (-52.0, -41.6)}
 
 

@@ -1,10 +1,10 @@
 """Run one ciphertext-plaintext (CxP) product-sum case from a campaign run directory.
 The environment of the ciphertext-ciphertext run is reused, CBS_CXP=1 selects the public
-second operand, and CPUs 0..T-1 are pinned as in campaign.py.
+second operand, and this script pins CPUs 0..T-1.
 
 With SCALAR_SEED, a public scalar is drawn from that seed and the scalar-aware plan
 (groups of nonzero scalar digits, sum bounds 3*sum(b)) is derived and screened for it;
-its derivation time and failure estimate are written to OUTPUT_PREFIX.plan.json.
+its derivation time and failure estimate are written to OUTPUT_PREFIX.screen.json.
 Without it, the ciphertext-ciphertext plan and bounds are used unchanged.
 Usage: run_cxp_case.py RUN_DIR WIDTH THREADS OUTPUT_PREFIX [SCALAR_SEED [GROUP_CAP]]"""
 import json, os, random, subprocess, sys, time
