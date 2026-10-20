@@ -23,9 +23,16 @@ pub struct Parameters {
     /// key-switched back to the small key after emission.
     #[serde(default)]
     pub cc2_big_key: bool,
+    /// Terminal bit reads: "padded" evaluates s%2 and s/2 on the padded
+    /// two-bit phase (margin q/16); "sign" first scales the column phase so
+    /// that the read bit sits on a half-torus boundary and reads its sign
+    /// (margins q/4 for the low and q/8 for the high bit).
+    #[serde(default = "default_terminal_read")]
+    pub terminal_read: String,
 }
 
 fn default_terminal_lut_count_log() -> usize { 2 }
+fn default_terminal_read() -> String { "padded".into() }
 
 impl Parameters {
     pub fn reported(split_trace_fft: bool) -> Self {
@@ -33,7 +40,8 @@ impl Parameters {
             lwe_dimension: 768, polynomial_size: 1024, glwe_dimension: 2,
             lwe_sigma: 8.763872947670246e-6, glwe_sigma: 9.25119974676756e-16,
             pbs: [15, 2], ks: [2, 7], auto: [12, 3], ss: [17, 2], cbs: [4, 4],
-            terminal_lut_count_log: 2, split_trace_fft, cc2_big_key: false }
+            terminal_lut_count_log: 2, split_trace_fft, cc2_big_key: false,
+            terminal_read: "padded".into() }
     }
 
     pub fn validate(&self) -> Result<()> {
@@ -50,6 +58,7 @@ impl Parameters {
         }
         ensure!(self.cbs[1] == 4, "terminal implementation currently supports four CBS levels");
         ensure!([1, 2].contains(&self.terminal_lut_count_log), "terminal LUT packing supports two or four lanes");
+        ensure!(["padded", "sign"].contains(&self.terminal_read.as_str()), "terminal_read must be padded or sign");
         Ok(())
     }
 }

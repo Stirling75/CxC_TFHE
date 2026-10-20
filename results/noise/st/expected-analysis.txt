@@ -1,0 +1,92 @@
+
+=== W16: w16/probe.csv.gz  trials=100
+stage       n  sd pre   model   ratio   kurt  sd ms  model sd post    mean max|post|      z log2p/read
+0d        400   54.86   56.95  0.0551   0.14  54.95  55.00   55.46  -0.14u     57.52  23.15     -392.3
+0t        400   54.56   55.90  0.1576   0.50  54.95  55.00   55.26  -0.01u     57.00  26.80     -523.4
+12        800   53.88                  -0.18 
+19       1600   51.61                  -0.12 
+2        1500   54.72   56.54  0.0804  -0.18  57.01  57.00   57.04  -0.69u     58.58   7.62      -45.8
+9        1600   54.47   54.48  0.9836   0.18  57.02  57.00   57.04  -0.59u     58.70  15.39     -176.0
+10d       400   54.16                   0.03 
+10t       400   52.80                   0.63 
+chain: 15 selector uses; stage-10t var / uses = 2^101.69 (screen cmux 2^105.68, per use 4*cmux)
+
+=== W32: w32/probe.csv.gz  trials=40
+stage       n  sd pre   model   ratio   kurt  sd ms  model sd post    mean max|post|      z log2p/read
+0d        160   54.78   56.95  0.0495  -0.02  54.91  55.00   55.36  -0.05u     56.91  24.90     -452.9
+0t        480   54.69   56.65  0.0661  -0.42  55.02  55.00   55.34  -0.13u     56.81  25.20     -464.1
+1        1920   54.60   56.07  0.1307   0.02  56.00  56.00   56.11  -0.20u     58.00  14.69     -160.3
+11       1920   53.52                   1.73 
+12        960   53.32                   1.90 
+19       1280   51.62                   0.08 
+2        1880   54.61   55.98  0.1513   0.18  56.99  57.00   57.04  -0.66u     59.00   7.65      -46.0
+9        1280   54.51   54.48  1.0422   0.07  56.98  57.00   57.00  -0.27u     58.70  15.92     -187.7
+10d       160   54.15                  -0.15 
+10t       480   53.63                  -0.37 
+chain: 47 selector uses; stage-10t var / uses = 2^101.70 (screen cmux 2^105.68, per use 4*cmux)
+
+=== W64: w64/probe.csv.gz  trials=40
+stage       n  sd pre   model   ratio   kurt  sd ms  model sd post    mean max|post|      z log2p/read
+0d        160   54.80   56.95  0.0507  -0.05  54.91  55.00   55.46  -0.09u     57.00  23.28     -396.7
+0t       1120   54.94   57.25  0.0404   0.04  55.01  55.00   55.45  -0.05u     57.32  23.36     -399.4
+1       13280   54.57   55.92  0.1557   0.00  55.99  56.00   56.09  -0.27u     58.17  14.91     -165.4
+11      13280   53.28                   2.89 
+12       2240   52.57                   7.87 
+19       2560   51.62                   0.20 
+2        4440   54.52   55.47  0.2677  -0.04  57.00  57.00   57.03  -0.62u     58.91   7.69      -46.4
+9        2560   54.45   54.48  0.9525   0.12  57.00  57.00   57.02  -0.46u     58.81  15.67     -181.8
+10d       160   54.12                   0.64 
+10t      1120   54.49                  -0.25 
+chain: 111 selector uses; stage-10t var / uses = 2^102.18 (screen cmux 2^105.68, per use 4*cmux)
+
+=== W128: w128/probe.csv.gz  trials=40
+stage       n  sd pre   model   ratio   kurt  sd ms  model sd post    mean max|post|      z log2p/read
+0d        160   54.83   56.95  0.0532   0.21  54.98  55.00   55.46  -0.22u     57.25  23.07     -389.8
+0t       2400   55.29   57.80  0.0309   0.14  54.95  55.00   55.64  +0.01u     57.58  20.57     -310.0
+1       66760   54.59   55.80  0.1867   0.10  56.00  56.00   56.10  -0.24u     58.17  14.84     -163.9
+11      66760   53.26                   4.30 
+12       4800   52.07                  23.99 
+19       5120   51.64                   0.19 
+2        9560   54.48   55.09  0.4267   0.13  57.02  57.00   57.04  -0.53u     58.91   7.67      -46.1
+9        5120   54.48   54.48  0.9926   0.10  56.98  57.00   57.01  -0.50u     58.91  15.80     -185.0
+10d       160   54.16                   0.43 
+10t      2400   55.04                   0.99 
+chain: 239 selector uses; stage-10t var / uses = 2^102.19 (screen cmux 2^105.68, per use 4*cmux)
+
+=== W256: w256/probe.csv.gz  trials=20
+stage       n  sd pre   model   ratio   kurt  sd ms  model sd post    mean max|post|      z log2p/read
+0d         80   55.01   56.95  0.0686   0.22  54.94  55.00   55.49  -0.14u     57.00  22.68     -376.9
+0t       2480   55.78   58.32  0.0297  -0.22  55.00  55.00   55.95  -0.45u     57.70  16.30     -197.0
+1      148280   54.58   55.75  0.1989   0.14  56.01  56.00   56.10  -0.25u     58.25  14.80     -162.9
+11     148280   53.27                   5.13 
+12       4960   51.70                  45.82 
+19       5120   51.70                  -0.11 
+2        9900   54.48   54.83  0.6182  -0.02  57.01  57.00   57.03  -0.44u     58.91   7.71      -46.3
+9        5120   54.45   54.48  0.9598   0.09  57.04  57.00   57.06  -0.46u     58.91  15.27     -172.9
+10d        80   54.58                  -0.54 
+10t      2480   55.63                  -0.21 
+chain: 495 selector uses; stage-10t var / uses = 2^102.30 (screen cmux 2^105.68, per use 4*cmux)
+
+=== Calibrated whole-multiplication log2 failure (per-event pre-MS variance rescaled by measured KS and source factors; MS model kept)
+W 16: screen   -27.9 -> calibrated   -41.6  r_ks=1.046 r_src[9]=2^-1.26 r_src[2]=2^-5.25 r_src[0d]=2^-5.52 r_src[0t]=2^-5.99 max r_col=2^-4.83
+      input_grouped_lift: max -179.2 union -175.2  terminal_binary_lift: max -45.3 union -41.6  emission_pbs: max -415.3 union -413.3
+W 32: screen   -27.8 -> calibrated   -40.2  r_ks=1.016 r_src[9]=2^-1.23 r_src[1]=2^-4.93 r_src[2]=2^-5.12 r_src[0d]=2^-5.54 r_src[0t]=2^-5.98 max r_col=2^0.34
+      input_grouped_lift: max -179.4 union -174.4  compressor: max -157.8 union -154.2  terminal_binary_lift: max -45.4 union -40.2  emission_pbs: max -419.6 union -417.6
+W 64: screen   -27.4 -> calibrated   -39.2  r_ks=0.978 r_src[9]=2^-1.24 r_src[1]=2^-5.07 r_src[2]=2^-5.39 r_src[0d]=2^-5.60 r_src[0t]=2^-5.50 max r_col=2^0.53
+      input_grouped_lift: max -179.6 union -173.6  compressor: max -159.1 union -153.2  terminal_binary_lift: max -45.4 union -39.2  emission_pbs: max -384.3 union -379.5
+W128: screen   -11.7 -> calibrated   -38.1  r_ks=0.998 r_src[9]=2^-1.19 r_src[1]=2^-4.83 r_src[2]=2^-5.27 r_src[0d]=2^-5.53 r_src[0t]=2^-5.49 max r_col=2^0.53
+      input_grouped_lift: max -179.5 union -172.5  compressor: max -157.4 union -149.9  terminal_binary_lift: max -45.4 union -38.1  emission_pbs: max -296.9 union -291.0
+W256: screen    -2.5 -> calibrated   -37.0  r_ks=1.043 r_src[9]=2^-1.08 r_src[1]=2^-4.69 r_src[2]=2^-4.98 r_src[0d]=2^-4.68 r_src[0t]=2^-5.37 max r_col=2^0.79
+      input_grouped_lift: max -179.2 union -171.2  compressor: max -155.9 union -146.3  terminal_binary_lift: max -45.1 union -37.0  emission_pbs: max -195.0 union -188.1
+
+=== Same calibration with the sign terminal read (the read of the reconstruction in the paper)
+W 16: screen   -47.9 -> calibrated  -154.5
+      input_grouped_lift: max -179.2 union -175.2  terminal_binary_lift: max -155.5 union -154.5  emission_pbs: max -415.3 union -413.3
+W 32: screen   -47.9 -> calibrated  -153.6
+      input_grouped_lift: max -179.4 union -174.4  compressor: max -157.8 union -154.2  terminal_binary_lift: max -156.9 union -155.2  emission_pbs: max -419.6 union -417.6
+W 64: screen   -29.5 -> calibrated  -153.0
+      input_grouped_lift: max -179.6 union -173.6  compressor: max -159.1 union -153.2  terminal_binary_lift: max -156.5 union -155.9  emission_pbs: max -384.3 union -379.5
+W128: screen   -11.7 -> calibrated  -149.9
+      input_grouped_lift: max -179.5 union -172.5  compressor: max -157.4 union -149.9  terminal_binary_lift: max -156.3 union -155.2  emission_pbs: max -296.9 union -291.0
+W256: screen    -2.5 -> calibrated  -146.3
+      input_grouped_lift: max -179.2 union -171.2  compressor: max -155.9 union -146.3  terminal_binary_lift: max -153.3 union -152.8  emission_pbs: max -195.0 union -188.1

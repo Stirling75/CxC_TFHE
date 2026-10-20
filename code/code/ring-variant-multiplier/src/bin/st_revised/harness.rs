@@ -24,6 +24,7 @@ struct Args {
     #[arg(long)] refined_noise_assumption: bool,
     #[arg(long)] split_trace_fft: bool,
     #[arg(long)] cc2_big_key: bool,
+    #[arg(long)] terminal_sign_read: bool,
     #[arg(long)] parameters: Option<PathBuf>,
     #[arg(long)] allow_unverified_parameters: bool,
     #[arg(long)] inspect: bool,
@@ -111,6 +112,7 @@ pub fn run() -> Result<()> {
     };
     let mut params = params;
     params.cc2_big_key |= args.cc2_big_key;
+    if args.terminal_sign_read { params.terminal_read = "sign".into(); }
     params.validate()?;
     ensure!([52, 61].contains(&args.boundary_delta_log2), "supported boundary scales are 52 and 61");
     ensure!(args.boundary_delta_log2 == 52 || args.allow_alternate_boundary,

@@ -8,7 +8,7 @@ OUT = Path(__file__).resolve().parent / "out" / "appendix-latency.tex"
 OUT.parent.mkdir(parents=True, exist_ok=True)
 MEETS = [("hybrid-grouped-rev-ld", "Ours, product-sum"), ("hybrid-cached-rev-ld", "Ours, chunk-product"),
          ("hybrid-grouped-rev-mvb", "Ours+MVB, product-sum$^\\dagger$"), ("hybrid-cached-rev-mvb", "Ours+MVB, chunk-product$^\\dagger$"),
-         ("st-r2-n688", "Shokri--Tsoutsos, $n=688$"), ("bernard-mvb-ks36", "Bernard et al., KS $(3,6)^\\dagger$"),
+         ("st-sign-retuned", "Shokri--Tsoutsos, retuned"), ("bernard-mvb-ks36", "Bernard et al., KS $(3,6)^\\dagger$"),
          ("tfhe-rs-ks28", "TFHE-rs, KS $(2,8)$"), ("clot-bfv", "BFV adaptation")]
 MISSES = [("st-reported-r2", "Shokri--Tsoutsos, paper"), ("bernard-mvb", "Bernard et al., paper$^\\dagger$"), ("tfhe-rs", "TFHE-rs, KS $(3,5)$"),
           ("trifan", "Trifan et al."), ("parmesan", "PARMESAN")]
@@ -22,10 +22,10 @@ def fmt(x):
 def meets(m, w):
     return m != "clot-bfv" or w < 256
 lines = [r"\section{Latency Table}\label{app:latency}",
-         r"Tables~\ref{tab:latency} and~\ref{tab:latency-wide} list the mean latency of every method of the main comparison, for all widths and thread budgets of Section~\ref{subsec:setup}; Figure~\ref{fig:overview} plots parts of them. The controls of Table~\ref{tab:breakdown} were measured separately."]
+         r"Tables~\ref{tab:latency} and~\ref{tab:latency-wide} list the mean latency of every method of the main comparison, for all widths and numbers of threads of Section~\ref{subsec:setup}. Figure~\ref{fig:overview} plots parts of them. The rows of Table~\ref{tab:breakdown} come from a separate run with per-stage timing, so their totals differ slightly."]
 CAPTION = (r"Mean latency in seconds of one multiplication by operand width and number of threads, for {part}. "
-           r"In each block, the methods above the inner rule meet the $2^{{-128}}$ target of Table~\ref{{tab:failure}} "
-           r"(the BFV adaptation only up to $W=128$; the paper set of Bernard et al.\ also meets it for $W\le32$), "
+           r"In each block, the methods above the horizontal line meet the $2^{{-128}}$ target of Table~\ref{{tab:failure}} "
+           r"(the BFV adaptation only up to $W=128$, and the paper set of Bernard et al.\ also for $W\le32$), "
            r"and the fastest of them for each number of threads is set in bold. $^\dagger$Under the model of Bernard et al.~\cite{{bernard2026lownoise}} for multi-value outputs (Section~\ref{{subsec:error}}).")
 for widths, part, label in (((16, 32, 64), r"$W\le64$", "tab:latency"), ((128, 256), r"$W\ge128$", "tab:latency-wide")):
     lines += [r"\begin{table}[p]", r"\centering", r"\small", r"\renewcommand{\arraystretch}{1.0}",

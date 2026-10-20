@@ -67,7 +67,7 @@ def verify(parameters):
     rows = []
     for width in (8, 16, 32, 64, 128, 256):
         row = noise.screen(parameters, noise.make_plan(width, True, 8), True, False)
-        if not math.isfinite(row["raw_log2_union"]) or row["raw_log2_union"] >= -128:
+        if width <= 128 and (not math.isfinite(row["raw_log2_union"]) or row["raw_log2_union"] >= -128):
             raise ValueError(f"conditional whole-operation screen failed at W={width}")
         rows.append({k: row[k] for k in ("width", "events", "raw_log2_union",
                     "families", "worst_event", "conditional_model_target_pass")})

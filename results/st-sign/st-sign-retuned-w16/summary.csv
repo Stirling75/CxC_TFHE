@@ -1,0 +1,8 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+st-sign-retuned,16,1,5,1.1005349794,0.002050419264155305,lower-W extracted-key CC2,conditional-gaussian,False,True,-140.73972641400647,True,conditional Gaussian screen,True,343932928
+st-sign-retuned,16,2,5,0.5851800252,0.0008414968301126834,lower-W extracted-key CC2,conditional-gaussian,False,True,-140.73972641400647,True,conditional Gaussian screen,True,343932928
+st-sign-retuned,16,4,5,0.3042848008,0.0004345501488536327,lower-W extracted-key CC2,conditional-gaussian,False,True,-140.73972641400647,True,conditional Gaussian screen,True,343932928
+st-sign-retuned,16,8,5,0.1778785386,0.000900059363315727,lower-W extracted-key CC2,conditional-gaussian,False,True,-140.73972641400647,True,conditional Gaussian screen,True,343932928
+st-sign-retuned,16,16,5,0.1277352176,0.007205543903636202,lower-W extracted-key CC2,conditional-gaussian,False,True,-140.73972641400647,True,conditional Gaussian screen,True,343932928
+st-sign-retuned,16,32,5,0.1175726474,0.001246579069209727,lower-W extracted-key CC2,conditional-gaussian,False,True,-140.73972641400647,True,conditional Gaussian screen,True,351895552
+st-sign-retuned,16,64,5,0.1330943774,0.01458239045660595,lower-W extracted-key CC2,conditional-gaussian,False,True,-140.73972641400647,True,conditional Gaussian screen,True,371458048

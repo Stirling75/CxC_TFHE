@@ -1,0 +1,29 @@
+{
+  "n": 800,
+  "polynomial_size": 2048,
+  "lwe_sigma": 7.62939453125e-06,
+  "glwe_sigma": 9.25119974676756e-16,
+  "pbs": [
+    15,
+    2
+  ],
+  "encoding_pbs": [
+    4,
+    10
+  ],
+  "ks": [
+    1,
+    15
+  ],
+  "packing": [
+    3,
+    14
+  ],
+  "relin": [
+    12,
+    3
+  ],
+  "input_lut_domain": 4,
+  "normalizer_lut_domain": 8,
+  "degree_aware": true
+}

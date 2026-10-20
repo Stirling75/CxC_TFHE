@@ -40,6 +40,8 @@ def validate_parameters(p):
             raise ValueError("invalid decomposition")
     if p["cbs"][1] != 4 or p.get("terminal_lut_count_log", 2) not in (1, 2):
         raise ValueError("unsupported terminal CBS packing")
+    if p.get("terminal_read", "padded") not in ("padded", "sign"):
+        raise ValueError("terminal_read must be padded or sign")
     if not isinstance(p.get("cc2_big_key", False), bool):
         raise ValueError("cc2_big_key must be boolean")
 
@@ -73,9 +75,15 @@ def variances(p):
     trace_sigma = math.sqrt(n/2*trace_var)
     base, levels = p["ss"]
     b = 2**base
-    # Conditional iid rounding coordinates, with binary-secret norm bounds:
-    # ||S_j||_2^2 + sum_i ||S_j*S_i||_2^2 <= N + k*N^3.
-    ss_rounding = (Q*Q/b**(2*levels)-1)/12 * (n + k*n**3)
+    if p.get("ss_model", "norm-bound") == "mean-weight":
+        # Same scheme-switching rounding term as our multiplier
+        # (cbs_variance_estimator.get_var_scheme_switch, mean key weight).
+        b2l = float(b)**(2*levels)
+        ss_rounding = (1.0 + k*n) * ((Q*Q - b2l)/(24.0*b2l) + 1.0/16.0) * n/2.0
+    else:
+        # Conditional iid rounding coordinates, with binary-secret norm bounds:
+        # ||S_j||_2^2 + sum_i ||S_j*S_i||_2^2 <= N + k*N^3.
+        ss_rounding = (Q*Q/b**(2*levels)-1)/12 * (n + k*n**3)
     ss_key = (k+1)*levels*n*(b*b+2)/12 * glwe*Q*Q
     ss_fft = primitive.get_var_fft_ext_prod(n, k, Q, *p["ss"])
     ss_sigma = math.sqrt(ss_rounding) + math.sqrt(ss_key) + math.sqrt(ss_fft)
@@ -179,6 +187,14 @@ def screen(p, width):
         for read in range(1 + int(len(plan.final[column]) > 1 and column < width - 1)):
             theta = p.get("terminal_lut_count_log", 2)
             for batch in range(4 // 2**theta):
+                if p.get("terminal_read", "padded") == "sign":
+                    # Scaled after the key switch: x4 puts the low bit on a half-torus
+                    # boundary (margin q/4), x2 and +q/8 the high bit (margin q/8).
+                    factor, spacing = (4, 2**63) if read == 0 else (2, 2**62)
+                    events.append(event(p, "terminal_binary_lift",
+                        factor**2 * (source_variance(inputs)+v["ks"]), theta=theta, spacing=spacing,
+                        mean_bound=factor*abs(v["ks_mean"]), column=column, read=read, batch=batch))
+                    continue
                 events.append(event(p, "terminal_binary_lift", source_variance(inputs)+v["ks"],
                     theta=theta, mean_bound=abs(v["ks_mean"]), column=column, read=read, batch=batch))
     # There are two CMux uses per low selector and two per preceding high

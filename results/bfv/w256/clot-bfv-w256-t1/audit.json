@@ -1,0 +1,62 @@
+{
+  "run": "<pkg>/results/bfv-enc4x10-w256c/clot-bfv-w256-t1/raw",
+  "validated_cases": 4,
+  "cases": [
+    {
+      "file": "w256-random-r0.json",
+      "sha256": "6944479b0a74ca1c553b01c00af182d78c7b3c206e505813a68b8106c3bfe547",
+      "warmup": true
+    },
+    {
+      "file": "w256-random-r1.json",
+      "sha256": "058f6c7381a990ab420a569a0a68fc351f5142e2aa1f5a3d223ea9141a79cf59",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r2.json",
+      "sha256": "813424216d63d72c639322987752d4d9223815a9655fac9a67cfc1ac8d4daaf1",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r3.json",
+      "sha256": "175bc5f45efbaee2048add13492b34f54c9463be52f9b73982637d520e482537",
+      "warmup": false
+    }
+  ],
+  "manifest_sha256": "ed9c561b2ec93184fb019030d6b5fe6b03ee1900544109d12761e56c8c820423",
+  "audit_source_sha256": "90d3d9b164664bbc53d127080abf5445832c259c1d21a5dd0c776387774e818a",
+  "noise_model_sha256": "fd64b36f8da593cc27a5d013dbdb3a0d8bf1c5da38ec073198788250042707ab",
+  "primitive_model_sha256": "400dd15551dcdb7614000712c5cd2bd3be77b103d732744275dcd36daae2cb32",
+  "serial_ciphertext_equivalence_checked": false,
+  "summaries": [
+    {
+      "width": 256,
+      "pattern": "random",
+      "threads": 1,
+      "repetitions": 3,
+      "warmup": 1,
+      "seconds": [
+        92.859473294,
+        81.513115342,
+        81.509229505
+      ],
+      "mean_seconds": 85.29393938033333,
+      "wrong_products": 0,
+      "sample_sd_seconds": 6.5519448505052775,
+      "mean_stage_seconds": {
+        "digit_decomposition": 26.974367770666667,
+        "extraction": 0.000241264,
+        "input_rescale": 19.367181709,
+        "normalization": 30.680724015000003,
+        "packing": 8.264671413,
+        "relinearization": 0.002147496666666667,
+        "tensor": 0.004443732
+      },
+      "conditional_union_log2": -2.4277125421925447,
+      "pbs": 2521,
+      "ks": 2521
+    }
+  ],
+  "whole_multiplier_approved": false,
+  "timing_contract": "continuous-evaluator-wall-clock-v1"
+}

@@ -23,7 +23,7 @@ screen.assign_linear, screen.analyze = spy_assign, spy_analyze
 out = []
 for m in ("hybrid-grouped-rev-ld", "hybrid-cached-rev-ld"):
     for W in (128, 256):
-        for cap in range(0, 101, 5):
+        for cap in list(range(0, 101, 5)) + [10**9]:  # 10**9: every digit with a carry linear
             cases.CATALOG[m]["linear_digits"] = [cap, 1000]
             cases.resolve.cache_clear(); trials.clear(); state.clear()
             cases.resolve(m, W)

@@ -1,0 +1,32 @@
+{
+ "name": "st-sign-retuned",
+ "lwe_dimension": 688,
+ "polynomial_size": 2048,
+ "glwe_dimension": 1,
+ "lwe_sigma": 2.9478037381739656e-05,
+ "glwe_sigma": 9.25119974676756e-16,
+ "pbs": [
+  11,
+  3
+ ],
+ "ks": [
+  2,
+  7
+ ],
+ "auto": [
+  12,
+  3
+ ],
+ "ss": [
+  14,
+  3
+ ],
+ "cbs": [
+  5,
+  4
+ ],
+ "terminal_lut_count_log": 2,
+ "split_trace_fft": true,
+ "cc2_big_key": true,
+ "terminal_read": "sign"
+}

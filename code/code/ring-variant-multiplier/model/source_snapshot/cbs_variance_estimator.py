@@ -436,11 +436,51 @@ def get_var_fft_ext_prod(N: int, k: int, q: float, base_log: int, level: int) ->
     return (2.0 ** (-2 * 53 - 2.6)) * (k + 1) * level * B * B * q * q * N * N
 
 
+def signed_digit_second_moments(base_log: int, levels: int, q_bits: int = 64) -> list:
+    """Exact per-level E[d^2] of the TFHE-rs 1.6.1 native signed decomposition
+    (same function as server-campaign/st_gaussian.py, used by every family)."""
+    base = 1 << base_log
+    half = base // 2
+    weight = 1.0 / base
+    state = {(0, x, True): weight for x in range(base)}
+    moments = []
+    for lev in range(levels):
+        second = 0.0
+        following = {}
+        for (carry_in, chunk, lower_zero), probability in state.items():
+            total = chunk + carry_in
+            overflow = int(total == base)
+            residue = total - base * overflow
+            if lev + 1 < levels:
+                successors = [(nxt, (nxt + overflow) % base, weight) for nxt in range(base)]
+            else:
+                if chunk > half or (chunk == half and not lower_zero):
+                    signs = [(1, 1.0)]
+                elif chunk == half:
+                    signs = [(1, 0.5), (0, 0.5)]
+                else:
+                    signs = [(0, 1.0)]
+                successors = [(None, ((base - 1) * sign + overflow) % base, p) for sign, p in signs]
+            for nxt, visible, p in successors:
+                tie = (visible >> (base_log - 1)) & 1
+                carry = int(residue > half or (residue == half and tie))
+                digit = residue - base * carry
+                second += probability * p * digit * digit
+                if nxt is not None:
+                    key = (overflow + carry, nxt, lower_zero and chunk == 0)
+                    following[key] = following.get(key, 0.0) + probability * p
+        moments.append(second)
+        state = following
+    return moments
+
+
 def get_var_lwe_ks(source_lwe_dimension: int, q: float, var_lwe: float, base_log: int, level: int) -> float:
+    """LWE key switch with the exact digit moments of the signed decomposer,
+    applied identically to every compared method."""
     B = 2.0**base_log
     B_2l = B ** (2 * level)
     gadget = source_lwe_dimension * ((q * q - B_2l) / (24.0 * B_2l) + 1.0 / 16.0)
-    key = source_lwe_dimension * level * (var_lwe * q * q) * (B * B / 12.0 + 1.0 / 6.0)
+    key = source_lwe_dimension * math.fsum(signed_digit_second_moments(base_log, level)) * (var_lwe * q * q)
     return gadget + key
 
 

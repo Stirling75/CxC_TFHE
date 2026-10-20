@@ -16,7 +16,8 @@ STAGES = {"input_rescale", "packing", "tensor", "relinearization", "extraction",
 def audit(directory, require_benchmark=False):
     manifest = json.loads((directory / "manifest.json").read_text())
     done = json.loads((directory / "completed.json").read_text())
-    candidate = json.loads((HERE / "parameters/bfv-n800-range-aware.json").read_text())
+    parameter_file = manifest.get("parameter_file") or str(HERE / "parameters/bfv-n800-range-aware.json")
+    candidate = json.loads(Path(parameter_file).read_text())
     actual = manifest["parameters"]
     assert set(actual) == set(candidate), "parameter schema mismatch"
     for key, value in candidate.items():
@@ -50,7 +51,8 @@ def audit(directory, require_benchmark=False):
         for key, value in canonical.items():
             assert plan[key] == value, (key, plan[key], value)
         screen = noise.screen(actual, plan, True, False)
-        assert screen["raw_log2_union"] < -128
+        # W=256 misses the target for every encoding key and is reported as such.
+        assert width > 128 or screen["raw_log2_union"] < -128
         normalizer_tasks = sum(e["kind"] == "normalization" and e["label"][1] in ("low", "final")
                                for e in screen["event_trace"])
         expected_ks = plan["pbs_total"] if threads == 1 else (
@@ -59,6 +61,7 @@ def audit(directory, require_benchmark=False):
         for pattern in manifest["patterns"]:
             measured = []
             totals = []
+            failures = 0
             for trial in range(repetitions+warmup):
                 path = directory / f"w{width}-{pattern}-r{trial}.json"
                 expected_files.add(path)
@@ -66,10 +69,14 @@ def audit(directory, require_benchmark=False):
                 assert (row["width"], row["pattern"], row["repetition"]) == (width, pattern, trial)
                 assert row.get("threads", 1) == threads
                 assert row.get("warmup", False) == (trial < warmup)
-                assert row["status"] == "full-path-correct"
-                for field in ("native_input_a", "native_input_b", "rescaled_a", "rescaled_b",
-                              "packed_a", "packed_b", "convolution", "output"):
-                    assert row[field]["correct"] and not row[field]["errors"], field
+                if manifest.get("continue_on_failure") and row["status"] != "full-path-correct":
+                    # Recorded wrong product at a width that misses the target.
+                    assert width > 128 and row["status"] in ("failed-kernel", "failed-output")
+                else:
+                    assert row["status"] == "full-path-correct"
+                    for field in ("native_input_a", "native_input_b", "rescaled_a", "rescaled_b",
+                                  "packed_a", "packed_b", "convolution", "output"):
+                        assert row[field]["correct"] and not row[field]["errors"], field
                 a, b = int(row["a_hex"], 16), int(row["b_hex"], 16)
                 assert 0 <= a < 2**width and 0 <= b < 2**width
                 expected = a*b % 2**width
@@ -95,12 +102,13 @@ def audit(directory, require_benchmark=False):
                 assert total + 1e-9 >= sum(row["timings_seconds"].values()), "wall-clock shorter than phases"
                 cases.append({"file": path.name, "sha256": noise.digest(path),
                               "warmup": trial < warmup})
+                failures += row["status"] != "full-path-correct"
                 if trial >= warmup:
                     measured.append(row["timings_seconds"])
                     totals.append(total)
             summaries.append({"width": width, "pattern": pattern, "threads": threads,
                 "repetitions": repetitions, "warmup": warmup,
-                "seconds": totals, "mean_seconds": statistics.mean(totals),
+                "seconds": totals, "mean_seconds": statistics.mean(totals), "wrong_products": failures,
                 "sample_sd_seconds": statistics.stdev(totals) if repetitions > 1 else None,
                 "mean_stage_seconds": {key: statistics.mean(row[key] for row in measured) for key in sorted(STAGES)},
                 "conditional_union_log2": screen["raw_log2_union"],

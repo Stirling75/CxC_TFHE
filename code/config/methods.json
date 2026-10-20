@@ -42,7 +42,7 @@
   },
   "clot-bfv": {
     "family": "bfv",
-    "parameters": "bfv-n800-range-aware.json",
+    "parameters": "bfv-n800-enc4x10.json",
     "widths": [
       16,
       32,
@@ -52,7 +52,10 @@
     ],
     "output": "lower-W clean radix-4",
     "failure_status": "conditional-gaussian-layout-aware",
-    "note": "BFV-style multiplication of Chillotti et al. on TFHE radix inputs and outputs, including packing and conversion."
+    "note": "BFV-style multiplication of Chillotti et al. on TFHE radix inputs and outputs, including packing and conversion. Encoding PBS (4,10): the cheapest decomposition meeting the target at W<=128.",
+    "continue_on_failure_widths": [
+      256
+    ]
   },
   "st-r2-n704": {
     "family": "st",
@@ -82,8 +85,9 @@
     ],
     "output": "lower-W extracted-key CC2 at delta 2^52",
     "failure_status": "unverifiable-paper-parameters",
-    "note": "Shokri-Tsoutsos, paper parameters.",
-    "cc2_big_key": true
+    "note": "Shokri-Tsoutsos, paper parameters, sign terminal read.",
+    "cc2_big_key": true,
+    "terminal_read": "sign"
   },
   "hybrid-grouped-rev-ld": {
     "family": "hybrid",
@@ -511,5 +515,19 @@
     "output": "lower-W extracted-key CC2",
     "failure_status": "conditional-gaussian",
     "note": "Shokri-Tsoutsos, retuned set (n = 688)."
+  },
+  "st-sign-retuned": {
+    "family": "st",
+    "parameters": "st-sign-retuned-1024x2.json",
+    "widths": [
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "output": "lower-W extracted-key CC2",
+    "failure_status": "conditional-gaussian",
+    "note": "Shokri-Tsoutsos, retuned set (N=1024, k=2, n=768, sign terminal read): the fastest measured set meeting the target under the common model."
   }
 }

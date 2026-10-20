@@ -36,6 +36,9 @@ struct Args {
     threads: usize,
     #[arg(long)]
     verify_serial: bool,
+    /// Record wrong products and keep measuring (for widths that miss the target).
+    #[arg(long)]
+    continue_on_failure: bool,
     #[arg(long, conflicts_with_all = ["kernel_only", "plan_only"])]
     benchmark: bool,
     #[arg(long, default_value_t = 20260918)]
@@ -202,6 +205,7 @@ fn main() -> Result<()> {
         "parameter_file": args.parameters, "coefficient_padding": args.coefficient_padding,
         "parameters": params, "plans": plans, "patterns": args.patterns,
         "repetitions": args.repetitions, "warmup": args.warmup, "verify_serial": args.verify_serial,
+        "continue_on_failure": args.continue_on_failure,
         "plaintext_seed": args.seed, "key_randomness": "OS seeder, fresh per process",
         "kernel_only": args.kernel_only, "plan_only": args.plan_only,
         "benchmark": args.benchmark,
@@ -334,7 +338,7 @@ fn main() -> Result<()> {
                     "failed-kernel"
                 });
                 save(&file, &row)?;
-                ensure!(kernel_ok, "kernel failure: {}", file.display());
+                ensure!(kernel_ok || args.continue_on_failure, "kernel failure: {}", file.display());
                 if !args.kernel_only {
                     let output = timed_output
                         .unwrap_or_else(|| pool.install(|| evaluator.finish(&mut kernel, p)));
@@ -376,7 +380,7 @@ fn main() -> Result<()> {
                         "failed-output"
                     });
                     save(&file, &row)?;
-                    ensure!(ok, "output failure: {}", file.display());
+                    ensure!(ok || args.continue_on_failure, "output failure: {}", file.display());
                     if let Some(serial_pool) = &serial_pool {
                         eprintln!("  checking identical inputs against serial execution");
                         let (reference, serial_output) = serial_pool.install(|| {

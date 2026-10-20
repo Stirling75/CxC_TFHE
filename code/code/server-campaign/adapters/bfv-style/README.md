@@ -6,7 +6,8 @@ packed into one GLWE ciphertext, all local products are computed by one tensor
 product with relinearization, and the result is converted back to radix digits
 by digit extraction and carry restoration. Packing and conversion are timed.
 
-- `parameters/bfv-n800-range-aware.json`: the parameter set used in the paper.
+- `parameters/bfv-n800-enc4x10.json`: the parameter set used in the paper, with the
+  re-encoding PBS (4,10). `bfv-n800-range-aware.json` is the earlier set with (1,43).
 - `verify_candidate.py`: Gaussian failure estimate (Section 5.4 of the paper).
 - `analyze_noise.py`, `audit_run.py`: noise accounting and run checks.
 

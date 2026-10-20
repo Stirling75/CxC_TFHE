@@ -47,7 +47,9 @@ def check(method, width, threads, args, case, resolved):
         require(abs(summary["conditional_union_log2"] - resolved["analysis"]["raw_log2_union"]) < 1e-6,
                 "BFV runtime noise estimate differs from preflight")
         (case / "audit.json").write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
-        return summary_row(method, width, threads, summary["seconds"], config)
+        row = summary_row(method, width, threads, summary["seconds"], config)
+        row["correct"] = summary.get("wrong_products", 0) == 0
+        return row
     rows = read_rows(raw / "timings.csv", args.warmup, args.repetitions)
     key = {"hybrid": "total_ms", "bitwise": "total_s", "st": "total_s",
            "radix": "total_seconds", "parmesan": "total_seconds", "bernard": "total_seconds"}[family]

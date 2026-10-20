@@ -1,0 +1,2 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+clot-bfv,256,1,3,85.551683677,6.66201037233798,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-2.4277125421925447,False,Gaussian screen refuted by encrypted measurement; calibrated correlated-quotient estimate -52.0..-41.6; other events -2.4,True,1793937408

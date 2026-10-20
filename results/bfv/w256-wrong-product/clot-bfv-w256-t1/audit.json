@@ -1,0 +1,61 @@
+{
+  "run": "<pkg>/results/bfv-enc4x10-w256b/clot-bfv-w256-t1/raw",
+  "validated_cases": 4,
+  "cases": [
+    {
+      "file": "w256-random-r0.json",
+      "sha256": "64afeb0ea0a31ad5ebe61169f3d9098789d7eac0f4115996c063dfd8a43c6897",
+      "warmup": true
+    },
+    {
+      "file": "w256-random-r1.json",
+      "sha256": "0ea2326446c1e250af10d0a284f0b4aa5487fbf536b73d3412b6112ca7bbff61",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r2.json",
+      "sha256": "93f302f685cb54665c9503ef93d3b31579cb641f6880cbfb36a3bc934a24266a",
+      "warmup": false
+    },
+    {
+      "file": "w256-random-r3.json",
+      "sha256": "7570ca21735b5b846396ac63f1f1255b014d3d97620bebab2b6fe59166d3af48",
+      "warmup": false
+    }
+  ],
+  "manifest_sha256": "083ee7dc6ebccc0b8da59ea9158b10bd13a7fd78aba93030bfa1e6ddaed6806f",
+  "audit_source_sha256": "f324ae1401d63bdad46cd3fee011d2582f7dfebbace61936ee0dddbf61390673",
+  "noise_model_sha256": "fd64b36f8da593cc27a5d013dbdb3a0d8bf1c5da38ec073198788250042707ab",
+  "primitive_model_sha256": "400dd15551dcdb7614000712c5cd2bd3be77b103d732744275dcd36daae2cb32",
+  "serial_ciphertext_equivalence_checked": false,
+  "summaries": [
+    {
+      "width": 256,
+      "pattern": "random",
+      "threads": 1,
+      "repetitions": 3,
+      "warmup": 1,
+      "seconds": [
+        93.24427943,
+        81.724363072,
+        81.686408529
+      ],
+      "mean_seconds": 85.551683677,
+      "sample_sd_seconds": 6.66201037233798,
+      "mean_stage_seconds": {
+        "digit_decomposition": 27.082199872,
+        "extraction": 0.00024245666666666667,
+        "input_rescale": 19.427459278666667,
+        "normalization": 30.792276974,
+        "packing": 8.242775015,
+        "relinearization": 0.002117373666666667,
+        "tensor": 0.004447500333333333
+      },
+      "conditional_union_log2": -2.4277125421925447,
+      "pbs": 2521,
+      "ks": 2521
+    }
+  ],
+  "whole_multiplier_approved": false,
+  "timing_contract": "continuous-evaluator-wall-clock-v1"
+}

@@ -182,6 +182,17 @@ fn packed_lut(keys: &EvaluationKeys, functions: &[(u64, fn(u64) -> u64)]) -> Glw
         &PlaintextList::from_container(body), modulus())
 }
 
+/// Sign tables: lane j of the interleaved accumulator is the constant -h_j/2,
+/// so a rotation index in [0, N) returns -h_j/2 and one in [N, 2N) returns +h_j/2.
+fn sign_lut(keys: &EvaluationKeys, functions: &[(u64, fn(u64) -> u64)]) -> Glwe {
+    let n = keys.params.polynomial_size;
+    let size = keys.bsk.glwe_size();
+    assert!(functions.len().is_power_of_two() && functions.len() <= 4);
+    let body: Vec<u64> = (0..n).map(|i| (functions[i % functions.len()].0 >> 1).wrapping_neg()).collect();
+    allocate_and_trivially_encrypt_new_glwe_ciphertext(size,
+        &PlaintextList::from_container(body), modulus())
+}
+
 fn blind_rotate(keys: &EvaluationKeys, small: &Lwe, accumulator: Glwe, theta: usize) -> Glwe {
     let out = blind_rotate_raw(&keys.bsk, small, accumulator, theta);
     keys.counts.blind_rotations.fetch_add(1, Ordering::Relaxed);
@@ -257,16 +268,34 @@ pub fn lift_binary(keys: &EvaluationKeys, input: &Lwe, high: bool) -> Selector {
     let n = keys.bsk.polynomial_size();
     let size = keys.bsk.glwe_size();
     let [base, levels] = keys.params.cbs;
-    let small = small_input(keys, input);
+    let mut small = small_input(keys, input);
+    let sign = keys.params.terminal_read == "sign";
+    if sign {
+        // The column phase is A*2^61, A in [0,3]. Scaling by 4 puts the low bit
+        // at 0 or q/2, and by 2 the high bit at {0,q/4} or {q/2,3q/4}. The
+        // offsets q/4 and q/8 centre each case inside one half of the torus.
+        let (factor, offset) = if high { (2u64, 1u64 << 61) } else { (4u64, 1u64 << 62) };
+        for a in small.as_mut() { *a = a.wrapping_mul(factor); }
+        let body = small.get_mut_body().data;
+        *body = body.wrapping_add(offset);
+    }
     let f: fn(u64) -> u64 = if high { |s| s / 2 } else { |s| s % 2 };
     let functions: Vec<_> = (1..=levels).map(|level| (1u64 << (64 - base * level), f)).collect();
     let mut glev = GlweCiphertextList::new(0u64, size, n,
         GlweCiphertextCount(levels), modulus());
     let lanes = 1 << keys.params.terminal_lut_count_log;
     for (mut output_chunk, functions) in glev.chunks_mut(lanes).zip(functions.chunks(lanes)) {
-        let rotated = blind_rotate(keys, &small, packed_lut(keys, functions), keys.params.terminal_lut_count_log);
+        let accumulator = if sign { sign_lut(keys, functions) } else { packed_lut(keys, functions) };
+        let rotated = blind_rotate(keys, &small, accumulator, keys.params.terminal_lut_count_log);
         for (lane, mut glwe) in output_chunk.iter_mut().enumerate() {
-            let lwe = extract(&rotated, lane);
+            let mut lwe = extract(&rotated, lane);
+            if sign {
+                // The constant table returns -h/2 on the lower and +h/2 on the
+                // upper half; adding h/2 gives the gadget level h times the bit.
+                let half = functions[lane].0 >> 1;
+                let body = lwe.get_mut_body().data;
+                *body = body.wrapping_add(half);
+            }
             lift::convert_lwe_to_glwe_const(&lwe, &mut glwe);
             trace::revtrace_assign(&mut glwe, &keys.auto);
         }

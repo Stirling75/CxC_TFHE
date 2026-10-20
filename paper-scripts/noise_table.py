@@ -77,13 +77,15 @@ for w in (64, 128):
 
 (HERE / "out" / "data").mkdir(parents=True, exist_ok=True)
 with open(HERE / "out" / "data" / "noise-ratios.csv", "w") as f:
-    f.write("row,category,width,ratio\n")
+    w = csv.writer(f, lineterminator="\n")
+    w.writerow(("row", "category", "width", "ratio"))
     for r in out:
-        f.write(f"{r[0]},{r[1]},{r[2]},{r[3]:.3f}\n")
+        w.writerow((r[0], r[1], r[2], f"{r[3]:.3f}"))
 with open(HERE / "out" / "data" / "noise-kurtosis.csv", "w") as f:
-    f.write("category,width,n,excess_kurtosis,standard_error\n")
-    for c, w, n, k in kurt:
-        f.write(f"{c},{w},{n},{k:.3f},{math.sqrt(24 / n):.3f}\n")
+    w = csv.writer(f, lineterminator="\n")
+    w.writerow(("category", "width", "n", "excess_kurtosis", "standard_error"))
+    for c, width, n, k in kurt:
+        w.writerow((c, width, n, f"{k:.3f}", f"{math.sqrt(24 / n):.3f}"))
 print(f"kurtosis   {min(k for *_, k in kurt):.2f} to {max(k for *_, k in kurt):.2f}")
 for key in ("selector", "reduction", "mvb-digit", "bernard"):
     v = [r[3] for r in out if r[0] == key]

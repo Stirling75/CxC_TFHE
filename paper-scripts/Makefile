@@ -2,10 +2,11 @@
 # Usage: make            (figure data and tables, python3 only)
 #        make check      (compare against the data used in the paper)
 #        make sweep      (recompute the limit sweep of Figure 4, several minutes)
+#        make extra      (model values quoted in the text, several minutes)
 PY ?= python3
 SUMMARIES := $(shell grep -v '^\#' summaries.txt)
 
-all: data table breakdown estimates mvb noise limit ratio threads
+all: data table breakdown estimates mvb noise limit ratio threads failure supp
 
 data:
 	$(PY) export_data.py $(SUMMARIES)
@@ -19,6 +20,12 @@ breakdown:
 estimates:
 	$(PY) estimates.py
 
+failure: estimates
+	$(PY) failure_table.py
+
+supp:
+	$(PY) supp_tables.py
+
 mvb:
 	$(PY) mvb_table.py
 
@@ -30,6 +37,10 @@ limit:
 
 sweep:
 	$(PY) limit_sweep.py
+
+extra:
+	$(PY) model_checks.py
+	diff -u expected-extra/model-checks.txt out/model-checks.txt
 
 ratio: data
 	$(PY) ratio_data.py out/data
@@ -43,4 +54,4 @@ check: all
 clean:
 	rm -rf out
 
-.PHONY: all data table breakdown estimates mvb noise limit sweep ratio threads check clean
+.PHONY: all data table breakdown estimates mvb noise limit sweep extra ratio threads failure supp check clean

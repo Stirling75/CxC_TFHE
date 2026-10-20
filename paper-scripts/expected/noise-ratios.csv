@@ -2,18 +2,18 @@ row,category,width,ratio
 selector,product-sum,16,0.290
 selector,chunk-product,16,0.253
 selector,4-bit,16,0.356
-reduction,final addition, refreshed,64,0.612
-reduction,final addition, unrefreshed terms,64,0.362
+reduction,"final addition, refreshed",64,0.612
+reduction,"final addition, unrefreshed terms",64,0.362
 reduction,wave 0,64,0.228
-reduction,final addition, refreshed,128,0.529
-reduction,final addition, unrefreshed terms,128,0.497
-reduction,later wave, refreshed,128,0.550
-reduction,later wave, unrefreshed terms,128,0.401
+reduction,"final addition, refreshed",128,0.529
+reduction,"final addition, unrefreshed terms",128,0.497
+reduction,"later wave, refreshed",128,0.550
+reduction,"later wave, unrefreshed terms",128,0.401
 reduction,wave 0,128,0.250
-reduction,final addition, refreshed,256,0.544
-reduction,final addition, unrefreshed terms,256,0.499
-reduction,later wave, refreshed,256,0.535
-reduction,later wave, unrefreshed terms,256,0.451
+reduction,"final addition, refreshed",256,0.544
+reduction,"final addition, unrefreshed terms",256,0.499
+reduction,"later wave, refreshed",256,0.535
+reduction,"later wave, unrefreshed terms",256,0.451
 reduction,wave 0,256,0.296
 mvb-digit,digit,64,0.371
 mvb-digit,digit,128,0.367

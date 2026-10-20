@@ -3,7 +3,7 @@
 This artifact contains the code, measurements, and reproduction scripts for
 the paper **"Extract Sums, Not Products: Faster TFHE Integer Multiplication
 under a Whole-Multiplication Failure Target."** It includes our multiplication
-methods, the baselines used in the evaluation, and the scripts for estimating
+methods, the compared methods of the evaluation, and the scripts for estimating
 failure probabilities and regenerating the paper's tables and figure data.
 
 To explore the reported results without running new benchmarks, you can start
@@ -27,8 +27,8 @@ the performance evaluation in the paper.
 To build and run the benchmarks, please have Python 3.9 or later, Rust 1.91.1
 or later, and a C toolchain installed. Regenerating the tables and figure data
 from the included results requires only Python and Make. Recomputing the
-security estimates additionally requires SageMath and the lattice estimator;
-see [`results/security/README.md`](results/security/README.md) for details.
+security estimates additionally requires SageMath and the lattice estimator.
+See [`results/security/README.md`](results/security/README.md) for details.
 
 **First, download the dependencies.** This lightweight package does not
 include vendored Rust crates, so an internet connection is needed for this
@@ -44,7 +44,7 @@ done
 ```
 
 **Next, build and test.** From the same `code/` directory, the following
-commands build our product-sum multiplier and the TFHE-rs baseline, then run
+commands build our product-sum multiplier and the TFHE-rs multiplier, then run
 the package's test suites:
 
 ```sh
@@ -89,11 +89,11 @@ commands. You can also run `sh run.sh list` to see the full catalogue.
 | Ours, product-sum / chunk-product lookup | `hybrid-grouped-rev-ld` / `hybrid-cached-rev-ld` |
 | Ours+MVB | `hybrid-grouped-rev-mvb`, `hybrid-cached-rev-mvb` |
 | TFHE-rs, KS (2,8) / KS (3,5) | `tfhe-rs-ks28` / `tfhe-rs` |
-| Shokri-Tsoutsos, retuned (n=688) / paper | `st-r2-n688` / `st-reported-r2` |
+| Shokri-Tsoutsos, retuned (N=1024, k=2, n=768) / paper, both with the sign read of the carry stage | `st-sign-retuned` / `st-reported-r2` |
 | Bernard et al., KS (3,6) / paper | `bernard-mvb-ks36` / `bernard-mvb` |
 | BFV adaptation | `clot-bfv` |
-| Trifan et al. / PARMESAN | `trifan` / `parmesan` |
-| Table 8 controls | `hybrid-grouped-rev-no-cache-ld`, `hybrid-8x8-rev-ld`, `hybrid-8x8-rev-ld-sks`, `hybrid-4x4-rev-ld` |
+| Trifan et al. (on TFHE-rs 1.7.0) / PARMESAN | `trifan` / `parmesan` |
+| Table 8 controls | `hybrid-8x8-rev-ld-sks` (without row cache), `hybrid-8x8-rev-ld` (without row cache and shared KS), `hybrid-4x4-rev-ld` (per product, 4-bit). `hybrid-grouped-rev-no-cache-ld` is recorded but not reported. |
 
 ## Included results
 
@@ -103,11 +103,12 @@ each directory to the corresponding tables and figures in the paper.
 | Directory under `results/` | Contents | Paper |
 | --- | --- | --- |
 | `main/` | Our methods, TFHE-rs, Shokri-Tsoutsos with the paper's parameters, and the BFV adaptation | Tables 1, 7, Fig. 5 |
-| `mvb/`, `bernard/`, `st688/`, `trifan/`, `parmesan/` | MVB variants and additional comparisons | Tables 1, 7, Fig. 5 |
-| `controls/`, `planner/` | Phase breakdown and controls | Table 8 |
-| `estimates/` | Failure estimates of our configurations | Tables 5, 9 |
+| `mvb/`, `bernard/`, `trifan/`, `parmesan/` | MVB variants and additional comparisons | Tables 1, 7, Fig. 5 |
+| `bfv/`, `st-sign/` | BFV adaptation with the re-encoding PBS (4,10), and both Shokri-Tsoutsos sets with the sign read. These override the BFV and Shokri-Tsoutsos rows of `main/`, which are kept for reference, and the earlier retuned set `st688/`, which is only in the [anonymous repository](https://anonymous.4open.science/r/CxC_TFHE-BFE6). `bfv/w256-wrong-product/` holds an earlier BFV run at W=256 whose seven multiplications include one wrong product (`clot-bfv-w256-t2/raw/w256-random-r2.json`). It is not used for the timings | Tables 1, 7, Fig. 5 |
+| `controls/`, `planner/` | Stage breakdown and controls | Table 8 |
+| `estimates/` | Failure estimates of our configurations, on the measured schedules | Tables 5, 9, S3 |
 | `limit-sweep/` | Sweep of the limit L on linear digits | Fig. 4 |
-| `noise/` | Errors of decrypted intermediate ciphertexts | Table 6 |
+| `noise/` | Errors of decrypted intermediate ciphertexts. `noise/st/` holds those of the Shokri-Tsoutsos reconstruction (`python3 analyze.py`). Raw samples of `noise/st/` (6 MB) are only in the [anonymous repository](https://anonymous.4open.science/r/CxC_TFHE-BFE6). | Table 6, Section S3 |
 | `security/` | Lattice-estimator inputs and outputs | Table 3 |
 
 Each case directory, named `<method>-w<W>-t<T>/`, contains its raw timings
@@ -129,13 +130,28 @@ multiplications. From the repository root, run:
 cd paper-scripts && make check
 ```
 
-This command regenerates the figure data, Tables 6, 7, 9, S1, and S2, and our
-estimates in Table 5. It then compares the generated files byte for byte with
+This command regenerates the figure data, Tables 5, 6, 7, 9, S1, S2, S3, and S4
+(the last two with `supp_tables.py`). It then compares the generated files byte for byte with
 the reference files in [`paper-scripts/expected/`](paper-scripts/expected/).
 
 From `paper-scripts/`, you can also run `make sweep` to recompute the sweep in
 Figure 4 (this takes several minutes), or `python3 scaled_estimate.py` to
-recompute the estimate with scaled variances discussed in Section 6.2.
+recompute the estimate with the pre-key-switch variances scaled by 0.61
+(Section 6.2), or `make extra` to recompute the model values quoted in the text
+(the selector-error share, groups of 36, and Trifan et al. with the TUniform set).
+Every failure estimate comes from `code/scripts/cases.py`. It uses the model of
+Section 5 for every method except Trifan et al. and PARMESAN, whose
+per-bootstrapping estimates are combined over one multiplication (PARMESAN's are
+recorded constants). The calibrated BFV interval at W=256 (Section 6.3) is also a
+recorded constant. `failure_table.py` writes Table 5, with our estimates recomputed on the measured schedules
+(`estimates/`). The retuned Shokri-Tsoutsos set was found with
+`code/analysis/st-retune-search/localsearch1024.py` (and `localsearch.py` for
+N=2048). For `bernard-*` cases, the `whole_product_log2_estimate` column
+of `summary.csv` holds the identical-operand value. Table 5 lists the
+separate-operand value, the worst over the seven thread counts. For our methods,
+this column holds the runner's estimate, which predates the exact second moments
+of the key-switching digits and is 1.2 to 1.5 bits higher than the
+identical-operand entry of Table 5.
 
 ## Licenses
 

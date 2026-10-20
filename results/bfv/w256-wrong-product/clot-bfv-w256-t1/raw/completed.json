@@ -1,0 +1,8 @@
+{
+  "cases": 4,
+  "competitive_benchmark": false,
+  "kernel_only": false,
+  "threads": 1,
+  "warmup_per_configuration": 1,
+  "whole_multiplier_approved": false
+}

@@ -1,8 +1,8 @@
 """Recompute the failure estimates of our configurations, check their schedules
 against the measured plan.json, and write out/data/failure-ours.csv and
 out/estimates.json (--save: results/estimates/estimates.json). The estimates in
-run.json of the timing runs come from an earlier version of the model and
-differ from these by at most 0.1."""
+run.json and summary.csv of the timing runs predate the exact second moments of
+the key-switching digits and are 1.2 to 1.5 bits higher than these."""
 import json, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
@@ -39,13 +39,29 @@ def measured_plan(m, w):
     f = RES / camp / f"{m}-w{w}-t1" / "plan.json"
     return load(f) if f.exists() else None
 
+def resolve_plan(m, w, plan):
+    import copy
+    screen = sys.modules["heterogeneous_screen"]
+    assign, mvb = screen.assign_linear, screen.assign_mvb
+    screen.assign_linear = lambda *a, **k: copy.deepcopy(plan)
+    screen.assign_mvb = lambda *a, **k: None
+    try:
+        cases.resolve.cache_clear()
+        return cases.resolve(m, w)
+    finally:
+        screen.assign_linear, screen.assign_mvb = assign, mvb
+        cases.resolve.cache_clear()
+
 out, rows = {}, ["method,width,AB,AA"]
 for m in METHODS:
     for w in WIDTHS:
         r = cases.resolve(m, w)
         mp = measured_plan(m, w)
         if mp is not None and canon(mp) != canon(r["plan"]):
-            sys.exit(f"schedule of {m} W={w} differs from the measured plan.json")
+            # The current scheduler would exchange equal-bound terms differently; the
+            # estimate must describe the schedule that was measured, so evaluate that one.
+            r = resolve_plan(m, w, mp)
+            print(m, w, "evaluated on the measured plan (scheduler now differs)", flush=True)
         ab, aa = r["analysis"], r["analysis_identical"]
         out[f"{m}|{w}"] = {
             "AB": {k: ab.get(k) for k in KEYS}, "AA": {k: aa.get(k) for k in KEYS},

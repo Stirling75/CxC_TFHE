@@ -1,0 +1,23 @@
+Generating research PBS and key-switch keys
+Generating lower-output-noise encoding PBS key
+Generating packing key (about 896 MiB)
+W=256, pattern=random, repetition=0, precision=11
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w256c/clot-bfv-w256-t8/raw/w256-random-r0.json: "full-path-correct"
+W=256, pattern=random, repetition=1, precision=11
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w256c/clot-bfv-w256-t8/raw/w256-random-r1.json: "full-path-correct"
+W=256, pattern=random, repetition=2, precision=11
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w256c/clot-bfv-w256-t8/raw/w256-random-r2.json: "full-path-correct"
+W=256, pattern=random, repetition=3, precision=11
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w256c/clot-bfv-w256-t8/raw/w256-random-r3.json: "full-path-correct"

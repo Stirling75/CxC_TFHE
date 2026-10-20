@@ -1,0 +1,73 @@
+{
+  "run": "<pkg>/results/bfv-enc4x10-w32/clot-bfv-w32-t4/raw",
+  "validated_cases": 6,
+  "cases": [
+    {
+      "file": "w32-random-r0.json",
+      "sha256": "56d37eb716c819954fb2006599252f51174f0693746e12e10f3508714ed05038",
+      "warmup": true
+    },
+    {
+      "file": "w32-random-r1.json",
+      "sha256": "d5cf1746b40464a7c4c8ef2ba32990befd4de11b3d8b7d28b5b0bf4d1da6957e",
+      "warmup": false
+    },
+    {
+      "file": "w32-random-r2.json",
+      "sha256": "612b36a0c8515b066b81530c5d5ab4948a5a81521893fb6d4c06fd49532861dd",
+      "warmup": false
+    },
+    {
+      "file": "w32-random-r3.json",
+      "sha256": "de1b46b980da891a4e038fc6114bb392812e44b2eebc00dfc6935055404b99d3",
+      "warmup": false
+    },
+    {
+      "file": "w32-random-r4.json",
+      "sha256": "3e010bcb99f4156c673321e5c2f59965e8de23b18d2781ac738595fd9f99690c",
+      "warmup": false
+    },
+    {
+      "file": "w32-random-r5.json",
+      "sha256": "c1285e4da16c7e45f679a40d852c073f0abe3fbb48d3dab7893088c8e8c55225",
+      "warmup": false
+    }
+  ],
+  "manifest_sha256": "ae2b3b9d89fc00ee9efd70ec2a6f5da209bf2f6fe61c2cb4de6c70532b4fb2ac",
+  "audit_source_sha256": "c7bbc932a46bd49ac6a0fc01e64000485eb54c9138b1f90fd6c656a4060dc804",
+  "noise_model_sha256": "fd64b36f8da593cc27a5d013dbdb3a0d8bf1c5da38ec073198788250042707ab",
+  "primitive_model_sha256": "400dd15551dcdb7614000712c5cd2bd3be77b103d732744275dcd36daae2cb32",
+  "serial_ciphertext_equivalence_checked": false,
+  "summaries": [
+    {
+      "width": 32,
+      "pattern": "random",
+      "threads": 4,
+      "repetitions": 5,
+      "warmup": 1,
+      "seconds": [
+        2.275499894,
+        2.256770813,
+        2.272886836,
+        2.30006805,
+        2.247931493
+      ],
+      "mean_seconds": 2.2706314172,
+      "sample_sd_seconds": 0.020016913088638223,
+      "mean_stage_seconds": {
+        "digit_decomposition": 0.614058274,
+        "extraction": 2.08214e-05,
+        "input_rescale": 0.6435143848,
+        "normalization": 0.749582841,
+        "packing": 0.256649434,
+        "relinearization": 0.0021577052,
+        "tensor": 0.0044956632
+      },
+      "conditional_union_log2": -261.1317452058962,
+      "pbs": 200,
+      "ks": 164
+    }
+  ],
+  "whole_multiplier_approved": false,
+  "timing_contract": "continuous-evaluator-wall-clock-v1"
+}

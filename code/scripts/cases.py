@@ -22,7 +22,7 @@ CRATES = {
     "parmesan": SC / "adapters/parmesan/Cargo.toml",
     "bfv": BFV / "Cargo.toml",
 }
-DEFAULT = ["hybrid-grouped-rev-ld", "hybrid-cached-rev-ld", "tfhe-rs-ks28", "st-r2-n688",
+DEFAULT = ["hybrid-grouped-rev-ld", "hybrid-cached-rev-ld", "tfhe-rs-ks28", "st-sign-retuned",
            "bernard-mvb-ks36", "trifan", "parmesan", "clot-bfv"]
 TARGET_LOG2 = -128
 # Fixed estimates; these are not recomputed by packaged screens.
@@ -143,6 +143,8 @@ def resolve(method, width, public_scalar=None, public_cap=64):
         params = json.loads((SC / "parameters" / config["parameters"]).read_text())
         if config.get("cc2_big_key"):
             params = dict(params, cc2_big_key=True)
+        if config.get("terminal_read"):
+            params = dict(params, terminal_read=config["terminal_read"])
         result["parameters"] = params
         result["analysis"] = st_retune.screen(params, width)
         if config.get("reported"):
@@ -160,8 +162,10 @@ def resolve(method, width, public_scalar=None, public_cap=64):
         result["analysis"]["conditional_union_log2"] = result["analysis"]["raw_log2_union"]
         if width in CLOT_REFUTED:
             low, high = CLOT_REFUTED[width]
-            label(result, high, "Gaussian screen refuted by encrypted measurement; "
-                  f"calibrated correlated-quotient estimate {low}..{high}", True)
+            worst = max(high, result["analysis"]["raw_log2_union"])
+            label(result, worst, "Gaussian screen refuted by encrypted measurement; "
+                  f"calibrated correlated-quotient estimate {low}..{high}; "
+                  f"other events {result['analysis']['raw_log2_union']:.1f}", True)
         else:
             label(result, result["analysis"]["raw_log2_union"], "conditional Gaussian screen", True)
     elif config["family"] == "bitwise":
@@ -176,8 +180,18 @@ def resolve(method, width, public_scalar=None, public_cap=64):
         label(result, config["primitive_log2_p_fail"] + math.log2(calls),
               "per-PBS library label + log2(logical LUT calls), union bound", False)
     elif config["family"] == "radix":
-        label(result, config["primitive_log2_p_fail"] + math.log2(RADIX_PBS_COUNTS[width]),
-              "per-PBS library label + log2(measured PBS count), union bound", False)
+        # Same model as every other method (failure.log2_pfail: PBS with FFT, exact-moment
+        # KS, centered binary MS, asymmetric TFHE-rs cell), with every PBS input at the
+        # variance 17 V_PBS of a bivariate product input 4x+y, an upper bound for the
+        # other PBS of the multiplication.
+        sys.path.insert(0, str(RING / "model" / "bernard"))
+        import failure as bernard_failure
+        tfhe_rs = dict(n=866, lwe_std=2.046151696979124e-06, glwe_std=2.845267479601915e-15,
+                       pbs=(23, 1), N=2048, k=1)
+        per_pbs = bernard_failure.log2_pfail(17, tuple(config.get("ks", (3, 5))), tfhe_rs)
+        result["per_pbs_log2_p_fail"] = per_pbs
+        label(result, per_pbs + math.log2(RADIX_PBS_COUNTS[width]),
+              "per-PBS model estimate at 17 V_PBS + log2(measured PBS count), union bound", True)
     elif config["family"] == "bernard":
         # Reimplementation of ePrint 2026/2310: the public schedule depends on the
         # thread count, so the label is the worst estimate over the measured budgets.
@@ -232,6 +246,8 @@ def prepare(method, width, threads, args, case):
             "--benchmark", "--widths", str(width), "--threads", str(threads),
             "--patterns", "random", "--repetitions", str(args.repetitions),
             "--warmup", str(args.warmup), "--seed", str(args.seed), "--output", str(output)]
+        if width in config.get("continue_on_failure_widths", []):
+            command += ["--continue-on-failure"]
     elif family == "parmesan":
         command += list(map(str, [width, threads, args.repetitions, args.warmup, output, args.seed]))
     else:
@@ -251,6 +267,8 @@ def prepare(method, width, threads, args, case):
                 command += ["--allow-alternate-boundary"]
             if config.get("cc2_big_key"):
                 command += ["--cc2-big-key"]
+            if config.get("terminal_read") == "sign":
+                command += ["--terminal-sign-read"]
         elif family == "st":
             command += ["--parameters", str(SC / "parameters" / config["parameters"]),
                         "--allow-unverified-parameters"]

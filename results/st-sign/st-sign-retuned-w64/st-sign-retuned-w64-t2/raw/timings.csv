@@ -1,0 +1,7 @@
+trial,warmup,lift_s,product_s,reduction_s,terminal_s,emission_s,total_s,phase_sum_s,product_errors,reduction_errors,pre_emission_errors,post_pbs_errors,output_errors,ok,counts
+0,true,0.960606764,0.532775238,4.000829471,1.431692902,0.382205329,7.308111016,7.308109704,,,,0,0,true,"{""blind_rotations"":539,""cmux"":37598,""conversions"":239,""key_switches"":484}"
+1,false,0.955279602,0.538923666,3.987341174,1.433319885,0.379377776,7.294243004,7.294242103,,,,0,0,true,"{""blind_rotations"":539,""cmux"":37598,""conversions"":239,""key_switches"":484}"
+2,false,0.956703734,0.531318481,3.97487391,1.435579145,0.37956753,7.278044182,7.278042800000001,,,,0,0,true,"{""blind_rotations"":539,""cmux"":37598,""conversions"":239,""key_switches"":484}"
+3,false,0.958049075,0.529429078,3.977012985,1.434894846,0.383734271,7.283121368,7.283120254999999,,,,0,0,true,"{""blind_rotations"":539,""cmux"":37598,""conversions"":239,""key_switches"":484}"
+4,false,0.954101006,0.530742614,3.980817967,1.434072266,0.381482779,7.281217733,7.281216632,,,,0,0,true,"{""blind_rotations"":539,""cmux"":37598,""conversions"":239,""key_switches"":484}"
+5,false,0.956518288,0.532005654,3.980576689,1.4343144429999999,0.379434112,7.282850089,7.282849186,,,,0,0,true,"{""blind_rotations"":539,""cmux"":37598,""conversions"":239,""key_switches"":484}"

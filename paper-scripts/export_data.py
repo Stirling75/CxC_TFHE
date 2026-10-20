@@ -5,7 +5,7 @@ Later summaries override earlier ones for the same (method, W, threads)."""
 import csv, sys
 from pathlib import Path
 OUT = Path(__file__).resolve().parent / "out" / "data"
-METHODS = {"hybrid-grouped-rev-ld": "ours-ps", "hybrid-grouped-rev-mvb": "ours-ps-mvb", "hybrid-cached-rev-ld": "ours-cp", "st-r2-n688": "st",
+METHODS = {"hybrid-grouped-rev-ld": "ours-ps", "hybrid-grouped-rev-mvb": "ours-ps-mvb", "hybrid-cached-rev-ld": "ours-cp", "st-sign-retuned": "st",
            "st-reported-r2": "st-paper", "tfhe-rs-ks28": "tfhe-rs", "trifan": "trifan",
            "clot-bfv": "bfv", "parmesan": "parmesan",
            "bernard-mvb-ks36": "bernard", "tfhe-rs": "tfhe-rs-default", "bernard-mvb": "bernard-paper"}

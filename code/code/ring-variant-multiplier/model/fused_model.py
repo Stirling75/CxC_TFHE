@@ -25,7 +25,7 @@ def columns(width, capacity, prim, shared_prefix=False):
             maximum = 9 * length
             count = (maximum.bit_length() + 1) // 2
             assert count * (maximum + 1) <= 2048
-            if shared_prefix and length == capacity and offset + capacity <= q:
+            if shared_prefix and length == capacity and offset + capacity < len(result):
                 # Full groups that start at the same index share their first
                 # candidates, whose two external products on the selected path
                 # carry the same gadget error in every such group.

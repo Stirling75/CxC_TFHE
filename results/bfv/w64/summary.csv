@@ -1,0 +1,8 @@
+method,width,threads,repetitions,mean_seconds,sample_sd_seconds,output_contract,failure_status,whole_multiplier_approved,correct,whole_product_log2_estimate,failure_target_met,failure_basis,affinity_enforced,peak_rss_bytes
+clot-bfv,64,1,5,16.9808867276,0.033143328357149705,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-259.7259290269288,True,conditional Gaussian screen,True,1776119808
+clot-bfv,64,2,5,8.4959896704,0.04557867548126198,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-259.7259290269288,True,conditional Gaussian screen,True,1779089408
+clot-bfv,64,4,5,5.0923582634,0.06673145025953091,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-259.7259290269288,True,conditional Gaussian screen,True,1779265536
+clot-bfv,64,8,5,3.4308448132000002,0.009564319125934752,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-259.7259290269288,True,conditional Gaussian screen,True,1778774016
+clot-bfv,64,16,5,2.5281351712,0.010214289531632984,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-259.7259290269288,True,conditional Gaussian screen,True,1781989376
+clot-bfv,64,32,5,2.1211449246,0.0462065188923783,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-259.7259290269288,True,conditional Gaussian screen,True,1776861184
+clot-bfv,64,64,5,2.1812369884000002,0.041573051217924595,lower-W clean radix-4,conditional-gaussian-layout-aware,False,True,-259.7259290269288,True,conditional Gaussian screen,True,1778692096

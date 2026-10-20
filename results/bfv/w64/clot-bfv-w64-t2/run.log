@@ -1,0 +1,33 @@
+Generating research PBS and key-switch keys
+Generating lower-output-noise encoding PBS key
+Generating packing key (about 896 MiB)
+W=64, pattern=random, repetition=0, precision=9
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w64/clot-bfv-w64-t2/raw/w64-random-r0.json: "full-path-correct"
+W=64, pattern=random, repetition=1, precision=9
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w64/clot-bfv-w64-t2/raw/w64-random-r1.json: "full-path-correct"
+W=64, pattern=random, repetition=2, precision=9
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w64/clot-bfv-w64-t2/raw/w64-random-r2.json: "full-path-correct"
+W=64, pattern=random, repetition=3, precision=9
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w64/clot-bfv-w64-t2/raw/w64-random-r3.json: "full-path-correct"
+W=64, pattern=random, repetition=4, precision=9
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w64/clot-bfv-w64-t2/raw/w64-random-r4.json: "full-path-correct"
+W=64, pattern=random, repetition=5, precision=9
+  input rescaling done
+  packing done
+  coefficient decomposition done
+<pkg>/results/bfv-enc4x10-w64/clot-bfv-w64-t2/raw/w64-random-r5.json: "full-path-correct"

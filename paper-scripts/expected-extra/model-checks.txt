@@ -1,0 +1,25 @@
+selector share hybrid-grouped-rev-ld W=16 AB: 0.4%
+selector share hybrid-grouped-rev-ld W=16 AA: 0.8%
+selector share hybrid-grouped-rev-ld W=32 AB: 1.5%
+selector share hybrid-grouped-rev-ld W=32 AA: 2.9%
+selector share hybrid-grouped-rev-ld W=64 AB: 3.1%
+selector share hybrid-grouped-rev-ld W=64 AA: 6.0%
+selector share hybrid-grouped-rev-ld W=128 AB: 3.1%
+selector share hybrid-grouped-rev-ld W=128 AA: 6.1%
+selector share hybrid-grouped-rev-ld W=256 AB: 2.7%
+selector share hybrid-grouped-rev-ld W=256 AA: 6.8%
+selector share hybrid-cached-rev-ld W=16 AB: 2.9%
+selector share hybrid-cached-rev-ld W=16 AA: 5.6%
+selector share hybrid-cached-rev-ld W=32 AB: 5.0%
+selector share hybrid-cached-rev-ld W=32 AA: 9.6%
+selector share hybrid-cached-rev-ld W=64 AB: 5.0%
+selector share hybrid-cached-rev-ld W=64 AA: 9.6%
+selector share hybrid-cached-rev-ld W=128 AB: 0.5%
+selector share hybrid-cached-rev-ld W=128 AA: 9.6%
+selector share hybrid-cached-rev-ld W=256 AB: 5.0%
+selector share hybrid-cached-rev-ld W=256 AA: 9.6%
+selector share, largest: 9.6%
+product-sum W=256 M=32: separate -132.9, identical -130.1
+product-sum W=256 M=36: separate -132.2, identical -127.7
+Trifan et al., TUniform (-144.322 per PBS), W=128: -129.7
+Trifan et al., TUniform (-144.322 per PBS), W=256: -127.7
